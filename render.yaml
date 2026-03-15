@@ -1,0 +1,30 @@
+databases:
+  - name: samsung-promo-db
+    plan: free
+    databaseName: samsung_promo
+    user: samsung_promo_user
+
+services:
+  - type: web
+    name: samsung-promo-portal
+    plan: starter
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn samsung_promo.wsgi --workers 2 --threads 2 --log-file -"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: samsung_promo.settings_prod
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: samsung-promo-db
+          property: connectionURI
+      - key: PYTHON_VERSION
+        value: "3.12.10"
+      - key: WEB_CONCURRENCY
+        value: "2"
