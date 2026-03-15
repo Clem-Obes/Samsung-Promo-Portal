@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Certificate #{{ certificate.certificate_id }} - Samsung Promo Portal{% endblock %}
+
+{% block extra_css %}
+<style>
+    .cert-preview-wrapper {
+        background: #1a1a2e;
+        border-radius: 20px;
+        padding: 15px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .cert-preview-wrapper iframe {
+        width: 100%;
+        height: clamp(300px, 55vw, 600px);
+        border: none;
+        border-radius: 12px;
+        background: #fff;
+    }
+    @media (min-width: 768px) {
+        .cert-preview-wrapper {
+            padding: 30px;
+        }
+    }
+    .cert-detail-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .cert-detail-card h6 { color: #1a1a2e; }
+    .cert-detail-card p { color: #555; }
+    .cert-detail-card .detail-label {
+        font-size: 0.75rem;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        margin-bottom: 2px;
+    }
+    .cert-detail-card .detail-value {
+        font-size: 1rem;
+        color: #1a1a2e;
+        font-weight: 600;
+    }
+    .cert-status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+    .cert-status-badge.issued {
+        background: rgba(34, 197, 94, 0.1);
+        color: #16a34a;
+    }
+    .cert-status-badge.draft {
+        background: rgba(234, 179, 8, 0.1);
+        color: #ca8a04;
+    }
+    .cert-status-badge.revoked {
+        background: rgba(239, 68, 68, 0.1);
+        color: #dc2626;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container position-relative" style="z-index: 2;">
+        <nav aria-label="breadcrumb" class="mb-2">
+            <ol class="breadcrumb mb-0" style="font-size: 0.85rem;">
+                <li class="breadcrumb-item"><a href="{% url 'dashboard:home' %}" class="text-white-50 text-decoration-none">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'dashboard:certificates' %}" class="text-white-50 text-decoration-none">Certificates</a></li>
+                <li class="breadcrumb-item text-white active">{{ certificate.certificate_id }}</li>
+            </ol>
+        </nav>
+        <h1 class="text-white mb-3">
+            <i class="bi bi-award-fill text-warning me-2"></i> Certificate of Ownership
+        </h1>
+        <p class="text-white-50 fs-5">{{ certificate.get_certificate_type_display }} — {{ certificate.formatted_amount }}</p>
+    </div>
+</div>
+
+<section class="py-5 light-section" style="background: #f8f9fc;">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Certificate Preview -->
+            <div class="col-lg-8" data-aos="fade-up">
+                <div class="cert-preview-wrapper">
+                    <iframe src="{% url 'dashboard:certificate_print' certificate.pk %}" title="Certificate Preview"></iframe>
+                </div>
+                <div class="d-flex gap-2 mt-3 justify-content-center flex-wrap">
+                    <a href="{% url 'dashboard:certificate_print' certificate.pk %}" target="_blank" class="btn btn-samsung rounded-pill px-4">
+                        <i class="bi bi-arrows-fullscreen me-2"></i> Full Screen
+                    </a>
+                    <a href="{% url 'dashboard:certificate_print' certificate.pk %}" target="_blank" class="btn btn-outline-primary rounded-pill px-4" onclick="setTimeout(function(){window.open('{% url 'dashboard:certificate_print' certificate.pk %}').print()},500); return false;">
+                        <i class="bi bi-printer-fill me-2"></i> Print
+                    </a>
+                </div>
+            </div>
+
+            <!-- Certificate Details -->
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="cert-detail-card mb-3">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h6 class="fw-bold mb-0"><i class="bi bi-info-circle-fill text-samsung-blue me-2"></i>Details</h6>
+                        <span class="cert-status-badge {{ certificate.status }}">
+                            <i class="bi bi-patch-check-fill"></i> {{ certificate.get_status_display }}
+                        </span>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="detail-label">Certificate No.</div>
+                        <div class="detail-value">{{ certificate.certificate_id }}</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="detail-label">Recipient</div>
+                        <div class="detail-value">{{ certificate.recipient_name }}</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="detail-label">Award Amount</div>
+                        <div class="detail-value" style="color: var(--samsung-blue); font-size: 1.3rem;">{{ certificate.formatted_amount }}</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="detail-label">Type</div>
+                        <div class="detail-value">{{ certificate.get_certificate_type_display }}</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="detail-label">Issued Date</div>
+                        <div class="detail-value">{{ certificate.issued_date|date:"F d, Y" }}</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">{{ certificate.recipient_location|default:"—" }}</div>
+                    </div>
+
+                    {% if certificate.campaign %}
+                    <div class="mb-3">
+                        <div class="detail-label">Campaign</div>
+                        <div class="detail-value">{{ certificate.campaign.title }}</div>
+                    </div>
+                    {% endif %}
+
+                    <div class="mb-0">
+                        <div class="detail-label">Authorized By</div>
+                        <div class="detail-value">{{ certificate.authorized_signatory }}</div>
+                        <small style="color: #999;">{{ certificate.issuer_title }}</small>
+                    </div>
+                </div>
+
+                <div class="cert-detail-card">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-shield-fill-check text-success me-2"></i>Verification</h6>
+                    <div class="mb-2">
+                        <div class="detail-label">Verification Hash</div>
+                        <code style="font-size: 0.7rem; word-break: break-all; color: #1428A0;">{{ certificate.verification_hash }}</code>
+                    </div>
+                    <div class="alert alert-success border-0 rounded-3 small mt-3 mb-0" style="background: #f0fdf4; color: #166534;">
+                        <i class="bi bi-check-circle-fill me-1"></i>
+                        This certificate has been verified as authentic and was issued by Samsung Promo Portal.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

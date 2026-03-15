@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile - Samsung Promo Portal{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container position-relative" style="z-index: 2;">
+        <h1 class="text-white mb-3">My Profile</h1>
+        <p class="text-white-50 fs-5">Manage your account settings and verification</p>
+    </div>
+</div>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <!-- Profile Card -->
+                <div class="bg-white rounded-4 shadow-sm p-4 text-center mb-4">
+                    {% if profile.avatar %}
+                        <img src="{{ profile.avatar.url }}" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;" alt="Avatar">
+                    {% else %}
+                        <div class="testimonial-avatar-placeholder mx-auto mb-3" style="width: 120px; height: 120px; font-size: 3rem;">
+                            {{ user.username|first|upper }}
+                        </div>
+                    {% endif %}
+                    <h5 class="fw-bold">{{ user.get_full_name|default:user.username }}</h5>
+                    <p class="text-muted small">{{ user.email }}</p>
+                    {% if profile.is_ambassador %}
+                        <span class="badge bg-warning text-dark rounded-pill px-3 py-2">
+                            <i class="bi bi-award-fill me-1"></i> Ambassador
+                        </span>
+                    {% elif profile.is_verified %}
+                        <span class="badge bg-success rounded-pill px-3 py-2">
+                            <i class="bi bi-patch-check-fill me-1"></i> Verified
+                        </span>
+                    {% else %}
+                        <span class="badge bg-secondary rounded-pill px-3 py-2">
+                            <i class="bi bi-clock-fill me-1"></i> Unverified
+                        </span>
+                    {% endif %}
+                    <hr>
+                    <div class="text-start">
+                        <p class="small mb-1"><strong>Referral Code:</strong></p>
+                        <code class="text-samsung-blue">{{ profile.referral_code }}</code>
+                    </div>
+                    <div class="text-start mt-2">
+                        <p class="small mb-1"><strong>Points:</strong></p>
+                        <span class="fw-bold text-samsung-blue fs-4">{{ profile.points }}</span>
+                    </div>
+                </div>
+
+                <!-- Verification Status Card -->
+                <div class="bg-white rounded-4 shadow-sm p-4">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-shield-check text-samsung-blue me-2"></i> Verification Status</h5>
+
+                    <!-- Verification Progress Bar -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1">
+                            <span class="text-muted">Verification Progress</span>
+                            <span class="fw-bold">{{ profile.verification_progress }}%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar {% if profile.verification_progress == 100 %}bg-success{% else %}bg-samsung-blue{% endif %}" style="width: {{ profile.verification_progress }}%; background: var(--samsung-gradient);"></div>
+                        </div>
+                    </div>
+
+                    <!-- Email Status -->
+                    <div class="d-flex align-items-center justify-content-between p-3 rounded-3 mb-2 {% if profile.email_verified %}bg-success bg-opacity-10{% else %}bg-warning bg-opacity-10{% endif %}">
+                        <div class="d-flex align-items-center gap-2">
+                            {% if profile.email_verified %}
+                                <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                                <div>
+                                    <div class="fw-semibold small">Email</div>
+                                    <div class="text-muted" style="font-size: 0.75rem;">Verified ✓</div>
+                                </div>
+                            {% else %}
+                                <i class="bi bi-exclamation-circle-fill text-warning fs-5"></i>
+                                <div>
+                                    <div class="fw-semibold small">Email</div>
+                                    <div class="text-muted" style="font-size: 0.75rem;">Not verified</div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% if not profile.email_verified %}
+                        <a href="{% url 'accounts:verify_email_page' %}" class="btn btn-warning btn-sm rounded-pill px-3">
+                            <i class="bi bi-envelope me-1"></i> Verify
+                        </a>
+                        {% endif %}
+                    </div>
+
+                    <!-- Phone Status -->
+                    <div class="d-flex align-items-center justify-content-between p-3 rounded-3 {% if profile.phone_verified %}bg-success bg-opacity-10{% else %}bg-warning bg-opacity-10{% endif %}">
+                        <div class="d-flex align-items-center gap-2">
+                            {% if profile.phone_verified %}
+                                <i class="bi bi-check-circle-fill text-success fs-5"></i>
+                                <div>
+                                    <div class="fw-semibold small">Phone</div>
+                                    <div class="text-muted" style="font-size: 0.75rem;">Verified ✓</div>
+                                </div>
+                            {% else %}
+                                <i class="bi bi-exclamation-circle-fill text-warning fs-5"></i>
+                                <div>
+                                    <div class="fw-semibold small">Phone</div>
+                                    <div class="text-muted" style="font-size: 0.75rem;">Not verified</div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% if not profile.phone_verified %}
+                        <a href="{% url 'accounts:verify_phone_page' %}" class="btn btn-warning btn-sm rounded-pill px-3">
+                            <i class="bi bi-telephone me-1"></i> Verify
+                        </a>
+                        {% endif %}
+                    </div>
+
+                    {% if not profile.is_verified %}
+                    <div class="alert alert-info border-0 mt-3 mb-0 py-2 rounded-3 small">
+                        <i class="bi bi-info-circle-fill me-1"></i>
+                        Verify both email & phone to earn the <strong>"Verified"</strong> badge and <strong>+50 bonus points</strong>.
+                    </div>
+                    {% else %}
+                    <div class="alert alert-success border-0 mt-3 mb-0 py-2 rounded-3 small">
+                        <i class="bi bi-check-circle-fill me-1"></i>
+                        <strong>Fully verified!</strong> You have access to all features.
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="bg-white rounded-4 shadow-sm p-4">
+                    <h5 class="fw-bold mb-4">Edit Profile</h5>
+                    <form method="POST" action="{% url 'accounts:profile' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">First Name</label>
+                                <input type="text" name="first_name" class="form-control" value="{{ user.first_name }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Last Name</label>
+                                <input type="text" name="last_name" class="form-control" value="{{ user.last_name }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Phone Number</label>
+                                <div class="input-group">
+                                    <input type="tel" name="phone" class="form-control" value="{{ profile.phone }}">
+                                    {% if profile.phone_verified %}
+                                        <span class="input-group-text bg-success text-white"><i class="bi bi-check-lg"></i></span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Location</label>
+                                <input type="text" name="location" class="form-control" value="{{ profile.location }}">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold">Profile Photo</label>
+                                <input type="file" name="avatar" class="form-control" accept="image/*">
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-samsung rounded-pill px-5">
+                                    <i class="bi bi-check-lg me-2"></i> Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

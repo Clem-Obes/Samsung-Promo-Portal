@@ -1,0 +1,581 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Testimonials - Samsung Promo Portal{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="page-header testimonial-hero">
+    <div class="container position-relative" style="z-index: 2;">
+        <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill mb-3 fs-7">
+            <i class="bi bi-chat-quote-fill me-1"></i> SUCCESS STORIES
+        </span>
+        <h1 class="text-white mb-3">Testimonials</h1>
+        <p class="text-white-50 fs-5">Real stories from real people who earned Samsung rewards</p>
+    </div>
+</div>
+
+<!-- Trust Stats Bar -->
+<section class="py-4 bg-light border-bottom">
+    <div class="container">
+        <div class="row text-center g-3">
+            <div class="col-6 col-md-3">
+                <div class="fw-900 fs-3 gradient-text">4.9/5</div>
+                <div class="text-muted small">Average Rating</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="fw-900 fs-3 gradient-text inline-counter" data-target="3200" data-suffix="+">0</div>
+                <div class="text-muted small">Verified Reviews</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="fw-900 fs-3 gradient-text inline-counter" data-target="2847" data-suffix="+">0</div>
+                <div class="text-muted small">Rewards Delivered</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="fw-900 fs-3 gradient-text inline-counter" data-target="98" data-suffix="%">0</div>
+                <div class="text-muted small">Satisfaction Rate</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Testimonial Spotlight -->
+<section class="py-5">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-badge">Featured Stories</span>
+            <h2 class="section-title">Spotlight: How They Won</h2>
+            <p class="section-subtitle">In-depth stories from our most successful participants</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="testimonial-avatar-placeholder" style="width: 70px; height: 70px; font-size: 1.5rem;">A</div>
+                        <div>
+                            <h5 class="fw-bold mb-0">Adebayo Ogundimu</h5>
+                            <small class="text-muted"><i class="bi bi-geo-alt-fill me-1"></i>Lagos, Nigeria</small>
+                            <div class="mt-1">
+                                <span class="achievement-badge gold"><i class="bi bi-award-fill"></i> Ambassador</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted">"I started as a Basic member and didn't expect much. Within 3 weeks of sharing product pages and referring friends, I had completed all tasks for the Galaxy S24 campaign. The verification was smooth — they confirmed my social media posts and referrals within 48 hours. My Samsung Galaxy S24 Ultra arrived 10 days later. This program changed my perception of online promotions completely."</p>
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                        <span class="badge bg-samsung-blue rounded-pill px-3 py-2"><i class="bi bi-phone-fill me-1"></i> Won: Galaxy S24 Ultra ($1,299)</span>
+                        <div class="star-rating">
+                            <i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white rounded-4 shadow-sm p-4 h-100">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="testimonial-avatar-placeholder" style="width: 70px; height: 70px; font-size: 1.5rem;">G</div>
+                        <div>
+                            <h5 class="fw-bold mb-0">Grace Wanjiku</h5>
+                            <small class="text-muted"><i class="bi bi-geo-alt-fill me-1"></i>Nairobi, Kenya</small>
+                            <div class="mt-1">
+                                <span class="achievement-badge gold"><i class="bi bi-award-fill"></i> Ambassador</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-muted">"I was sceptical at first — I had seen too many fake promos online. But after a friend showed me their actual Galaxy Z Fold5 from this program, I signed up immediately. I chose the Premium plan, referred 20 friends through my social media, and completed every task within 2 weeks. The support team was incredibly responsive through live chat. My Galaxy Z Fold5 was delivered to my office in Nairobi. Absolutely legitimate."</p>
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                        <span class="badge bg-samsung-blue rounded-pill px-3 py-2"><i class="bi bi-phone-fill me-1"></i> Won: Galaxy Z Fold5 ($1,799)</span>
+                        <div class="star-rating">
+                            <i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i><i class="bi bi-star-fill text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- All Testimonials Grid -->
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% if testimonials %}
+                {% for t in testimonials %}
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+                    <div class="testimonial-card h-100">
+                        {% if t.image %}
+                        <div class="mb-3 rounded-3 overflow-hidden" style="max-height: 220px;">
+                            <img src="{{ t.image.url }}" class="w-100" style="height: 220px; object-fit: cover;" alt="{{ t.name }}">
+                        </div>
+                        {% endif %}
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            {% if t.image %}
+                                <img src="{{ t.image.url }}" class="testimonial-avatar" alt="{{ t.name }}">
+                            {% else %}
+                                <div class="testimonial-avatar-placeholder">{{ t.name|first }}</div>
+                            {% endif %}
+                            <div>
+                                <h6 class="fw-bold mb-0">{{ t.name }}</h6>
+                                <small class="text-muted"><i class="bi bi-geo-alt-fill me-1"></i>{{ t.location }}</small>
+                            </div>
+                        </div>
+                        <div class="star-rating mb-2">
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= t.rating %}
+                                    <i class="bi bi-star-fill"></i>
+                                {% else %}
+                                    <i class="bi bi-star text-muted"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <p class="text-muted mb-3">"{{ t.quote }}"</p>
+                        {% if t.device_received %}
+                        <span class="badge bg-samsung-blue rounded-pill px-3 py-2">
+                            <i class="bi bi-phone-fill me-1"></i> {{ t.device_received }}
+                        </span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <!-- Default testimonials -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="testimonial-avatar-placeholder">J</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">John A.</h6>
+                                <small class="text-muted"><i class="bi bi-geo-alt-fill me-1"></i>Lagos, Nigeria</small>
+                            </div>
+                        </div>
+                        <div class="star-rating mb-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-muted">"I joined the Samsung Ambassador Promo and received a discounted Galaxy S24 after completing the campaign tasks. The process was seamless and the reward was worth every effort."</p>
+                        <span class="badge bg-samsung-blue rounded-pill px-3 py-2"><i class="bi bi-phone-fill me-1"></i> Galaxy S24</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="testimonial-avatar-placeholder">M</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Mary O.</h6>
+                                <small class="text-muted"><i class="bi bi-geo-alt-fill me-1"></i>Abuja, Nigeria</small>
+                            </div>
+                        </div>
+                        <div class="star-rating mb-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-muted">"After promoting Samsung products on social media, I qualified for the reward program. Everything was transparent and I received my device quickly."</p>
+                        <span class="badge bg-samsung-blue rounded-pill px-3 py-2"><i class="bi bi-phone-fill me-1"></i> Galaxy Z Fold5</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="testimonial-avatar-placeholder">D</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">David K.</h6>
+                                <small class="text-muted"><i class="bi bi-geo-alt-fill me-1"></i>Nairobi, Kenya</small>
+                            </div>
+                        </div>
+                        <div class="star-rating mb-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                        </div>
+                        <p class="text-muted">"The referral program is incredible. I referred 15 friends and earned enough points for a Galaxy Tab S9. Highly recommend this program to everyone!"</p>
+                        <span class="badge bg-samsung-blue rounded-pill px-3 py-2"><i class="bi bi-tablet-fill me-1"></i> Galaxy Tab S9</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="testimonial-avatar-placeholder">S</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Sarah T.</h6>
+                                <small class="text-muted"><i class="bi bi-geo-alt-fill me-1"></i>Accra, Ghana</small>
+                            </div>
+                        </div>
+                        <div class="star-rating mb-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-muted">"I was skeptical at first, but after seeing friends receive their rewards, I signed up. Within weeks, I qualified for the Ambassador tier and got my Galaxy Watch!"</p>
+                        <span class="badge bg-samsung-blue rounded-pill px-3 py-2"><i class="bi bi-smartwatch me-1"></i> Galaxy Watch 6</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="testimonial-avatar-placeholder">E</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Emmanuel R.</h6>
+                                <small class="text-muted"><i class="bi bi-geo-alt-fill me-1"></i>Kampala, Uganda</small>
+                            </div>
+                        </div>
+                        <div class="star-rating mb-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="text-muted">"Best promotional program I have ever participated in. The tasks were simple, the team was responsive, and the reward exceeded my expectations."</p>
+                        <span class="badge bg-samsung-blue rounded-pill px-3 py-2"><i class="bi bi-phone-fill me-1"></i> Galaxy S24 Ultra</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="testimonial-card h-100">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="testimonial-avatar-placeholder">A</div>
+                            <div>
+                                <h6 class="fw-bold mb-0">Amina B.</h6>
+                                <small class="text-muted"><i class="bi bi-geo-alt-fill me-1"></i>Dar es Salaam, Tanzania</small>
+                            </div>
+                        </div>
+                        <div class="star-rating mb-2">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                        </div>
+                        <p class="text-muted">"I started as a Basic member and upgraded to Ambassador. The exclusive campaigns are worth it. Already received two devices this year!"</p>
+                        <span class="badge bg-samsung-blue rounded-pill px-3 py-2"><i class="bi bi-earbuds me-1"></i> Galaxy Buds Pro</span>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Community Testimonies Section -->
+<section class="py-5 bg-light" id="community-stories">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-badge">Community</span>
+            <h2 class="section-title">Community Testimonies</h2>
+            <p class="section-subtitle">Real stories shared by our participants — with photos and videos</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Comment Submission Form (Left Column) -->
+            <div class="col-lg-5" data-aos="fade-right">
+                <div class="bg-white rounded-4 shadow-sm p-4 sticky-top" style="top: 100px;">
+                    <h5 class="fw-bold mb-1"><i class="bi bi-pencil-square text-samsung-blue me-2"></i> Share Your Testimony</h5>
+                    <p class="text-muted small mb-4">Tell the community about your experience</p>
+
+                    {% if user.is_authenticated %}
+                    <form method="POST" enctype="multipart/form-data" id="testimony-form">
+                        {% csrf_token %}
+
+                        <!-- Testimony Text -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small">Your Testimony <span class="text-danger">*</span></label>
+                            {{ form.text }}
+                            {% if form.text.errors %}
+                            <div class="text-danger small mt-1">{{ form.text.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Rating -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small">Your Rating <span class="text-danger">*</span></label>
+                            <div class="star-rating-input d-flex gap-1" id="star-rating-input">
+                                {% for value, label in form.rating.field.choices %}
+                                <label class="star-label" title="{{ label }}">
+                                    <input type="radio" name="rating" value="{{ value }}" {% if value == 5 %}checked{% endif %} style="display: none;">
+                                    <i class="bi bi-star-fill fs-4" data-value="{{ value }}"></i>
+                                </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <!-- Device Received -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small">Device Received</label>
+                            {{ form.device_received }}
+                        </div>
+
+                        <!-- Photo Upload -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold small"><i class="bi bi-camera-fill text-primary me-1"></i> Upload Photo</label>
+                            <div class="upload-zone" id="photo-upload-zone">
+                                <input type="file" name="photo" accept="image/*" id="photo-input" class="d-none">
+                                <div class="upload-placeholder text-center py-3" id="photo-placeholder" onclick="document.getElementById('photo-input').click();">
+                                    <i class="bi bi-image text-muted fs-2"></i>
+                                    <p class="text-muted small mb-0 mt-1">Click to upload photo (max 5MB)</p>
+                                </div>
+                                <div class="upload-preview d-none text-center py-2" id="photo-preview">
+                                    <img src="" alt="Preview" class="rounded-3" style="max-height: 150px; max-width: 100%;">
+                                    <button type="button" class="btn btn-sm btn-outline-danger mt-2 rounded-pill" onclick="clearUpload('photo')">
+                                        <i class="bi bi-x-lg me-1"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                            {% if form.photo.errors %}
+                            <div class="text-danger small mt-1">{{ form.photo.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Video Upload -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold small"><i class="bi bi-camera-video-fill text-danger me-1"></i> Upload Video</label>
+                            <div class="upload-zone" id="video-upload-zone">
+                                <input type="file" name="video" accept="video/*" id="video-input" class="d-none">
+                                <div class="upload-placeholder text-center py-3" id="video-placeholder" onclick="document.getElementById('video-input').click();">
+                                    <i class="bi bi-camera-video text-muted fs-2"></i>
+                                    <p class="text-muted small mb-0 mt-1">Click to upload video (max 50MB)</p>
+                                </div>
+                                <div class="upload-preview d-none text-center py-2" id="video-preview">
+                                    <video src="" class="rounded-3" style="max-height: 150px; max-width: 100%;" controls></video>
+                                    <button type="button" class="btn btn-sm btn-outline-danger mt-2 rounded-pill" onclick="clearUpload('video')">
+                                        <i class="bi bi-x-lg me-1"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                            {% if form.video.errors %}
+                            <div class="text-danger small mt-1">{{ form.video.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+
+                        <button type="submit" class="btn btn-samsung rounded-pill w-100 py-2">
+                            <i class="bi bi-send-fill me-2"></i> Submit Testimony
+                        </button>
+                        <p class="text-muted small text-center mt-2 mb-0"><i class="bi bi-shield-check me-1"></i> Your testimony will be reviewed before publishing</p>
+                    </form>
+                    {% else %}
+                    <div class="text-center py-4">
+                        <i class="bi bi-lock-fill text-muted" style="font-size: 2.5rem;"></i>
+                        <h6 class="fw-bold mt-3">Login to Share Your Story</h6>
+                        <p class="text-muted small">You need to be logged in to submit your testimony</p>
+                        <a href="{% url 'accounts:login' %}?next={% url 'core:testimonials' %}%23community-stories" class="btn btn-samsung rounded-pill px-4">
+                            <i class="bi bi-box-arrow-in-right me-2"></i> Login Now
+                        </a>
+                        <p class="text-muted small mt-2 mb-0">Don't have an account? <a href="{% url 'accounts:register' %}">Register free</a></p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Comments Feed (Right Column) -->
+            <div class="col-lg-7" data-aos="fade-left">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold mb-0"><i class="bi bi-chat-left-text-fill text-samsung-blue me-2"></i> Community Stories</h5>
+                    <span class="badge bg-primary rounded-pill px-3 py-2">{{ comments.count }} Testimon{{ comments.count|pluralize:"y,ies" }}</span>
+                </div>
+
+                {% if comments %}
+                <div class="testimony-feed">
+                    {% for comment in comments %}
+                    <div class="testimony-comment-card mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:0 }}50">
+                        <div class="bg-white rounded-4 shadow-sm overflow-hidden {% if comment.status == 'pending' %}border border-warning{% endif %}{% if comment.status == 'rejected' %} border border-danger opacity-75{% endif %}">
+                            {% if comment.status == 'pending' %}
+                            <div class="px-4 pt-3 pb-0">
+                                <span class="badge bg-warning text-dark rounded-pill px-3 py-1"><i class="bi bi-hourglass-split me-1"></i> Pending Approval — Only you can see this</span>
+                            </div>
+                            {% elif comment.status == 'rejected' %}
+                            <div class="px-4 pt-3 pb-0">
+                                <span class="badge bg-danger rounded-pill px-3 py-1"><i class="bi bi-x-circle me-1"></i> Not Approved</span>
+                            </div>
+                            {% endif %}
+                            <!-- Comment Header -->
+                            <div class="p-4 pb-0">
+                                <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
+                                    <div class="testimonial-avatar-placeholder" style="width: 50px; height: 50px;">
+                                        {{ comment.user.username|first|upper }}
+                                    </div>
+                                    <div class="flex-grow-1" style="min-width: 120px;">
+                                        <h6 class="fw-bold mb-0">{{ comment.user.get_full_name|default:comment.user.username }}{% if comment.user == user %} <span class="badge bg-light text-primary border small">You</span>{% endif %}</h6>
+                                        <small class="text-muted">
+                                            <i class="bi bi-clock me-1"></i>{{ comment.created_at|timesince }} ago
+                                        </small>
+                                    </div>
+                                    <div class="star-rating">
+                                        {% for i in "12345" %}
+                                            {% if forloop.counter <= comment.rating %}
+                                                <i class="bi bi-star-fill text-warning"></i>
+                                            {% else %}
+                                                <i class="bi bi-star text-muted"></i>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <!-- Testimony Text -->
+                                <p class="mb-2">{{ comment.text }}</p>
+
+                                {% if comment.device_received %}
+                                <span class="badge bg-samsung-blue rounded-pill px-3 py-1 mb-3">
+                                    <i class="bi bi-phone-fill me-1"></i> {{ comment.device_received }}
+                                </span>
+                                {% endif %}
+                            </div>
+
+                            <!-- Photo -->
+                            {% if comment.photo %}
+                            <div class="testimony-media px-4 pb-2">
+                                <img src="{{ comment.photo.url }}" alt="Testimony photo by {{ comment.user.username }}" class="rounded-3 w-100" style="max-height: 400px; object-fit: cover; cursor: pointer;" onclick="openMediaModal(this.src, 'image')">
+                            </div>
+                            {% endif %}
+
+                            <!-- Video -->
+                            {% if comment.video %}
+                            <div class="testimony-media px-4 pb-2">
+                                <video src="{{ comment.video.url }}" class="rounded-3 w-100" style="max-height: 400px;" controls preload="metadata"></video>
+                            </div>
+                            {% endif %}
+
+                            <!-- Actions Bar -->
+                            <div class="px-4 py-3 border-top d-flex align-items-center gap-4">
+                                {% if user.is_authenticated %}
+                                <button class="btn btn-sm btn-link text-decoration-none p-0 like-btn {% if user in comment.likes.all %}text-danger{% else %}text-muted{% endif %}"
+                                    data-comment-id="{{ comment.pk }}" onclick="toggleLike({{ comment.pk }}, this)">
+                                    <i class="bi {% if user in comment.likes.all %}bi-heart-fill{% else %}bi-heart{% endif %} me-1"></i>
+                                    <span class="like-count">{{ comment.like_count }}</span>
+                                </button>
+                                {% else %}
+                                <span class="text-muted small">
+                                    <i class="bi bi-heart me-1"></i> {{ comment.like_count }}
+                                </span>
+                                {% endif %}
+                                <span class="text-muted small">
+                                    {% if comment.photo %}<i class="bi bi-image me-1"></i> Photo{% endif %}
+                                    {% if comment.video %}<i class="bi bi-camera-video me-1"></i> Video{% endif %}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-center py-5 bg-white rounded-4 shadow-sm">
+                    <i class="bi bi-chat-square-text text-muted" style="font-size: 4rem; opacity: 0.15;"></i>
+                    <h5 class="fw-bold mt-3">No Community Stories Yet</h5>
+                    <p class="text-muted">Be the first to share your testimony!</p>
+                    {% if not user.is_authenticated %}
+                    <a href="{% url 'accounts:login' %}" class="btn btn-samsung rounded-pill px-4">
+                        <i class="bi bi-box-arrow-in-right me-2"></i> Login to Share
+                    </a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Media Modal for Enlarged Photo View -->
+<div class="modal fade" id="mediaModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-transparent border-0">
+            <div class="modal-body p-0 text-center">
+                <button type="button" class="btn btn-light rounded-circle position-absolute top-0 end-0 m-2" data-bs-dismiss="modal" style="z-index: 10;">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                <img src="" id="modal-media" class="rounded-4 w-100" style="max-height: 80vh; object-fit: contain;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Star rating interaction
+document.addEventListener('DOMContentLoaded', function() {
+    const stars = document.querySelectorAll('#star-rating-input .star-label i');
+    stars.forEach(function(star) {
+        star.addEventListener('click', function() {
+            const val = parseInt(this.dataset.value);
+            stars.forEach(function(s) {
+                const sv = parseInt(s.dataset.value);
+                s.style.color = sv <= val ? '#ffc107' : '#dee2e6';
+            });
+            this.parentElement.querySelector('input').checked = true;
+        });
+        star.addEventListener('mouseenter', function() {
+            const val = parseInt(this.dataset.value);
+            stars.forEach(function(s) {
+                const sv = parseInt(s.dataset.value);
+                s.style.color = sv <= val ? '#ffc107' : '#dee2e6';
+            });
+        });
+    });
+    // Initialize stars to show rating=5
+    stars.forEach(function(s) { s.style.color = '#ffc107'; });
+});
+
+// File upload preview
+document.getElementById('photo-input')?.addEventListener('change', function(e) {
+    previewFile(e, 'photo');
+});
+document.getElementById('video-input')?.addEventListener('change', function(e) {
+    previewFile(e, 'video');
+});
+
+function previewFile(event, type) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const placeholder = document.getElementById(type + '-placeholder');
+    const preview = document.getElementById(type + '-preview');
+    if (type === 'photo') {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.querySelector('img').src = e.target.result;
+            placeholder.classList.add('d-none');
+            preview.classList.remove('d-none');
+        };
+        reader.readAsDataURL(file);
+    } else {
+        const url = URL.createObjectURL(file);
+        preview.querySelector('video').src = url;
+        placeholder.classList.add('d-none');
+        preview.classList.remove('d-none');
+    }
+}
+
+function clearUpload(type) {
+    const input = document.getElementById(type + '-input');
+    const placeholder = document.getElementById(type + '-placeholder');
+    const preview = document.getElementById(type + '-preview');
+    input.value = '';
+    placeholder.classList.remove('d-none');
+    preview.classList.add('d-none');
+}
+
+// Like toggle
+function toggleLike(commentId, btn) {
+    fetch('/testimonials/like/' + commentId + '/', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(r => r.json())
+    .then(data => {
+        const icon = btn.querySelector('i');
+        const count = btn.querySelector('.like-count');
+        if (data.liked) {
+            icon.className = 'bi bi-heart-fill me-1';
+            btn.classList.remove('text-muted');
+            btn.classList.add('text-danger');
+        } else {
+            icon.className = 'bi bi-heart me-1';
+            btn.classList.remove('text-danger');
+            btn.classList.add('text-muted');
+        }
+        count.textContent = data.count;
+    });
+}
+
+// Media modal
+function openMediaModal(src, type) {
+    const modal = new bootstrap.Modal(document.getElementById('mediaModal'));
+    document.getElementById('modal-media').src = src;
+    modal.show();
+}
+</script>
+
+<!-- CTA -->
+<section class="py-5 bg-samsung text-white text-center">
+    <div class="container py-4">
+        <h3 class="fw-bold mb-3">Want to Be Our Next Success Story?</h3>
+        <p class="opacity-75 mb-2">Join now and start your journey towards Samsung rewards</p>
+        <p class="opacity-50 small mb-4">Registration is free · No credit card required · Rewards verified & delivered</p>
+        <a href="{% url 'accounts:register' %}" class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-samsung-blue">
+            <i class="bi bi-rocket-takeoff-fill me-2"></i> Join Now — It's Free
+        </a>
+    </div>
+</section>
+{% endblock %}

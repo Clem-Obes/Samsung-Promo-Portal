@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Verify Phone - Samsung Promo Portal{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100 py-5">
+            <div class="col-lg-5 d-none d-lg-block pe-5" data-aos="fade-right">
+                <div class="text-center mb-4">
+                    <i class="bi bi-phone-fill text-white" style="font-size: 5rem; opacity: 0.3;"></i>
+                </div>
+                <h2 class="text-white fw-bold mb-3">Verify Your Phone</h2>
+                <p class="text-white-50 mb-4">Verify your phone number to complete your account setup and enhance your account security.</p>
+                <div class="glass-card p-3 mb-3">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <i class="bi bi-shield-lock-fill text-success fs-4"></i>
+                        <span class="text-white-50 small">Phone verification adds an extra layer of security to your account.</span>
+                    </div>
+                </div>
+                <div class="glass-card p-3 mb-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="bi bi-gift-fill text-warning fs-4"></i>
+                        <span class="text-white-50 small">Earn <strong class="text-white">+25 bonus points</strong> for verifying your phone!</span>
+                    </div>
+                </div>
+                <div class="glass-card p-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="bi bi-patch-check-fill text-info fs-4"></i>
+                        <span class="text-white-50 small">Verify both email & phone to get the <strong class="text-white">"Verified"</strong> badge.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="auth-card" data-aos="zoom-in">
+                    {% if step == 'enter_phone' %}
+                    <!-- Step 1: Enter Phone Number -->
+                    <div class="text-center mb-4">
+                        <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width: 80px; height: 80px; background: rgba(20, 40, 160, 0.1);">
+                            <i class="bi bi-telephone-fill text-samsung-blue fs-1"></i>
+                        </div>
+                        <h3 class="fw-bold mt-2">Enter Your Phone Number</h3>
+                        <p class="text-muted">We'll send a 6-digit code via SMS</p>
+                    </div>
+
+                    <form method="POST" action="{% url 'accounts:verify_phone_page' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="action" value="send_otp">
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Phone Number</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text bg-light border-end-0" style="border-radius: 12px 0 0 12px;">
+                                    <i class="bi bi-telephone-fill text-samsung-blue"></i>
+                                </span>
+                                <input type="tel" name="phone_number" class="form-control" 
+                                    value="{{ phone }}" 
+                                    placeholder="+234 800 000 0000" 
+                                    style="border-radius: 0 12px 12px 0;"
+                                    required>
+                            </div>
+                            <small class="text-muted mt-1 d-block">Enter your phone number with country code (e.g., +234...)</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-samsung btn-lg w-100 rounded-pill mb-3">
+                            <i class="bi bi-send-fill me-2"></i> Send Verification Code
+                        </button>
+                    </form>
+
+                    {% elif step == 'enter_otp' %}
+                    <!-- Step 2: Enter OTP -->
+                    <div class="text-center mb-4">
+                        <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width: 80px; height: 80px; background: rgba(0, 169, 224, 0.1);">
+                            <i class="bi bi-chat-square-text-fill text-samsung-accent fs-1"></i>
+                        </div>
+                        <h3 class="fw-bold mt-2">Enter SMS Code</h3>
+                        <p class="text-muted">Code sent to <strong>{{ phone }}</strong></p>
+                    </div>
+
+                    <form method="POST" action="{% url 'accounts:verify_phone_page' %}" id="phoneOtpForm">
+                        {% csrf_token %}
+                        <input type="hidden" name="action" value="verify_otp">
+                        <input type="hidden" name="phone_number" value="{{ phone }}">
+
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-center d-block">Enter 6-Digit Code</label>
+                            <div class="d-flex justify-content-center gap-2" id="phone-otp-inputs">
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="0" autofocus>
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="1">
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="2">
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="3">
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="4">
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="5">
+                            </div>
+                            <input type="hidden" name="otp_code" id="phone_otp_hidden">
+                        </div>
+
+                        <button type="submit" class="btn btn-samsung btn-lg w-100 rounded-pill mb-3">
+                            <i class="bi bi-check-circle-fill me-2"></i> Verify Phone
+                        </button>
+                    </form>
+
+                    <div class="text-center">
+                        <p class="text-muted small mb-2">Didn't receive the code?</p>
+                        <a href="{% url 'accounts:resend_phone_otp' %}" class="btn btn-outline-secondary btn-sm rounded-pill px-4">
+                            <i class="bi bi-arrow-clockwise me-1"></i> Resend Code
+                        </a>
+                    </div>
+
+                    <hr class="my-3">
+                    <div class="text-center">
+                        <a href="{% url 'accounts:verify_phone_page' %}" class="text-muted small text-decoration-none">
+                            <i class="bi bi-arrow-left me-1"></i> Change phone number
+                        </a>
+                    </div>
+                    {% endif %}
+
+                    <hr class="my-3">
+                    <div class="text-center">
+                        <a href="{% url 'dashboard:home' %}" class="text-muted small text-decoration-none">
+                            <i class="bi bi-arrow-left me-1"></i> Skip for now (verify later from dashboard)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .otp-input:focus {
+        border-color: var(--samsung-blue);
+        box-shadow: 0 0 0 3px rgba(20, 40, 160, 0.15);
+    }
+    .otp-input.filled {
+        background-color: rgba(20, 40, 160, 0.05);
+        border-color: var(--samsung-blue);
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('#phone-otp-inputs .otp-input');
+    if (!inputs.length) return;
+
+    const hiddenInput = document.getElementById('phone_otp_hidden');
+    const form = document.getElementById('phoneOtpForm');
+
+    function updateHiddenInput() {
+        let code = '';
+        inputs.forEach(input => { code += input.value; });
+        hiddenInput.value = code;
+    }
+
+    inputs.forEach((input, index) => {
+        input.addEventListener('input', function(e) {
+            const val = this.value.replace(/[^0-9]/g, '');
+            this.value = val;
+
+            if (val) {
+                this.classList.add('filled');
+                if (index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            } else {
+                this.classList.remove('filled');
+            }
+            updateHiddenInput();
+
+            let fullCode = '';
+            inputs.forEach(inp => { fullCode += inp.value; });
+            if (fullCode.length === 6) {
+                hiddenInput.value = fullCode;
+                setTimeout(() => form.submit(), 300);
+            }
+        });
+
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Backspace' && !this.value && index > 0) {
+                inputs[index - 1].focus();
+                inputs[index - 1].value = '';
+                inputs[index - 1].classList.remove('filled');
+            }
+        });
+
+        input.addEventListener('paste', function(e) {
+            e.preventDefault();
+            const pasteData = (e.clipboardData || window.clipboardData).getData('text').replace(/[^0-9]/g, '');
+            for (let i = 0; i < Math.min(pasteData.length, 6); i++) {
+                inputs[i].value = pasteData[i];
+                inputs[i].classList.add('filled');
+            }
+            if (pasteData.length >= 6) inputs[5].focus();
+            else if (pasteData.length > 0) inputs[Math.min(pasteData.length, 5)].focus();
+            updateHiddenInput();
+            if (pasteData.length === 6) {
+                hiddenInput.value = pasteData;
+                setTimeout(() => form.submit(), 300);
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

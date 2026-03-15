@@ -1,0 +1,326 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - Samsung Promo Portal{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <h2 class="text-white mb-1">Welcome back, {{ user.get_full_name|default:user.username }}! 👋</h2>
+                <p class="text-white-50 mb-0">Here's your promotion progress overview</p>
+            </div>
+            <a href="{% url 'accounts:profile' %}" class="btn btn-outline-light rounded-pill px-4">
+                <i class="bi bi-person-fill me-2"></i> Edit Profile
+            </a>
+        </div>
+    </div>
+</div>
+
+<section class="py-4 py-md-5" style="margin-top: -1rem;">
+    <div class="container">
+        <!-- Verification Alert Banner -->
+        {% if not profile.email_verified or not profile.phone_verified %}
+        <div class="alert alert-warning border-0 rounded-4 shadow-sm mb-4 p-4" style="background: #fff3cd; color: #333;" data-aos="fade-down">
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+                <div class="flex-shrink-0">
+                    <i class="bi bi-shield-exclamation fs-2 text-warning"></i>
+                </div>
+                <div class="flex-grow-1">
+                    <h6 class="fw-bold mb-1" style="color: #1a1a2e;">Complete Your Verification</h6>
+                    <p class="mb-0 small" style="color: #555;">
+                        {% if not profile.email_verified and not profile.phone_verified %}
+                            Verify your email and phone number to unlock all features and earn <strong>+50 bonus points</strong>.
+                        {% elif not profile.email_verified %}
+                            Verify your email address to complete verification and earn <strong>+25 bonus points</strong>.
+                        {% else %}
+                            Verify your phone number to complete verification and earn <strong>+25 bonus points</strong>.
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="d-flex gap-2 flex-shrink-0 flex-wrap">
+                    {% if not profile.email_verified %}
+                    <a href="{% url 'accounts:verify_email_page' %}" class="btn btn-samsung btn-sm rounded-pill px-3">
+                        <i class="bi bi-envelope-fill me-1"></i> Verify Email
+                    </a>
+                    {% endif %}
+                    {% if not profile.phone_verified %}
+                    <a href="{% url 'accounts:verify_phone_page' %}" class="btn {% if profile.email_verified %}btn-samsung{% else %}btn-outline-dark{% endif %} btn-sm rounded-pill px-3">
+                        <i class="bi bi-telephone-fill me-1"></i> Verify Phone
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Quick Stats -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="progress-card">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-muted small fw-semibold">POINTS</span>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                    <h3 class="fw-bold text-samsung-blue">{{ profile.points }}</h3>
+                    <div class="progress mt-2">
+                        <div class="progress-bar" style="width: {% widthratio profile.points 1000 100 %}%"></div>
+                    </div>
+                    <small class="text-muted">{{ profile.points }}/1000 to next tier</small>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="progress-card">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-muted small fw-semibold">TASKS</span>
+                        <i class="bi bi-list-check text-success"></i>
+                    </div>
+                    <h3 class="fw-bold text-samsung-blue">{{ completed_tasks }}/{{ total_tasks }}</h3>
+                    <div class="progress mt-2">
+                        <div class="progress-bar" style="width: {% if total_tasks %}{% widthratio completed_tasks total_tasks 100 %}{% else %}0{% endif %}%"></div>
+                    </div>
+                    <small class="text-muted">Tasks completed</small>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="progress-card">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-muted small fw-semibold">REFERRALS</span>
+                        <i class="bi bi-people-fill text-primary"></i>
+                    </div>
+                    <h3 class="fw-bold text-samsung-blue">{{ referral_count }}</h3>
+                    <div class="progress mt-2">
+                        <div class="progress-bar" style="width: {% widthratio referral_count 20 100 %}%"></div>
+                    </div>
+                    <small class="text-muted">{{ referral_count }}/20 for premium reward</small>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="progress-card">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-muted small fw-semibold">STATUS</span>
+                        <i class="bi bi-patch-check-fill text-samsung-accent"></i>
+                    </div>
+                    <h3 class="fw-bold text-samsung-blue">
+                        {% if profile.is_ambassador %}Ambassador
+                        {% elif profile.is_verified %}Verified
+                        {% else %}Pending{% endif %}
+                    </h3>
+                    <div class="progress mt-2">
+                        <div class="progress-bar" style="width: {% if profile.is_ambassador %}100{% elif profile.is_verified %}60{% else %}20{% endif %}%"></div>
+                    </div>
+                    <small class="text-muted">Eligibility status</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Progress Tracker -->
+            <div class="col-lg-8" data-aos="fade-up">
+                <div class="bg-white rounded-4 shadow-sm p-4">
+                    <h5 class="fw-bold mb-4"><i class="bi bi-bar-chart-fill text-samsung-blue me-2"></i> Progress Tracker</h5>
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item d-flex justify-content-between align-items-center border-0 py-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-check-circle-fill fs-4 text-success"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Registration</h6>
+                                    <small class="text-muted">Account created successfully</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-success rounded-pill px-3">Complete</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center border-0 py-3">
+                            <div class="d-flex align-items-center gap-3">
+                                {% if profile.email_verified and profile.phone_verified %}
+                                    <i class="bi bi-check-circle-fill fs-4 text-success"></i>
+                                {% elif profile.email_verified or profile.phone_verified %}
+                                    <i class="bi bi-circle-half fs-4 text-warning"></i>
+                                {% else %}
+                                    <i class="bi bi-circle fs-4 text-warning"></i>
+                                {% endif %}
+                                <div>
+                                    <h6 class="fw-bold mb-0">Verification</h6>
+                                    <small class="text-muted">
+                                        {% if profile.email_verified and profile.phone_verified %}
+                                            Email ✓ &amp; Phone ✓
+                                        {% elif profile.email_verified %}
+                                            Email ✓ — Phone pending
+                                        {% elif profile.phone_verified %}
+                                            Email pending — Phone ✓
+                                        {% else %}
+                                            Email &amp; phone not verified
+                                        {% endif %}
+                                    </small>
+                                </div>
+                            </div>
+                            {% if profile.email_verified and profile.phone_verified %}
+                                <span class="badge bg-success rounded-pill px-3">Complete</span>
+                            {% elif not profile.email_verified %}
+                                <a href="{% url 'accounts:verify_email_page' %}" class="btn btn-warning btn-sm rounded-pill px-3">
+                                    <i class="bi bi-envelope me-1"></i> Verify Email
+                                </a>
+                            {% else %}
+                                <a href="{% url 'accounts:verify_phone_page' %}" class="btn btn-warning btn-sm rounded-pill px-3">
+                                    <i class="bi bi-telephone me-1"></i> Verify Phone
+                                </a>
+                            {% endif %}
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center border-0 py-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-circle fs-4 {% if completed_tasks > 0 %}text-primary{% else %}text-muted{% endif %}"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Task Completion</h6>
+                                    <small class="text-muted">{{ completed_tasks }}/{{ total_tasks }} tasks completed</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3">{{ completed_tasks }}/{{ total_tasks }}</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center border-0 py-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-circle fs-4 {% if referral_count >= 5 %}text-primary{% else %}text-muted{% endif %}"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Referral Target</h6>
+                                    <small class="text-muted">{{ referral_count }}/5 referrals made</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3">{{ referral_count }}/5</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center border-0 py-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-circle fs-4 text-muted"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-0">Eligibility Status</h6>
+                                    <small class="text-muted">Complete all steps to qualify</small>
+                                </div>
+                            </div>
+                            <span class="badge bg-secondary bg-opacity-10 text-secondary rounded-pill px-3">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <!-- Referral Card -->
+                <div class="bg-white rounded-4 shadow-sm p-4 mb-4">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-share-fill text-samsung-blue me-2"></i> Your Referral Link</h5>
+                    <div class="input-group mb-2" style="overflow: hidden;">
+                        <input type="text" id="referral-link" class="form-control form-control-sm text-truncate" value="{{ request.scheme }}://{{ request.get_host }}/accounts/register/?ref={{ profile.referral_code }}" readonly>
+                        <button class="btn btn-samsung btn-sm flex-shrink-0" id="copy-referral" type="button">
+                            <i class="bi bi-clipboard"></i> Copy
+                        </button>
+                    </div>
+                    <small class="text-muted">Share this link to earn referral points</small>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="bg-white rounded-4 shadow-sm p-4 mb-4">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-lightning-fill text-warning me-2"></i> Quick Actions</h5>
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'dashboard:tasks' %}" class="btn btn-outline-primary rounded-pill text-start">
+                            <i class="bi bi-list-check me-2"></i> View Tasks
+                        </a>
+                        <a href="{% url 'dashboard:referrals' %}" class="btn btn-outline-primary rounded-pill text-start">
+                            <i class="bi bi-people-fill me-2"></i> My Referrals
+                        </a>
+                        <a href="{% url 'dashboard:rewards' %}" class="btn btn-outline-primary rounded-pill text-start">
+                            <i class="bi bi-gift-fill me-2"></i> My Rewards
+                        </a>
+                        <a href="{% url 'dashboard:certificates' %}" class="btn btn-outline-primary rounded-pill text-start">
+                            <i class="bi bi-award-fill me-2"></i> My Certificates
+                        </a>
+                        <a href="{% url 'promotions:campaigns' %}" class="btn btn-outline-primary rounded-pill text-start">
+                            <i class="bi bi-megaphone-fill me-2"></i> View Campaigns
+                        </a>
+                        <a href="{% url 'support:chat' %}" class="btn btn-outline-primary rounded-pill text-start">
+                            <i class="bi bi-chat-dots-fill me-2"></i> Support Chat
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Active Campaigns -->
+                {% if active_campaigns %}
+                <div class="bg-white rounded-4 shadow-sm p-4">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-megaphone-fill text-samsung-accent me-2"></i> Active Campaigns</h5>
+                    {% for campaign in active_campaigns %}
+                    <a href="{% url 'promotions:campaign_detail' campaign.pk %}" class="d-block p-2 rounded-3 mb-2 text-decoration-none" style="background: rgba(20, 40, 160, 0.03);">
+                        <h6 class="fw-semibold mb-0 text-dark small">{{ campaign.title }}</h6>
+                        <small class="text-muted">{{ campaign.end_date|date:"M d, Y" }}</small>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Achievement Badges & Tips -->
+        <div class="row g-4 mt-2">
+            <div class="col-lg-6" data-aos="fade-up">
+                <div class="bg-white rounded-4 shadow-sm p-4">
+                    <h5 class="fw-bold mb-4"><i class="bi bi-award-fill text-warning me-2"></i> Your Achievements</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="achievement-badge bronze"><i class="bi bi-person-check-fill"></i> Registered</span>
+                        {% if profile.is_verified %}
+                        <span class="achievement-badge silver"><i class="bi bi-shield-check"></i> Verified</span>
+                        {% endif %}
+                        {% if completed_tasks > 0 %}
+                        <span class="achievement-badge silver"><i class="bi bi-check2-circle"></i> First Task</span>
+                        {% endif %}
+                        {% if referral_count >= 5 %}
+                        <span class="achievement-badge gold"><i class="bi bi-people-fill"></i> 5 Referrals</span>
+                        {% endif %}
+                        {% if referral_count >= 10 %}
+                        <span class="achievement-badge gold"><i class="bi bi-trophy-fill"></i> 10 Referrals</span>
+                        {% endif %}
+                        {% if profile.is_ambassador %}
+                        <span class="achievement-badge gold"><i class="bi bi-star-fill"></i> Ambassador</span>
+                        {% endif %}
+                    </div>
+                    {% if not profile.is_verified %}
+                    <div class="alert alert-warning border-0 mt-3 mb-0 rounded-3 small" style="background: #fff3cd; color: #664d03;">
+                        <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                        <strong>Next step:</strong> Verify your email & phone to unlock the "Verified" badge and access more campaigns.
+                    </div>
+                    {% elif completed_tasks == 0 %}
+                    <div class="alert alert-info border-0 mt-3 mb-0 rounded-3 small" style="background: #cff4fc; color: #055160;">
+                        <i class="bi bi-lightbulb-fill me-1"></i>
+                        <strong>Tip:</strong> Start completing campaign tasks to earn your "First Task" badge and accumulate points.
+                    </div>
+                    {% elif referral_count < 5 %}
+                    <div class="alert alert-info border-0 mt-3 mb-0 rounded-3 small" style="background: #cff4fc; color: #055160;">
+                        <i class="bi bi-lightbulb-fill me-1"></i>
+                        <strong>Tip:</strong> Share your referral link to reach the 5-referral milestone for bonus points!
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white rounded-4 shadow-sm p-4">
+                    <h5 class="fw-bold mb-4"><i class="bi bi-bell-fill text-samsung-accent me-2"></i> Announcements</h5>
+                    <div class="list-group list-group-flush">
+                        {% for announcement in announcements %}
+                        <div class="list-group-item border-0 px-0 py-3">
+                            <div class="d-flex align-items-start gap-2">
+                                <span class="badge {% cycle 'bg-danger' 'bg-success' 'bg-primary' 'bg-warning' 'bg-info' %} rounded-circle p-1" style="width: 8px; height: 8px; margin-top: 6px;"></span>
+                                <div>
+                                    <h6 class="fw-semibold mb-1 small">{{ announcement.title }}</h6>
+                                    <p class="text-muted mb-0" style="font-size: 0.75rem;">{{ announcement.content|truncatewords:25 }}</p>
+                                    <small class="text-muted" style="font-size: 0.65rem;">{{ announcement.created_at|timesince }} ago</small>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="text-center py-3">
+                            <i class="bi bi-bell-slash text-muted" style="font-size: 2rem; opacity: 0.2;"></i>
+                            <p class="text-muted small mt-2 mb-0">No announcements at this time.</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

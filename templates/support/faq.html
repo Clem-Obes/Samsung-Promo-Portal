@@ -1,0 +1,419 @@
+{% extends 'base.html' %}
+{% block title %}FAQ - Samsung Promo Portal{% endblock %}
+{% block content %}
+<div class="page-header">
+    <div class="container position-relative" style="z-index: 2;">
+        <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill mb-3 fs-7">
+            <i class="bi bi-question-circle-fill me-1"></i> FAQ
+        </span>
+        <h1 class="text-white mb-3">Frequently Asked Questions</h1>
+        <p class="text-white-50 fs-5">Find answers to commonly asked questions</p>
+        <!-- Search Bar -->
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-6">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-white border-0 rounded-start-pill ps-4">
+                        <i class="bi bi-search text-muted"></i>
+                    </span>
+                    <input type="text" id="faq-search" class="form-control border-0 rounded-end-pill py-3" placeholder="Search for answers..." style="box-shadow: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Knowledge Base Cards -->
+<section class="py-4 bg-light border-bottom">
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-md-3 col-6" data-aos="fade-up">
+                <div class="kb-card text-center p-3">
+                    <i class="bi bi-person-plus-fill text-primary fs-3 mb-2 d-block"></i>
+                    <h6 class="fw-bold mb-1">Getting Started</h6>
+                    <small class="text-muted">Registration & setup</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="kb-card text-center p-3">
+                    <i class="bi bi-gift-fill text-success fs-3 mb-2 d-block"></i>
+                    <h6 class="fw-bold mb-1">Rewards</h6>
+                    <small class="text-muted">Earning & claiming</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="kb-card text-center p-3">
+                    <i class="bi bi-credit-card-fill text-warning fs-3 mb-2 d-block"></i>
+                    <h6 class="fw-bold mb-1">Payments</h6>
+                    <small class="text-muted">Billing & security</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="kb-card text-center p-3">
+                    <i class="bi bi-people-fill text-danger fs-3 mb-2 d-block"></i>
+                    <h6 class="fw-bold mb-1">Referrals</h6>
+                    <small class="text-muted">Invite & earn</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Category: Getting Started -->
+                <h5 class="fw-bold mb-3 text-muted"><i class="bi bi-person-plus-fill me-2"></i> Getting Started</h5>
+                <div class="accordion mb-5" id="faqAccordion">
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                What is the Samsung Promo Portal?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                <p>The Samsung Promo Portal is an official promotional platform designed to reward loyal Samsung enthusiasts. Through our portal, you can:</p>
+                                <ul>
+                                    <li><strong>Register for free</strong> — Create an account in under 2 minutes</li>
+                                    <li><strong>Complete promotional tasks</strong> — Share, review, and engage with Samsung content</li>
+                                    <li><strong>Refer friends</strong> — Invite others and earn bonus points per referral</li>
+                                    <li><strong>Earn real Samsung devices</strong> — Redeem points for Galaxy smartphones, tablets, and accessories</li>
+                                </ul>
+                                <p class="mb-0">Over <strong>12,500+ participants</strong> have already joined and earned rewards through our platform.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Is registration free?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                <p><strong>Yes, registration is 100% free.</strong> There is absolutely no cost to create an account and start participating in basic campaigns.</p>
+                                <p>However, to unlock <strong>premium campaigns</strong>, <strong>higher reward tiers</strong>, and <strong>priority support</strong>, you may choose to upgrade to one of our paid membership plans:</p>
+                                <div class="row g-2 mt-2">
+                                    <div class="col-4 text-center">
+                                        <div class="p-2 rounded-3 bg-light">
+                                            <div class="fw-bold text-primary" style="font-size: 0.85rem;">Basic</div>
+                                            <small style="font-size: 0.72rem;">Free Forever</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <div class="p-2 rounded-3 bg-light">
+                                            <div class="fw-bold text-success" style="font-size: 0.85rem;">Premium</div>
+                                            <small style="font-size: 0.72rem;">₦5,000/mo</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <div class="p-2 rounded-3 bg-light">
+                                            <div class="fw-bold text-warning" style="font-size: 0.85rem;">Ambassador</div>
+                                            <small style="font-size: 0.72rem;">₦15,000/mo</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq_start1">
+                                How do I get started after registration?
+                            </button>
+                        </h2>
+                        <div id="faq_start1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                <p>After registering, follow these steps to start earning:</p>
+                                <ol>
+                                    <li><strong>Verify your email</strong> — Check your inbox for a verification link</li>
+                                    <li><strong>Complete your profile</strong> — Add your phone number and location</li>
+                                    <li><strong>Browse active campaigns</strong> — Visit the Campaigns page to find tasks</li>
+                                    <li><strong>Complete tasks</strong> — Follow the instructions for each task to earn points</li>
+                                    <li><strong>Share your referral link</strong> — Start inviting friends to multiply your earnings</li>
+                                </ol>
+                                <p class="mb-0">Most users earn their first points within <strong>10 minutes</strong> of registration!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq_start2">
+                                Can I participate from any country?
+                            </button>
+                        </h2>
+                        <div id="faq_start2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-muted">
+                                <p>Yes! The Samsung Promo Portal is available in <strong>45+ countries</strong> worldwide. Participants from Nigeria, Ghana, Kenya, South Africa, India, UK, US, and many other countries are already part of our community.</p>
+                                <p class="mb-0">Reward delivery options may vary by location. Digital rewards are available globally, while physical device deliveries are currently supported in select countries with active shipping partners.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Rewards & Tasks -->
+                <h5 class="fw-bold mb-3 text-muted"><i class="bi bi-gift-fill me-2"></i> Rewards & Tasks</h5>
+                <div class="accordion mb-5" id="faqAccordion2">
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                How do I earn rewards?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
+                            <div class="accordion-body text-muted">
+                                <p>There are multiple ways to earn points and rewards on the platform:</p>
+                                <div class="row g-2 mb-3">
+                                    <div class="col-sm-6">
+                                        <div class="p-3 bg-light rounded-3">
+                                            <i class="bi bi-share-fill text-primary me-2"></i> <strong>Share on Social Media</strong>
+                                            <div class="small mt-1">50-100 points per share</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="p-3 bg-light rounded-3">
+                                            <i class="bi bi-people-fill text-success me-2"></i> <strong>Refer Friends</strong>
+                                            <div class="small mt-1">100 points per referral</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="p-3 bg-light rounded-3">
+                                            <i class="bi bi-pencil-fill text-warning me-2"></i> <strong>Write Reviews</strong>
+                                            <div class="small mt-1">200 points per review</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="p-3 bg-light rounded-3">
+                                            <i class="bi bi-heart-fill text-danger me-2"></i> <strong>Follow Channels</strong>
+                                            <div class="small mt-1">25-50 points per follow</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mb-0">Points accumulate and determine your eligibility for device rewards. Higher membership tiers unlock higher-value rewards.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                How long does it take to receive rewards?
+                            </button>
+                        </h2>
+                        <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
+                            <div class="accordion-body text-muted">
+                                <p>Reward processing times vary by type:</p>
+                                <div class="table-responsive">
+                                <table class="table table-sm table-bordered rounded">
+                                    <thead class="table-light">
+                                        <tr><th>Reward Type</th><th>Processing Time</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Digital Vouchers</td><td><strong>Instant</strong> (via email)</td></tr>
+                                        <tr><td>Samsung Accessories</td><td><strong>5-7 business days</strong></td></tr>
+                                        <tr><td>Samsung Devices</td><td><strong>7-14 business days</strong></td></tr>
+                                        <tr><td>Premium Devices (Flagships)</td><td><strong>10-21 business days</strong></td></tr>
+                                    </tbody>
+                                </table>
+                                </div>
+                                <p class="mb-0">You'll receive a tracking number via email once your physical reward has been shipped. All shipments are fully insured.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq_rew1">
+                                What Samsung devices can I earn?
+                            </button>
+                        </h2>
+                        <div id="faq_rew1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
+                            <div class="accordion-body text-muted">
+                                <p>Available devices depend on your membership tier and accumulated points:</p>
+                                <ul>
+                                    <li><strong>Basic Tier:</strong> Galaxy Buds Pro, Galaxy Watch, Samsung accessories</li>
+                                    <li><strong>Premium Tier:</strong> Galaxy A-series phones, Galaxy Tab S9, Galaxy Buds</li>
+                                    <li><strong>Ambassador Tier:</strong> Galaxy S24 Ultra, Galaxy Z Fold5, Galaxy Z Flip5, Galaxy Tab S9 Ultra</li>
+                                </ul>
+                                <p class="mb-0">New devices are added to the rewards catalog every quarter when Samsung releases new products.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq_rew2">
+                                Are the rewards real? Is this a scam?
+                            </button>
+                        </h2>
+                        <div id="faq_rew2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion2">
+                            <div class="accordion-body text-muted">
+                                <p><strong>Absolutely real.</strong> We've delivered over <strong>2,800+ Samsung devices</strong> to verified participants across 45+ countries. Here's why you can trust us:</p>
+                                <ul>
+                                    <li>✅ <strong>SSL encrypted</strong> — All transactions are secured</li>
+                                    <li>✅ <strong>Paystack verified</strong> — Payment processing by Africa's leading payment provider</li>
+                                    <li>✅ <strong>DHL & partner shipping</strong> — Tracked delivery with insurance</li>
+                                    <li>✅ <strong>Real testimonials</strong> — Verified stories from participants who received devices</li>
+                                    <li>✅ <strong>Admin verification</strong> — Every reward claim is manually reviewed and approved</li>
+                                </ul>
+                                <p class="mb-0">Visit our <a href="{% url 'core:testimonials' %}">Testimonials page</a> to see real stories from participants.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Payments & Billing -->
+                <h5 class="fw-bold mb-3 text-muted"><i class="bi bi-credit-card-fill me-2"></i> Payments & Billing</h5>
+                <div class="accordion mb-5" id="faqAccordion3">
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                How are payments processed?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion3">
+                            <div class="accordion-body text-muted">
+                                <p>All payments are securely processed through <strong>Paystack</strong>, Africa's leading payment infrastructure provider. Supported payment methods include:</p>
+                                <div class="d-flex flex-wrap gap-2 my-3">
+                                    <span class="badge bg-light text-dark border px-3 py-2"><i class="bi bi-credit-card me-1"></i> Visa/Mastercard</span>
+                                    <span class="badge bg-light text-dark border px-3 py-2"><i class="bi bi-phone me-1"></i> Mobile Money</span>
+                                    <span class="badge bg-light text-dark border px-3 py-2"><i class="bi bi-bank me-1"></i> Bank Transfer</span>
+                                    <span class="badge bg-light text-dark border px-3 py-2"><i class="bi bi-wallet me-1"></i> Digital Wallets</span>
+                                    <span class="badge bg-light text-dark border px-3 py-2"><i class="bi bi-qr-code me-1"></i> USSD</span>
+                                </div>
+                                <p class="mb-0">Your financial information is encrypted with <strong>256-bit SSL</strong> and never stored on our servers. Paystack is PCI-DSS compliant.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq_pay1">
+                                Can I get a refund if I'm not satisfied?
+                            </button>
+                        </h2>
+                        <div id="faq_pay1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion3">
+                            <div class="accordion-body text-muted">
+                                <p>Yes! We offer a <strong>7-day money-back guarantee</strong> on all membership plans. If you're not satisfied within the first 7 days, contact our support team for a full refund — no questions asked.</p>
+                                <p class="mb-0">After 7 days, refunds are processed on a case-by-case basis. Please note that membership fees are separate from reward eligibility — points earned during your membership period remain valid even after cancellation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq_pay2">
+                                Can I cancel my membership anytime?
+                            </button>
+                        </h2>
+                        <div id="faq_pay2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion3">
+                            <div class="accordion-body text-muted">
+                                <p><strong>Yes, absolutely.</strong> You can cancel or downgrade your membership at any time from your dashboard. There are no hidden fees or cancellation charges.</p>
+                                <p class="mb-0">When you cancel, your membership remains active until the end of your current billing period. You'll automatically revert to the Basic (free) tier afterward.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category: Referrals -->
+                <h5 class="fw-bold mb-3 text-muted"><i class="bi bi-people-fill me-2"></i> Referrals & Community</h5>
+                <div class="accordion mb-5" id="faqAccordion4">
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                How does the referral system work?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion4">
+                            <div class="accordion-body text-muted">
+                                <p>Each user gets a unique referral link visible on their dashboard. When someone registers using your link:</p>
+                                <div class="p-3 bg-light rounded-3 mb-3">
+                                    <div class="row text-center g-2">
+                                        <div class="col-4">
+                                            <div class="fw-bold text-primary fs-5">5</div>
+                                            <small>Referrals = Bonus Points</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="fw-bold text-success fs-5">10</div>
+                                            <small>Referrals = Promotion Eligible</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="fw-bold text-warning fs-5">20</div>
+                                            <small>Referrals = Premium Rewards</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mb-0">You earn <strong>100 points per successful referral</strong>. The person you refer also gets a welcome bonus of 50 points. It's a win-win!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ref1">
+                                Is there a limit to how many people I can refer?
+                            </button>
+                        </h2>
+                        <div id="faq_ref1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion4">
+                            <div class="accordion-body text-muted">
+                                <p><strong>No limit at all!</strong> The more people you refer, the more points you earn. Our top referrers have invited 50+ people and earned multiple Samsung devices as a result.</p>
+                                <p class="mb-0">Pro tip: Share your referral link on social media, WhatsApp groups, and with colleagues for the best results.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq_ref2">
+                                What happens if my referral doesn't complete registration?
+                            </button>
+                        </h2>
+                        <div id="faq_ref2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion4">
+                            <div class="accordion-body text-muted">
+                                <p>For a referral to count, the referred person must:</p>
+                                <ol>
+                                    <li>Register using your unique referral link</li>
+                                    <li>Verify their email address</li>
+                                    <li>Complete at least one promotional task</li>
+                                </ol>
+                                <p class="mb-0">Incomplete registrations will show as "pending" in your referral dashboard. Once the conditions are met, the referral and points will be credited automatically.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular Questions Stat -->
+                <div class="info-banner mb-5" data-aos="fade-up">
+                    <div class="row align-items-center g-3">
+                        <div class="col-sm-4 text-center">
+                            <div class="big-number" style="font-size: 3rem;">95%</div>
+                            <p class="text-muted small mb-0">Questions answered here</p>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <div class="big-number" style="font-size: 3rem;">&lt;2hrs</div>
+                            <p class="text-muted small mb-0">Average response time</p>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <div class="big-number" style="font-size: 3rem;">24/7</div>
+                            <p class="text-muted small mb-0">Support availability</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Still Have Questions -->
+                <div class="text-center mt-4" data-aos="fade-up">
+                    <h4 class="fw-bold mb-2">Still have questions?</h4>
+                    <p class="text-muted mb-4">Our support team is ready to help you</p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="{% url 'core:contact' %}" class="btn btn-samsung rounded-pill px-4">
+                            <i class="bi bi-envelope-fill me-2"></i> Contact Us
+                        </a>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'support:chat' %}" class="btn btn-samsung-outline rounded-pill px-4">
+                            <i class="bi bi-chat-dots-fill me-2"></i> Live Chat
+                        </a>
+                        {% endif %}
+                        <a href="https://wa.me/2348000000000" target="_blank" class="btn btn-outline-success rounded-pill px-4">
+                            <i class="bi bi-whatsapp me-2"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block title %}My Tasks - Samsung Promo Portal{% endblock %}
+{% block content %}
+<div class="page-header" style="padding: 6rem 0 3rem;">
+    <div class="container position-relative" style="z-index: 2;">
+        <h2 class="text-white mb-1">My Tasks</h2>
+        <p class="text-white-50 mb-0">Track and complete your promotional tasks</p>
+    </div>
+</div>
+<section class="py-5">
+    <div class="container">
+        {% if user_tasks %}
+        <div class="row g-3">
+            {% for ut in user_tasks %}
+            <div class="col-md-6 col-lg-4">
+                <div class="bg-white rounded-4 shadow-sm p-4 h-100 d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-1">
+                        <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill">{{ ut.task.get_task_type_display }}</span>
+                        <span class="badge {% if ut.status == 'verified' %}bg-success{% elif ut.status == 'completed' %}bg-info{% elif ut.status == 'rejected' %}bg-danger{% else %}bg-warning text-dark{% endif %} rounded-pill">
+                            {{ ut.get_status_display }}
+                        </span>
+                    </div>
+                    <h6 class="fw-bold">{{ ut.task.title }}</h6>
+                    <p class="text-muted small">{{ ut.task.description|truncatewords:20 }}</p>
+                    <div class="d-flex justify-content-between align-items-center mt-auto mb-3">
+                        <span class="text-samsung-blue fw-bold">+{{ ut.task.points }} pts</span>
+                        <small class="text-muted">{{ ut.task.campaign.title }}</small>
+                    </div>
+                    <!-- Action button based on status -->
+                    {% if ut.status == 'pending' or ut.status == 'rejected' %}
+                    <a href="{% url 'promotions:campaign_detail' ut.task.campaign.pk %}" class="btn {% if ut.status == 'rejected' %}btn-outline-danger{% else %}btn-samsung{% endif %} btn-sm rounded-pill w-100">
+                        <i class="bi bi-{% if ut.status == 'rejected' %}arrow-repeat{% else %}upload{% endif %} me-1"></i>
+                        {% if ut.status == 'rejected' %}Resubmit Proof{% else %}Submit Proof{% endif %}
+                    </a>
+                    {% elif ut.status == 'completed' %}
+                    <div class="text-center small text-info">
+                        <div class="spinner-border spinner-border-sm me-1" role="status"></div>
+                        Awaiting admin verification
+                    </div>
+                    {% elif ut.status == 'verified' %}
+                    <div class="text-center small text-success fw-bold">
+                        <i class="bi bi-check-circle-fill me-1"></i> +{{ ut.task.points }} points earned!
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <i class="bi bi-clipboard-check text-muted" style="font-size: 5rem; opacity: 0.2;"></i>
+            <h4 class="fw-bold mt-3">No Tasks Yet</h4>
+            <p class="text-muted mb-4">Join a campaign to start completing tasks and earning rewards</p>
+            <a href="{% url 'promotions:campaigns' %}" class="btn btn-samsung rounded-pill px-4 mb-5">Browse Campaigns</a>
+        </div>
+
+        <!-- Task Tips -->
+        <div class="row g-4 mt-2">
+            <div class="col-12">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-badge">Getting Started</span>
+                    <h2 class="section-title">How to Earn Points Fast</h2>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card text-center h-100">
+                    <div class="feature-icon-box mx-auto" style="background: rgba(20, 40, 160, 0.1); color: var(--samsung-blue);">
+                        <i class="bi bi-share-fill"></i>
+                    </div>
+                    <h5 class="fw-bold">Share on Social Media</h5>
+                    <p class="text-muted small">Share Samsung product pages on Facebook, Twitter, and Instagram. Each verified share earns 50-100 points.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card text-center h-100">
+                    <div class="feature-icon-box mx-auto" style="background: rgba(0, 169, 224, 0.1); color: var(--samsung-accent);">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h5 class="fw-bold">Refer Friends</h5>
+                    <p class="text-muted small">Share your unique referral link. Each successful referral earns 100 points (2x or 3x with Premium/Ambassador).</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card text-center h-100">
+                    <div class="feature-icon-box mx-auto" style="background: rgba(255, 193, 7, 0.1); color: #f59e0b;">
+                        <i class="bi bi-pencil-square"></i>
+                    </div>
+                    <h5 class="fw-bold">Write Reviews</h5>
+                    <p class="text-muted small">Write genuine Samsung product reviews on designated platforms. Quality reviews earn up to 200 points each.</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

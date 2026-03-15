@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Verify Email - Samsung Promo Portal{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100 py-5">
+            <div class="col-lg-5 d-none d-lg-block pe-5" data-aos="fade-right">
+                <div class="text-center mb-4">
+                    <i class="bi bi-envelope-check-fill text-white" style="font-size: 5rem; opacity: 0.3;"></i>
+                </div>
+                <h2 class="text-white fw-bold mb-3">Verify Your Email</h2>
+                <p class="text-white-50 mb-4">We've sent a 6-digit verification code to your email address. Enter it below to verify your account and unlock all features.</p>
+                <div class="glass-card p-3 mb-3">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        <i class="bi bi-shield-check text-success fs-4"></i>
+                        <span class="text-white-50 small">Email verification protects your account and unlocks campaign participation.</span>
+                    </div>
+                </div>
+                <div class="glass-card p-3">
+                    <div class="d-flex align-items-center gap-3">
+                        <i class="bi bi-gift-fill text-warning fs-4"></i>
+                        <span class="text-white-50 small">Earn <strong class="text-white">+25 bonus points</strong> for verifying your email!</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="auth-card" data-aos="zoom-in">
+                    <div class="text-center mb-4">
+                        <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width: 80px; height: 80px; background: rgba(20, 40, 160, 0.1);">
+                            <i class="bi bi-envelope-fill text-samsung-blue fs-1"></i>
+                        </div>
+                        <h3 class="fw-bold mt-2">Check Your Email</h3>
+                        <p class="text-muted">We sent a code to <strong>{{ user.email }}</strong></p>
+                    </div>
+
+                    <form method="POST" action="{% url 'accounts:verify_email_page' %}" id="otpForm">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-center d-block">Enter 6-Digit Code</label>
+                            <div class="d-flex justify-content-center gap-2" id="otp-inputs">
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="0" autofocus>
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="1">
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="2">
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="3">
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="4">
+                                <input type="text" class="form-control text-center fw-bold otp-input" maxlength="1" data-index="5">
+                            </div>
+                            <input type="hidden" name="otp_code" id="otp_code_hidden">
+                        </div>
+
+                        <button type="submit" class="btn btn-samsung btn-lg w-100 rounded-pill mb-3" id="verifyBtn">
+                            <i class="bi bi-check-circle-fill me-2"></i> Verify Email
+                        </button>
+                    </form>
+
+                    <div class="text-center">
+                        <p class="text-muted small mb-2">Didn't receive the code?</p>
+                        <a href="{% url 'accounts:resend_email_otp' %}" class="btn btn-outline-secondary btn-sm rounded-pill px-4" id="resendBtn">
+                            <i class="bi bi-arrow-clockwise me-1"></i> Resend Code
+                        </a>
+                        <div class="mt-2" id="resend-timer" style="display: none;">
+                            <small class="text-muted">Resend available in <span id="countdown" class="fw-bold text-samsung-blue">60</span>s</small>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    <div class="text-center">
+                        <a href="{% url 'dashboard:home' %}" class="text-muted small text-decoration-none">
+                            <i class="bi bi-arrow-left me-1"></i> Skip for now (verify later from dashboard)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .otp-input:focus {
+        border-color: var(--samsung-blue);
+        box-shadow: 0 0 0 3px rgba(20, 40, 160, 0.15);
+    }
+    .otp-input.filled {
+        background-color: rgba(20, 40, 160, 0.05);
+        border-color: var(--samsung-blue);
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.otp-input');
+    const hiddenInput = document.getElementById('otp_code_hidden');
+    const form = document.getElementById('otpForm');
+
+    function updateHiddenInput() {
+        let code = '';
+        inputs.forEach(input => { code += input.value; });
+        hiddenInput.value = code;
+    }
+
+    inputs.forEach((input, index) => {
+        input.addEventListener('input', function(e) {
+            const val = this.value.replace(/[^0-9]/g, '');
+            this.value = val;
+
+            if (val) {
+                this.classList.add('filled');
+                if (index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            } else {
+                this.classList.remove('filled');
+            }
+            updateHiddenInput();
+
+            // Auto-submit when all 6 digits entered
+            let fullCode = '';
+            inputs.forEach(inp => { fullCode += inp.value; });
+            if (fullCode.length === 6) {
+                hiddenInput.value = fullCode;
+                // Small delay for visual feedback
+                setTimeout(() => form.submit(), 300);
+            }
+        });
+
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Backspace' && !this.value && index > 0) {
+                inputs[index - 1].focus();
+                inputs[index - 1].value = '';
+                inputs[index - 1].classList.remove('filled');
+            }
+        });
+
+        // Handle paste
+        input.addEventListener('paste', function(e) {
+            e.preventDefault();
+            const pasteData = (e.clipboardData || window.clipboardData).getData('text').replace(/[^0-9]/g, '');
+            for (let i = 0; i < Math.min(pasteData.length, 6); i++) {
+                inputs[i].value = pasteData[i];
+                inputs[i].classList.add('filled');
+            }
+            if (pasteData.length >= 6) {
+                inputs[5].focus();
+            } else if (pasteData.length > 0) {
+                inputs[Math.min(pasteData.length, 5)].focus();
+            }
+            updateHiddenInput();
+            if (pasteData.length === 6) {
+                hiddenInput.value = pasteData;
+                setTimeout(() => form.submit(), 300);
+            }
+        });
+    });
+
+    // Resend countdown timer
+    const resendBtn = document.getElementById('resendBtn');
+    const timerDiv = document.getElementById('resend-timer');
+    const countdownEl = document.getElementById('countdown');
+
+    resendBtn.addEventListener('click', function(e) {
+        // Show countdown after clicking
+        setTimeout(() => {
+            resendBtn.style.display = 'none';
+            timerDiv.style.display = 'block';
+            let seconds = 60;
+            const interval = setInterval(() => {
+                seconds--;
+                countdownEl.textContent = seconds;
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    resendBtn.style.display = 'inline-block';
+                    timerDiv.style.display = 'none';
+                }
+            }, 1000);
+        }, 500);
+    });
+});
+</script>
+{% endblock %}

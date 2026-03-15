@@ -1,0 +1,3240 @@
+/* =============================================
+   SAMSUNG PROMO PORTAL - Custom CSS
+   Samsung Branding: Deep Blue, Black, White
+   ============================================= */
+
+/* ---------- CSS Variables ---------- */
+:root {
+    --samsung-blue: #1428A0;
+    --samsung-dark-blue: #0C1B6E;
+    --samsung-light-blue: #4169E1;
+    --samsung-accent: #00A9E0;
+    --samsung-black: #0A0A0A;
+    --samsung-dark: #1A1A2E;
+    --samsung-gradient: linear-gradient(135deg, #1428A0 0%, #00A9E0 100%);
+    --samsung-gradient-dark: linear-gradient(135deg, #0C1B6E 0%, #1428A0 100%);
+    --samsung-gradient-hero: linear-gradient(135deg, #0A0A1A 0%, #1428A0 50%, #00A9E0 100%);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Light Section Override ---------- */
+/* Forces dark readable text on light-background sections */
+.light-section {
+    color: #333 !important;
+}
+
+.light-section h1,
+.light-section h2,
+.light-section h3,
+.light-section h4,
+.light-section h5,
+.light-section h6 {
+    color: #1a1a2e !important;
+}
+
+.light-section p,
+.light-section span,
+.light-section li,
+.light-section td,
+.light-section th,
+.light-section label,
+.light-section div {
+    color: inherit;
+}
+
+.light-section .text-muted {
+    color: #6c757d !important;
+}
+
+.light-section .fw-semibold,
+.light-section .fw-bold {
+    color: #1a1a2e;
+}
+
+.light-section a:not(.btn) {
+    color: var(--samsung-blue);
+}
+
+.light-section .accordion-item {
+    background: #fff !important;
+    border-color: #eee !important;
+    color: #333 !important;
+}
+
+.light-section .accordion-button {
+    background: #fff !important;
+    color: #1a1a2e !important;
+}
+
+.light-section .accordion-button:not(.collapsed) {
+    background: #f0f4ff !important;
+    color: var(--samsung-blue) !important;
+}
+
+.light-section .accordion-body {
+    color: #555 !important;
+    background: #fff !important;
+}
+
+.light-section .alert {
+    backdrop-filter: none !important;
+}
+
+.light-section .guarantee-section h3 {
+    color: #1a1a2e !important;
+}
+
+.light-section .guarantee-section p,
+.light-section .guarantee-section span {
+    color: #555 !important;
+}
+
+.light-section .guarantee-section .fw-semibold {
+    color: #333 !important;
+}
+
+.light-section .section-title {
+    color: #1a1a2e !important;
+}
+
+.light-section .section-badge {
+    color: var(--samsung-blue) !important;
+}
+
+.light-section .comparison-table tbody td {
+    color: #333 !important;
+    background: #fff !important;
+}
+
+.light-section .comparison-table tbody td:first-child {
+    color: #1a1a2e !important;
+}
+
+.light-section .table {
+    color: #333 !important;
+}
+
+.light-section .section-subtitle {
+    color: #6c757d !important;
+}
+
+.light-section .text-muted {
+    color: #6c757d !important;
+}
+
+/* Override global dark theme text fixes for light sections */
+.light-section p {
+    color: #555 !important;
+}
+
+.light-section ul li,
+.light-section ol li {
+    color: #444 !important;
+}
+
+.light-section h1,
+.light-section h2,
+.light-section h3,
+.light-section h4,
+.light-section h5,
+.light-section h6 {
+    color: #1a1a2e !important;
+}
+
+.light-section .pricing-card h4 {
+    color: #1a1a2e !important;
+}
+
+.light-section .pricing-card .text-muted {
+    color: #6c757d !important;
+}
+
+.light-section .pricing-features li {
+    color: #444 !important;
+    border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.light-section .pricing-features li i {
+    color: var(--samsung-accent) !important;
+}
+
+.light-section .pricing-price {
+    color: var(--samsung-blue) !important;
+}
+
+.light-section .pricing-price small {
+    color: #888 !important;
+}
+
+.light-section .card-body {
+    color: #333 !important;
+}
+
+.light-section .card-title {
+    color: #1a1a2e !important;
+}
+
+.light-section .card-text {
+    color: #555 !important;
+}
+
+.light-section .table {
+    color: #333 !important;
+}
+
+.light-section .table > :not(caption) > * > * {
+    border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+    color: #333 !important;
+}
+
+/* ---------- Global Styles ---------- */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #e0e0e0;
+    overflow-x: hidden;
+    background-color: #0a0a1a;
+}
+
+/* Fixed background image layer */
+#site-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: url('../images/worker/support/samsung%20building.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+/* Dark overlay for readability */
+#site-bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(10, 10, 26, 0.65);
+    pointer-events: none;
+}
+
+.fs-7 {
+    font-size: 0.75rem !important;
+}
+
+/* ---------- Samsung Colors ---------- */
+.bg-samsung {
+    background: var(--samsung-gradient-dark) !important;
+}
+
+.bg-samsung-blue {
+    background-color: var(--samsung-blue) !important;
+}
+
+.bg-samsung-gradient {
+    background: var(--samsung-gradient) !important;
+}
+
+.text-samsung-blue {
+    color: var(--samsung-blue) !important;
+}
+
+.text-samsung-accent {
+    color: var(--samsung-accent) !important;
+}
+
+.btn-samsung {
+    background: var(--samsung-gradient);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-samsung:hover {
+    background: var(--samsung-gradient-dark);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(20, 40, 160, 0.35);
+}
+
+.btn-samsung-outline {
+    border: 2px solid var(--samsung-blue);
+    color: var(--samsung-blue);
+    background: transparent;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-samsung-outline:hover {
+    background: var(--samsung-blue);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0.8rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 0.4rem 0;
+    background: rgba(10, 10, 26, 0.95) !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--samsung-accent) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--samsung-accent);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 60%;
+}
+
+/* ---------- Hero Section ---------- */
+.hero-section {
+    background: linear-gradient(135deg, rgba(10, 10, 26, 0.7) 0%, rgba(20, 40, 160, 0.45) 50%, rgba(0, 169, 224, 0.4) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 80%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(0, 169, 224, 0.15) 0%, transparent 70%);
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(20, 40, 160, 0.2) 0%, transparent 70%);
+    animation: pulse-glow 5s ease-in-out infinite reverse;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.hero-title .highlight {
+    background: linear-gradient(135deg, #00A9E0, #4169E1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.85;
+    line-height: 1.7;
+}
+
+/* ---------- Floating Elements ---------- */
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-delay {
+    animation: float 3s ease-in-out 0.5s infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+/* ---------- Stats Counter ---------- */
+.stats-section {
+    background: rgba(26, 26, 46, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-card:last-child {
+    border-right: none;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: var(--samsung-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+/* ---------- Section Styles ---------- */
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-badge {
+    display: inline-block;
+    background: rgba(0, 169, 224, 0.15);
+    color: var(--samsung-accent);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0, 169, 224, 0.25);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ---------- Device Cards ---------- */
+.device-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+.device-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 169, 224, 0.2);
+    border-color: rgba(0, 169, 224, 0.3);
+}
+
+.device-card .card-img-top {
+    height: 220px;
+    object-fit: contain;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+}
+
+.device-card .card-body {
+    padding: 1.5rem;
+}
+
+.device-card .device-price {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--samsung-blue);
+}
+
+/* ---------- Testimonial Cards ---------- */
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    color: #e0e0e0;
+}
+
+.testimonial-card::before {
+    content: '\201C';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-size: 8rem;
+    color: rgba(20, 40, 160, 0.05);
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(20, 40, 160, 0.1);
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--samsung-accent);
+}
+
+.testimonial-avatar-placeholder {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--samsung-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.star-rating .bi-star-fill {
+    color: #FFD700;
+}
+
+/* ---------- Process Steps ---------- */
+.process-step {
+    text-align: center;
+    position: relative;
+}
+
+.step-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--samsung-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(20, 40, 160, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.step-number {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 30px;
+    height: 30px;
+    background: var(--samsung-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #fff;
+    z-index: 3;
+}
+
+.step-connector {
+    position: absolute;
+    top: 45px;
+    left: 60%;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--samsung-blue), var(--samsung-accent));
+    z-index: 1;
+}
+
+/* ---------- Pricing Cards ---------- */
+.pricing-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    border: 2px solid #eee;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    color: #333;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--samsung-accent);
+    box-shadow: 0 16px 48px rgba(0, 169, 224, 0.15);
+}
+
+.pricing-card.popular {
+    border-color: var(--samsung-blue);
+    transform: scale(1.05);
+    box-shadow: 0 8px 36px rgba(20, 40, 160, 0.12);
+}
+
+.pricing-card.popular:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.pricing-card h4 {
+    color: #1a1a2e;
+}
+
+.pricing-card .text-muted {
+    color: #6c757d !important;
+}
+
+.popular-badge {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: var(--samsung-gradient);
+    color: #fff;
+    padding: 5px 40px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+}
+
+.pricing-price {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--samsung-blue);
+}
+
+.pricing-price small {
+    font-size: 1rem;
+    color: #888;
+    font-weight: 400;
+}
+
+.pricing-features li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #444;
+}
+
+.pricing-features li i {
+    color: var(--samsung-accent);
+}
+
+/* ---------- Site Logo ---------- */
+.site-logo {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer .site-logo {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+}
+
+/* ---------- Process Step Decorative Icons ---------- */
+.process-deco-icon {
+    font-size: 6rem;
+    opacity: 0.2;
+    display: block;
+}
+
+/* ---------- OTP Input Fields ---------- */
+.otp-input {
+    width: 50px;
+    height: 55px;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    padding: 0;
+}
+
+/* ---------- Glass Card ---------- */
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+/* ---------- Hero Video Card ---------- */
+.hero-video-card {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.hero-video-card .video-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    background: #000;
+}
+
+.hero-video-card .video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+}
+
+@media (max-width: 767.98px) {
+    .hero-video-card {
+        max-width: 100%;
+    }
+}
+
+/* ---------- Dashboard ---------- */
+
+/* Force dark text inside white-background cards (dashboard, etc.) */
+.bg-white h1, .bg-white h2, .bg-white h3,
+.bg-white h4, .bg-white h5, .bg-white h6 {
+    color: #1a1a2e !important;
+}
+
+.bg-white p {
+    color: #555 !important;
+}
+
+.bg-white .fw-bold,
+.bg-white .fw-semibold {
+    color: #1a1a2e !important;
+}
+
+.bg-white .text-muted {
+    color: #6c757d !important;
+}
+
+.bg-white small {
+    color: #888 !important;
+}
+
+.bg-white .text-muted small,
+.bg-white small.text-muted {
+    color: #6c757d !important;
+}
+
+.bg-white .list-group-item {
+    background: #fff !important;
+    border-color: rgba(0, 0, 0, 0.06) !important;
+    color: #333 !important;
+}
+
+.bg-white .list-group-item h6 {
+    color: #1a1a2e !important;
+}
+
+.bg-white .list-group-item small {
+    color: #888 !important;
+}
+
+.bg-white .list-group-item .text-muted {
+    color: #6c757d !important;
+}
+
+.bg-white .text-dark {
+    color: #1a1a2e !important;
+}
+
+.bg-white .form-control {
+    background: #f8f9fc !important;
+    color: #333 !important;
+    border-color: #dee2e6 !important;
+}
+
+.dashboard-sidebar {
+    background: var(--samsung-dark);
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+    border-left-color: var(--samsung-accent);
+}
+
+.progress-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+.progress-card .progress {
+    height: 8px;
+    border-radius: 10px;
+}
+
+.progress-card .progress-bar {
+    background: var(--samsung-gradient);
+    border-radius: 10px;
+}
+
+/* ---------- Auth Pages ---------- */
+.auth-section {
+    min-height: 100vh;
+    background: var(--samsung-gradient-hero);
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.auth-card .form-control {
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+    background-color: #ffffff !important;
+    color: #1a1a2e !important;
+}
+
+.auth-card .form-control::placeholder {
+    color: #999 !important;
+}
+
+.auth-card .form-control:focus {
+    border-color: var(--samsung-blue);
+    box-shadow: 0 0 0 3px rgba(20, 40, 160, 0.1);
+    background-color: #ffffff !important;
+    color: #1a1a2e !important;
+}
+
+/* Auth card: force light-mode text on white card */
+.auth-card h3,
+.auth-card h4,
+.auth-card h5 {
+    color: #1a1a2e !important;
+}
+
+.auth-card p,
+.auth-card span {
+    color: #444 !important;
+}
+
+.auth-card .text-muted {
+    color: #6c757d !important;
+}
+
+.auth-card .form-label {
+    color: #1a1a2e !important;
+}
+
+.auth-card .form-check-label {
+    color: #6c757d !important;
+}
+
+.auth-card .form-check-label a {
+    color: var(--samsung-blue) !important;
+}
+
+.auth-card .input-group-text {
+    background-color: #f8f9fa !important;
+    border-color: #e9ecef !important;
+    color: #6c757d !important;
+}
+
+.auth-card .input-group-text .text-muted {
+    color: #6c757d !important;
+}
+
+.auth-card .text-samsung-blue {
+    color: var(--samsung-blue) !important;
+}
+
+.auth-card .text-success {
+    color: #198754 !important;
+}
+
+.auth-card .text-center .text-muted a {
+    color: var(--samsung-blue) !important;
+}
+
+/* ---------- Contact Form ---------- */
+.contact-section {
+    background: rgba(10, 15, 40, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* ---------- Page Header ---------- */
+.page-header {
+    background: linear-gradient(135deg, rgba(12, 27, 110, 0.75) 0%, rgba(20, 40, 160, 0.65) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 8rem 0 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header.campaign-hero {
+    background: linear-gradient(135deg, rgba(5, 15, 60, 0.7) 0%, rgba(10, 25, 80, 0.6) 100%),
+                url('../images/testimonials/building interior.jpg') center/cover no-repeat;
+}
+
+.page-header.testimonial-hero {
+    background: linear-gradient(135deg, rgba(5, 15, 60, 0.7) 0%, rgba(10, 25, 80, 0.6) 100%),
+                url('../images/worker/support/team5.jpg') center/cover no-repeat;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.page-header h1 {
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+/* ---------- Countdown ---------- */
+.countdown-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1rem;
+    min-width: 80px;
+    text-align: center;
+}
+
+.countdown-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.countdown-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1px;
+}
+
+/* ---------- Leaderboard ---------- */
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.leaderboard-item:hover {
+    background: rgba(20, 40, 160, 0.03);
+}
+
+.rank-badge {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+}
+
+.rank-1 { background: linear-gradient(135deg, #FFD700, #FFA500); color: #fff; }
+.rank-2 { background: linear-gradient(135deg, #C0C0C0, #A0A0A0); color: #fff; }
+.rank-3 { background: linear-gradient(135deg, #CD7F32, #B8860B); color: #fff; }
+
+/* ---------- Why Choose Us Cards ---------- */
+.feature-icon-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.feature-card {
+    background: rgba(15, 20, 50, 0.80);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    color: #e0e0e0;
+}
+
+.feature-card h5,
+.feature-card h4,
+.feature-card h6 {
+    color: #ffffff !important;
+}
+
+.feature-card p,
+.feature-card .text-muted,
+.feature-card .small {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--samsung-gradient);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.feature-card:hover::after {
+    transform: scaleX(1);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 169, 224, 0.2);
+    border-color: rgba(0, 169, 224, 0.25);
+}
+
+.feature-card:hover .feature-icon-box {
+    transform: scale(1.1);
+}
+
+/* ---------- Live Activity Ticker ---------- */
+.activity-ticker {
+    background: linear-gradient(135deg, #0a0f2e 0%, #1a1a3e 100%);
+    overflow: hidden;
+    position: relative;
+}
+
+.ticker-track {
+    display: flex;
+    gap: 2rem;
+    animation: ticker-scroll 40s linear infinite;
+    width: max-content;
+}
+
+.ticker-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+.ticker-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--samsung-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+/* ---------- Trust Badges ---------- */
+.trust-badge-card {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    color: #e0e0e0;
+}
+
+.trust-badge-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 169, 224, 0.15);
+    transform: translateY(-3px);
+    border-color: rgba(0, 169, 224, 0.25);
+}
+
+.trust-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+}
+
+/* ---------- Partners Marquee ---------- */
+.partner-logo-track {
+    display: flex;
+    gap: 4rem;
+    animation: partner-scroll 30s linear infinite;
+    width: max-content;
+    align-items: center;
+}
+
+@keyframes partner-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.partner-logo {
+    font-size: 2.5rem;
+    opacity: 0.2;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.partner-logo:hover {
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
+/* ---------- Comparison Table ---------- */
+.comparison-table {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table thead th {
+    background: var(--samsung-dark);
+    color: #fff;
+    padding: 1.25rem;
+    font-weight: 700;
+    border: none;
+    text-align: center;
+}
+
+.comparison-table thead th:first-child {
+    text-align: left;
+}
+
+.comparison-table tbody td {
+    padding: 1rem 1.25rem;
+    text-align: center;
+    vertical-align: middle;
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.comparison-table tbody td:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+
+.comparison-table .bi-check-circle-fill {
+    color: var(--samsung-accent);
+    font-size: 1.2rem;
+}
+
+.comparison-table .bi-x-circle-fill {
+    color: #dc3545;
+    font-size: 1.2rem;
+    opacity: 0.4;
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 3px;
+    height: 100%;
+    background: var(--samsung-gradient);
+    border-radius: 10px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 1rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--samsung-accent);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px var(--samsung-accent);
+}
+
+/* ---------- Team Cards ---------- */
+.team-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(20, 40, 160, 0.12);
+}
+
+.team-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--samsung-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2.5rem;
+    color: #fff;
+    border: 4px solid rgba(20, 40, 160, 0.1);
+}
+
+/* ---------- Notification Pulse ---------- */
+.pulse-dot {
+    width: 12px;
+    height: 12px;
+    background: #22c55e;
+    border-radius: 50%;
+    position: relative;
+}
+
+.pulse-dot::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.3);
+    animation: pulse-ring 1.5s infinite;
+}
+
+@keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ---------- Achievement Badge ---------- */
+.achievement-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 2px solid;
+}
+
+.achievement-badge.gold {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: rgba(255, 215, 0, 0.3);
+    color: #b8860b;
+}
+
+.achievement-badge.silver {
+    background: rgba(192, 192, 192, 0.1);
+    border-color: rgba(192, 192, 192, 0.3);
+    color: #808080;
+}
+
+.achievement-badge.bronze {
+    background: rgba(205, 127, 50, 0.1);
+    border-color: rgba(205, 127, 50, 0.3);
+    color: #8b4513;
+}
+
+/* ---------- Gradient Text ---------- */
+.gradient-text {
+    background: var(--samsung-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ---------- Animated Border Card ---------- */
+.glow-card {
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.glow-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 22px;
+    background: var(--samsung-gradient);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.glow-card:hover::before {
+    opacity: 1;
+}
+
+/* ---------- Number Highlight ---------- */
+.big-number {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    background: var(--samsung-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ---------- Info Banner ---------- */
+.info-banner {
+    background: linear-gradient(135deg, rgba(20, 40, 160, 0.15) 0%, rgba(0, 169, 224, 0.1) 100%);
+    border: 1px solid rgba(0, 169, 224, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    color: #e0e0e0;
+}
+
+/* ---------- Social Proof Floating ---------- */
+.social-proof-float {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
+    background: rgba(20, 25, 50, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 320px;
+    transform: translateY(150%);
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: #e0e0e0;
+}
+
+.social-proof-float.show {
+    transform: translateY(0);
+}
+
+/* ---------- Video Section ---------- */
+.video-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--samsung-blue);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.video-play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: #fff;
+}
+
+/* ---------- Guarantee Badge ---------- */
+.guarantee-section {
+    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    border: 2px solid rgba(34, 197, 94, 0.2);
+    border-radius: 24px;
+    padding: 3rem;
+}
+
+.guarantee-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #fff;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+}
+
+/* ---------- Stats Highlight Bar ---------- */
+.stats-highlight-bar {
+    background: var(--samsung-gradient);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.stats-highlight-item {
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+}
+
+.stats-highlight-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Map Decoration ---------- */
+.world-map-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 500'%3E%3Cellipse cx='500' cy='250' rx='400' ry='200' fill='none' stroke='%231428A0' stroke-width='0.5' opacity='0.1'/%3E%3Cellipse cx='500' cy='250' rx='300' ry='150' fill='none' stroke='%231428A0' stroke-width='0.5' opacity='0.08'/%3E%3Cellipse cx='500' cy='250' rx='200' ry='100' fill='none' stroke='%231428A0' stroke-width='0.5' opacity='0.06'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* ---------- Testimonial Video Card ---------- */
+.testimonial-video-card {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    min-height: 300px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.testimonial-video-card .overlay {
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 2rem;
+    width: 100%;
+}
+
+/* ---------- Knowledge Base ---------- */
+.kb-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    color: #e0e0e0;
+}
+
+.kb-card:hover {
+    border-color: var(--samsung-accent);
+    box-shadow: 0 10px 30px rgba(0, 169, 224, 0.15);
+    transform: translateY(-3px);
+    color: inherit;
+}
+
+/* ---------- Scroll Animations ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- Hover Effects ---------- */
+.hover-white:hover { color: #fff !important; }
+.hover-accent:hover { color: var(--samsung-accent) !important; }
+.hover-lift:hover { transform: translateY(-5px); }
+
+/* ---------- Typewriter ---------- */
+.typewriter {
+    display: inline;
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background: var(--samsung-accent);
+    margin-left: 2px;
+    animation: blink-cursor 0.8s infinite;
+    vertical-align: text-bottom;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ---------- Responsive ---------- */
+
+/* Scroll padding for fixed navbar */
+html {
+    scroll-padding-top: 80px;
+}
+
+/* ---- Large tablets / small desktops (992px) ---- */
+@media (max-width: 991.98px) {
+    html {
+        scroll-padding-top: 70px;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .pricing-price {
+        font-size: 2.5rem;
+    }
+
+    .big-number {
+        font-size: 3rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .step-icon {
+        width: 75px;
+        height: 75px;
+        font-size: 1.7rem;
+    }
+
+    .feature-icon-box {
+        width: 65px;
+        height: 65px;
+        font-size: 1.6rem;
+    }
+
+    .guarantee-section {
+        padding: 2rem;
+    }
+
+    .stats-highlight-bar {
+        padding: 1.5rem;
+    }
+
+    .stats-highlight-item:not(:last-child)::after {
+        display: none;
+    }
+
+    /* Navbar auth buttons stack better */
+    .navbar .d-flex.align-items-center.gap-2 {
+        margin-top: 0.75rem;
+        justify-content: center;
+    }
+}
+
+/* ---- Tablets (768px) ---- */
+@media (max-width: 767.98px) {
+    html {
+        scroll-padding-top: 60px;
+    }
+
+    .hero-section {
+        padding-top: 70px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .stat-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1.25rem 0.75rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .pricing-card.popular {
+        transform: scale(1);
+    }
+
+    .pricing-card.popular:hover {
+        transform: translateY(-10px);
+    }
+
+    .pricing-price {
+        font-size: 2.2rem;
+    }
+
+    .step-connector {
+        display: none;
+    }
+
+    .page-header {
+        padding: 6rem 0 2.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .big-number {
+        font-size: 2.5rem;
+    }
+
+    .step-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.5rem;
+    }
+
+    .feature-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .feature-icon-box {
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .trust-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.2rem;
+    }
+
+    .trust-badge-card {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .guarantee-section {
+        padding: 1.75rem;
+    }
+
+    .guarantee-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    .countdown-item {
+        min-width: 65px;
+        padding: 0.75rem 0.5rem;
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.6rem;
+    }
+
+    /* Footer responsive */
+    footer .row.align-items-center .col-md-6.text-md-end {
+        text-align: center !important;
+        margin-top: 0.5rem;
+    }
+
+    /* Social proof popup */
+    .social-proof-float {
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        max-width: none;
+    }
+
+    /* Floating badges hide on tablets */
+    .hero-section .position-absolute.floating,
+    .hero-section .position-absolute.floating-delay {
+        display: none;
+    }
+
+    /* Auth card adjustments */
+    .auth-card {
+        padding: 2rem 1.5rem;
+    }
+
+    /* Info banner */
+    .info-banner {
+        padding: 1.5rem;
+    }
+
+    /* Timeline */
+    .timeline {
+        padding-left: 2.5rem;
+    }
+
+    /* Gallery thumbnails */
+    .celeb-gallery-strip .gallery-thumb {
+        width: 110px;
+        height: 75px;
+    }
+
+    /* Dashboard progress cards */
+    .progress-card {
+        padding: 1.25rem;
+    }
+
+    .progress-card h3 {
+        font-size: 1.4rem;
+    }
+
+    /* Comparison table better sizing */
+    .comparison-table thead th,
+    .comparison-table tbody td {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* ---- Mobile phones (576px) ---- */
+@media (max-width: 575.98px) {
+    html {
+        scroll-padding-top: 56px;
+    }
+
+    .hero-section {
+        padding-top: 60px;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+        letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .hero-section .btn-lg {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.25rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .section-badge {
+        font-size: 0.7rem;
+        padding: 0.3rem 1rem;
+        letter-spacing: 1.5px;
+    }
+
+    .section-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 1.75rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+    }
+
+    .pricing-price {
+        font-size: 2rem;
+    }
+
+    .pricing-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .page-header {
+        padding: 5rem 0 2rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .page-header .fs-5 {
+        font-size: 0.95rem !important;
+    }
+
+    .big-number {
+        font-size: 2rem;
+    }
+
+    .step-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 1.3rem;
+    }
+
+    .step-number {
+        width: 24px;
+        height: 24px;
+        font-size: 0.7rem;
+    }
+
+    .feature-card {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .feature-icon-box {
+        width: 55px;
+        height: 55px;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .trust-badge-card {
+        padding: 1rem 0.5rem;
+    }
+
+    .trust-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+
+    .trust-badge-card h6 {
+        font-size: 0.75rem;
+    }
+
+    .guarantee-section {
+        padding: 1.5rem;
+    }
+
+    .guarantee-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 1.7rem;
+    }
+
+    .countdown-item {
+        min-width: 58px;
+        padding: 0.6rem 0.4rem;
+        border-radius: 12px;
+    }
+
+    .countdown-number {
+        font-size: 1.3rem;
+    }
+
+    .countdown-label {
+        font-size: 0.55rem;
+    }
+
+    /* Auth pages */
+    .auth-card {
+        padding: 1.5rem 1.25rem;
+        border-radius: 16px;
+    }
+
+    .auth-section {
+        padding-top: 60px;
+    }
+
+    /* Buttons on mobile */
+    .btn-lg {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+    }
+
+    /* Footer */
+    footer .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    footer h5 {
+        font-size: 1rem;
+    }
+
+    footer h6 {
+        font-size: 0.85rem;
+    }
+
+    /* Ticker on mobile */
+    .ticker-item {
+        padding: 0.5rem 0.75rem;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .ticker-avatar {
+        width: 30px;
+        height: 30px;
+        font-size: 0.7rem;
+    }
+
+    /* Gallery */
+    .celeb-gallery-strip .gallery-thumb {
+        width: 100px;
+        height: 68px;
+        border-radius: 10px;
+    }
+
+    /* Stats highlight bar */
+    .stats-highlight-bar {
+        padding: 1rem;
+        border-radius: 14px;
+    }
+
+    .stats-highlight-bar .fs-2 {
+        font-size: 1.4rem !important;
+    }
+
+    .stats-highlight-item {
+        padding: 0.5rem;
+    }
+
+    /* CTA section */
+    .display-5 {
+        font-size: 1.5rem !important;
+    }
+
+    /* Celebration hero */
+    .celebration-hero {
+        min-height: 280px;
+    }
+
+    .celebration-hero .hero-title {
+        font-size: 1.05rem;
+    }
+
+    .celebration-hero .hero-excerpt {
+        font-size: 0.82rem;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .celebration-hero .hero-meta span {
+        font-size: 0.72rem;
+    }
+
+    .celebration-hero .hero-content {
+        padding: 1.25rem;
+    }
+
+    .celebration-hero .hero-category {
+        font-size: 0.6rem;
+        padding: 4px 10px;
+    }
+
+    /* Celeb card adjustments */
+    .celeb-card .card-img-wrap {
+        height: 180px;
+    }
+
+    .celeb-card .card-body-inner {
+        padding: 1rem 1.25rem 1.25rem;
+    }
+
+    .celeb-card .card-body-inner h5 {
+        font-size: 0.95rem;
+    }
+
+    .celeb-card .card-body-inner p {
+        font-size: 0.82rem;
+    }
+
+    .celeb-card .card-footer-inner {
+        padding: 0 1.25rem 1rem;
+    }
+
+    /* Celeb stats ribbon */
+    .celeb-stats-ribbon {
+        padding: 1rem;
+        border-radius: 14px;
+    }
+
+    .celeb-stats-ribbon .stat-number {
+        font-size: 1.2rem;
+    }
+
+    .celeb-stats-ribbon .stat-label {
+        font-size: 0.68rem;
+    }
+
+    /* Dashboard specific */
+    .progress-card {
+        padding: 1rem;
+    }
+
+    .progress-card h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Contact social icons */
+    .social-proof-float {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    /* Timeline */
+    .timeline {
+        padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+        left: -1.75rem;
+        width: 12px;
+        height: 12px;
+    }
+
+    /* Info banner */
+    .info-banner {
+        padding: 1.25rem;
+        border-radius: 14px;
+    }
+
+    /* Leaderboard */
+    .leaderboard-item {
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+
+    .rank-badge {
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+    }
+
+    /* Video wrapper */
+    .video-wrapper {
+        border-radius: 14px;
+    }
+
+    .video-play-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+    }
+
+    /* Modal */
+    .modal-content {
+        margin: 0.5rem;
+        border-radius: 16px;
+    }
+
+    /* Comparison table */
+    .comparison-table thead th {
+        font-size: 0.75rem;
+        padding: 0.6rem 0.5rem;
+    }
+
+    .comparison-table tbody td {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+    }
+
+    .comparison-table .bi-check-circle-fill,
+    .comparison-table .bi-x-circle-fill {
+        font-size: 1rem;
+    }
+
+    /* Team cards */
+    .team-card {
+        padding: 1.5rem;
+    }
+
+    .team-avatar {
+        width: 75px;
+        height: 75px;
+        font-size: 2rem;
+    }
+
+    /* OTP inputs - phones */
+    .otp-input {
+        width: 40px !important;
+        height: 45px !important;
+        font-size: 1.2rem !important;
+        border-radius: 10px !important;
+    }
+
+    /* Chat box responsive */
+    .chat-input-area .input-group {
+        flex-wrap: nowrap;
+    }
+}
+
+/* ---- Extra small phones (< 400px) ---- */
+@media (max-width: 399.98px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .pricing-price {
+        font-size: 1.75rem;
+    }
+
+    .countdown-item {
+        min-width: 50px;
+        padding: 0.5rem 0.3rem;
+    }
+
+    .countdown-number {
+        font-size: 1.1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.35rem;
+    }
+
+    .big-number {
+        font-size: 1.75rem;
+    }
+
+    .display-5 {
+        font-size: 1.3rem !important;
+    }
+
+    .btn-lg {
+        font-size: 0.82rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .celebration-hero {
+        min-height: 250px;
+    }
+
+    .celebration-hero .hero-title {
+        font-size: 0.95rem;
+    }
+
+    .celeb-stats-ribbon .stat-number {
+        font-size: 1rem;
+    }
+
+    .stats-highlight-bar .fs-2 {
+        font-size: 1.2rem !important;
+    }
+
+    /* OTP inputs - tiny phones */
+    .otp-input {
+        width: 36px !important;
+        height: 40px !important;
+        font-size: 1rem !important;
+        border-radius: 8px !important;
+    }
+}
+
+/* ---- Navbar mobile collapse improvements ---- */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: rgba(10, 10, 26, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 0 0 16px 16px;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: none;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
+    .navbar-nav {
+        gap: 0.25rem;
+    }
+
+    .nav-link {
+        padding: 0.65rem 1rem !important;
+        border-radius: 10px;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background: rgba(0, 169, 224, 0.1);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .navbar .d-flex.align-items-center.gap-2 {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem !important;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 0.5rem;
+    }
+
+    .navbar .d-flex.align-items-center.gap-2 .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ---- Print Styles ---- */
+@media print {
+    .navbar,
+    footer,
+    .social-proof-float,
+    .activity-ticker {
+        display: none !important;
+    }
+
+    body {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    .page-header {
+        background: #1428A0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* ---------- Testimony Comment Section ---------- */
+.upload-zone {
+    border: 2px dashed #dee2e6;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.upload-zone:hover {
+    border-color: var(--samsung-blue);
+    background: #f8f9ff;
+}
+
+.testimony-comment-card .bg-white {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testimony-comment-card .bg-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.testimony-media img {
+    transition: transform 0.3s ease;
+}
+
+.testimony-media img:hover {
+    transform: scale(1.02);
+}
+
+.like-btn {
+    transition: transform 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.like-btn:hover {
+    transform: scale(1.15);
+}
+
+.star-rating-input .star-label {
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.star-rating-input .star-label:hover {
+    transform: scale(1.2);
+}
+
+.star-rating-input .star-label i {
+    color: #dee2e6;
+    transition: color 0.15s ease;
+}
+
+.testimony-feed {
+    max-height: none;
+}
+
+#testimony-form textarea:focus,
+#testimony-form input:focus {
+    border-color: var(--samsung-blue);
+    box-shadow: 0 0 0 0.2rem rgba(20, 40, 160, 0.15);
+}
+
+/* =============================================
+   DARK TRANSPARENT THEME OVERRIDES
+   Make Bootstrap & section backgrounds translucent
+   so the Samsung building BG shows through
+   ============================================= */
+
+/* Override Bootstrap bg-light to be semi-transparent dark */
+.bg-light {
+    background: rgba(10, 15, 40, 0.55) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Override Bootstrap bg-white */
+.bg-white {
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Override Bootstrap cards */
+.card {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+/* Override Bootstrap text-muted */
+.text-muted {
+    color: rgba(255, 255, 255, 0.55) !important;
+}
+
+/* Override Bootstrap text-dark */
+.text-dark {
+    color: #e0e0e0 !important;
+}
+
+/* Override Bootstrap form controls for dark theme */
+.form-control,
+.form-select {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #e0e0e0;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: var(--samsung-accent);
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 169, 224, 0.25);
+}
+
+/* Feature icon boxes on dark bg */
+.feature-icon-box {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Accordion on dark bg */
+.accordion-item {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+.accordion-button {
+    background: rgba(255, 255, 255, 0.04);
+    color: #e0e0e0;
+}
+
+.accordion-button:not(.collapsed) {
+    background: rgba(0, 169, 224, 0.1);
+    color: var(--samsung-accent);
+}
+
+.accordion-body {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* Alert overrides */
+.alert {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Footer adjust - slightly more opaque */
+footer.bg-dark {
+    background: rgba(5, 5, 15, 0.92) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Pricing price color on dark */
+.pricing-price {
+    color: var(--samsung-accent);
+}
+
+/* Device price color */
+.device-card .device-price {
+    color: var(--samsung-accent);
+}
+
+/* Override list group items */
+.list-group-item {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+/* World map bg section */
+.world-map-bg {
+    background: rgba(10, 15, 40, 0.6) !important;
+}
+
+/* Headings ensure white */
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+}
+
+/* Links */
+a:not(.btn):not(.nav-link):not(.navbar-brand):not(.text-decoration-none) {
+    color: var(--samsung-accent);
+}
+
+/* Badge text fixes */
+.badge.bg-white {
+    color: var(--samsung-blue) !important;
+}
+
+/* Table overrides */
+.table {
+    color: #e0e0e0;
+}
+
+.table > :not(caption) > * > * {
+    background-color: transparent;
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Social proof popup */
+.social-proof-float {
+    background: rgba(20, 25, 50, 0.92) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #e0e0e0;
+}
+
+/* Dashboard sidebar darker */
+.dashboard-sidebar {
+    background: rgba(10, 10, 26, 0.95);
+}
+
+/* ---- Comprehensive Dark Theme Text Fixes ---- */
+
+/* All paragraph text visible */
+p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* List items */
+ul li, ol li {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Bootstrap card internals */
+.card-body {
+    color: #e0e0e0;
+}
+
+.card-title {
+    color: #ffffff !important;
+}
+
+.card-text {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Bootstrap text-secondary override */
+.text-secondary {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Pricing features list on dark */
+.pricing-features li {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.pricing-features li i {
+    color: var(--samsung-accent);
+}
+
+/* Pricing price small text */
+.pricing-price small {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* Samsung blue text on dark - make it accent for visibility */
+.text-samsung-blue {
+    color: var(--samsung-accent) !important;
+}
+
+/* Gradient text ensure visible */
+.gradient-text {
+    background: var(--samsung-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Breadcrumb */
+.breadcrumb-item,
+.breadcrumb-item a {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.breadcrumb-item.active {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Pagination */
+.page-link {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+.page-link:hover {
+    background-color: rgba(0, 169, 224, 0.15);
+    border-color: var(--samsung-accent);
+    color: #fff;
+}
+
+/* Modal */
+.modal-content {
+    background: rgba(20, 25, 50, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #e0e0e0;
+}
+
+.modal-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Close button on dark */
+.btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Badge overrides for visibility */
+.badge.bg-light {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #e0e0e0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.badge.bg-warning.text-dark {
+    color: #1a1a1a !important;
+}
+
+/* Steps text */
+.process-step p,
+.process-step h5 {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Table thead */
+.table thead th {
+    color: #ffffff;
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Input labels */
+label {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* HR horizontal rule */
+hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+}
+
+/* Dropdown menus */
+.dropdown-menu {
+    background: rgba(20, 25, 50, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.dropdown-item {
+    color: #e0e0e0;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background: rgba(0, 169, 224, 0.15);
+    color: #fff;
+}
+
+/* Testimony cards dark text fix */
+.testimony-comment-card .bg-white {
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.testimony-comment-card .bg-white:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Ensure bordered elements use subtle borders */
+.border {
+    border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.border-bottom {
+    border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.border-top {
+    border-top-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Small/muted descriptive text */
+small,
+.small {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* Progress bars */
+.progress {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Nav tabs and pills */
+.nav-tabs .nav-link {
+    color: rgba(255, 255, 255, 0.6);
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+    background: rgba(0, 169, 224, 0.15);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-pills .nav-link {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.nav-pills .nav-link.active {
+    background: var(--samsung-gradient);
+    color: #fff;
+}
+
+/* Strong / bold text */
+strong, b {
+    color: #ffffff;
+}
+
+/* Blockquote */
+blockquote {
+    color: rgba(255, 255, 255, 0.75);
+    border-left-color: var(--samsung-accent);
+}
+
+/* Toast notifications */
+.toast {
+    background: rgba(20, 25, 50, 0.95);
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Btn-light on dark background */
+.btn-light {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--samsung-blue) !important;
+}
+
+/* Btn-outline-secondary */
+.btn-outline-secondary {
+    border-color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-outline-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+/* Ensure hero text stays white */
+.hero-section h1,
+.hero-section h2,
+.hero-section p,
+.hero-section span {
+    color: #fff;
+}
+
+.hero-section .text-white-50 {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Contact form wrapper on dark bg */
+.contact-section .bg-white {
+    background: rgba(15, 20, 50, 0.80) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Input group text (icons before inputs) */
+.input-group-text {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* btn-samsung-outline on dark */
+.btn-samsung-outline {
+    border-color: var(--samsung-accent);
+    color: var(--samsung-accent);
+}
+
+.btn-samsung-outline:hover {
+    background: var(--samsung-accent);
+    color: #fff;
+}
+
+/* btn-outline-success on dark */
+.btn-outline-success {
+    border-color: #25D366;
+    color: #25D366;
+}
+
+/* btn-outline-warning on dark */
+.btn-outline-warning {
+    border-color: #f59e0b;
+    color: #f59e0b;
+}
+
+/* ========== CELEBRATION BLOG SECTION ========== */
+.celebration-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Featured / Hero Story --- */
+.celebration-hero {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    align-items: flex-end;
+    background: #0d0d20;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.celebration-hero:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 80px rgba(20, 40, 160, 0.2);
+}
+
+.celebration-hero .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+}
+
+.celebration-hero:hover .hero-bg {
+    transform: scale(1.04);
+}
+
+.celebration-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(5, 5, 20, 0.95) 0%, rgba(5, 5, 20, 0.6) 40%, rgba(5, 5, 20, 0.1) 100%);
+}
+
+.celebration-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2.5rem;
+    width: 100%;
+}
+
+.celebration-hero .hero-category {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--samsung-blue), var(--samsung-accent));
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+}
+
+.celebration-hero .hero-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.celebration-hero .hero-excerpt {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.celebration-hero .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.celebration-hero .hero-meta span {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.82rem;
+}
+
+.celebration-hero .hero-meta span i {
+    color: var(--samsung-accent);
+    margin-right: 4px;
+}
+
+/* --- Blog Grid Cards --- */
+.celeb-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.celeb-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(0, 169, 224, 0.12);
+    border-color: rgba(0, 169, 224, 0.25);
+}
+
+.celeb-card .card-img-wrap {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.celeb-card .card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.celeb-card:hover .card-img-wrap img {
+    transform: scale(1.06);
+}
+
+.celeb-card .card-img-wrap .img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(5, 5, 20, 0.7) 0%, transparent 60%);
+}
+
+.celeb-card .card-img-wrap .card-category {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(0, 169, 224, 0.85);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    z-index: 2;
+}
+
+.celeb-card .card-img-wrap .card-reactions {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+}
+
+.celeb-card .card-img-wrap .card-reactions span {
+    color: #fff;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+
+.celeb-card .card-body-inner {
+    padding: 1.4rem 1.5rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.celeb-card .card-body-inner h5 {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.celeb-card .card-body-inner p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.celeb-card .card-footer-inner {
+    padding: 0 1.5rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.celeb-card .card-footer-inner .author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.celeb-card .card-footer-inner .author img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--samsung-accent);
+}
+
+.celeb-card .card-footer-inner .author-placeholder {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--samsung-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.celeb-card .card-footer-inner .author-info span {
+    display: block;
+    font-size: 0.78rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.celeb-card .card-footer-inner .author-info small {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.7rem;
+}
+
+.celeb-card .card-footer-inner .read-time {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.75rem;
+}
+
+.celeb-card .card-footer-inner .read-time i {
+    color: var(--samsung-accent);
+    margin-right: 3px;
+}
+
+/* --- Photo Gallery Strip --- */
+.celeb-gallery-strip {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.celeb-gallery-strip::-webkit-scrollbar {
+    display: none;
+}
+
+.celeb-gallery-strip .gallery-thumb {
+    flex: 0 0 auto;
+    width: 130px;
+    height: 90px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    scroll-snap-align: start;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.celeb-gallery-strip .gallery-thumb:hover {
+    border-color: var(--samsung-accent);
+    transform: scale(1.05);
+}
+
+.celeb-gallery-strip .gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.celeb-gallery-strip .gallery-thumb .thumb-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.8), transparent);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 600;
+    padding: 12px 6px 4px;
+    text-align: center;
+}
+
+/* --- Stats Ribbon --- */
+.celeb-stats-ribbon {
+    background: linear-gradient(135deg, rgba(20, 40, 160, 0.25), rgba(0, 169, 224, 0.15));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 169, 224, 0.2);
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+}
+
+.celeb-stats-ribbon .stat-item {
+    text-align: center;
+}
+
+.celeb-stats-ribbon .stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, var(--samsung-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+}
+
+.celeb-stats-ribbon .stat-label {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.78rem;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+/* --- Responsive (celebration) --- */
+@media (max-width: 991.98px) {
+    .celebration-hero {
+        min-height: 380px;
+    }
+    .celebration-hero .hero-title {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .celebration-hero {
+        min-height: 320px;
+    }
+    .celebration-hero .hero-title {
+        font-size: 1.2rem;
+    }
+    .celebration-hero .hero-content {
+        padding: 1.5rem;
+    }
+    .celeb-stats-ribbon {
+        padding: 1.5rem;
+    }
+    .celeb-stats-ribbon .stat-number {
+        font-size: 1.5rem;
+    }
+}

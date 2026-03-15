@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Cookie Policy - Samsung Promo Portal{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container position-relative" style="z-index: 2;">
+        <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill mb-3 fs-7">
+            <i class="bi bi-cookie me-1"></i> LEGAL
+        </span>
+        <h1 class="text-white mb-3">Cookie Policy</h1>
+        <p class="text-white-50 fs-5">Last updated: March 1, 2026</p>
+    </div>
+</div>
+
+<section class="py-5 light-section" style="background: #f8f9fc;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="bg-white rounded-4 shadow-sm p-4 p-md-5" data-aos="fade-up">
+
+                    <div class="alert border-0 rounded-4 mb-5" style="background: #f0f4ff; color: #1e40af;">
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="bi bi-info-circle-fill fs-4"></i>
+                            <div>
+                                This Cookie Policy explains how Samsung Promo Portal uses cookies and similar technologies when you visit our website. For more details about how we handle your personal data, please see our <a href="{% url 'core:privacy_policy' %}" style="color: var(--samsung-blue); font-weight: 600;">Privacy Policy</a>.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 1 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">1</span>
+                            What Are Cookies?
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Cookies are small text files placed on your device (computer, tablet, or mobile phone) when you visit a website. They are widely used to make websites work more efficiently, provide a better user experience, and supply information to site owners.</p>
+                        <p style="color: #555; line-height: 1.8;">Cookies cannot access other data on your device and do not carry viruses or install malware.</p>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">2</span>
+                            Types of Cookies We Use
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">We categorize our cookies into the following types:</p>
+
+                        <div class="table-responsive mt-3">
+                            <table class="table table-bordered" style="color: #333;">
+                                <thead style="background: #f0f4ff;">
+                                    <tr>
+                                        <th style="color: #1a1a2e; width: 20%;">Category</th>
+                                        <th style="color: #1a1a2e; width: 40%;">Purpose</th>
+                                        <th style="color: #1a1a2e; width: 20%;">Duration</th>
+                                        <th style="color: #1a1a2e; width: 20%;">Required?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong><i class="bi bi-gear me-1 text-secondary"></i> Essential</strong></td>
+                                        <td>Required for the Platform to function — session management, authentication (CSRF tokens, session IDs), and security</td>
+                                        <td>Session / 14 days</td>
+                                        <td><span class="badge bg-success-subtle text-success">Required</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><i class="bi bi-speedometer2 me-1 text-primary"></i> Performance</strong></td>
+                                        <td>Help us understand how visitors interact with the Platform by collecting anonymous usage data (page views, load times)</td>
+                                        <td>Up to 2 years</td>
+                                        <td><span class="badge bg-warning-subtle text-warning">Optional</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><i class="bi bi-sliders me-1 text-info"></i> Functional</strong></td>
+                                        <td>Remember your preferences such as language, region, dark/light mode, and login status</td>
+                                        <td>Up to 1 year</td>
+                                        <td><span class="badge bg-warning-subtle text-warning">Optional</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><i class="bi bi-megaphone me-1 text-danger"></i> Marketing</strong></td>
+                                        <td>Used to deliver relevant promotional content and measure campaign effectiveness</td>
+                                        <td>Up to 2 years</td>
+                                        <td><span class="badge bg-warning-subtle text-warning">Optional</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">3</span>
+                            Specific Cookies We Use
+                        </h4>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" style="color: #333;">
+                                <thead style="background: #f0f4ff;">
+                                    <tr>
+                                        <th style="color: #1a1a2e;">Cookie Name</th>
+                                        <th style="color: #1a1a2e;">Type</th>
+                                        <th style="color: #1a1a2e;">Description</th>
+                                        <th style="color: #1a1a2e;">Expiry</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code style="color: #9333ea;">csrftoken</code></td>
+                                        <td>Essential</td>
+                                        <td>Prevents cross-site request forgery attacks</td>
+                                        <td>1 year</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code style="color: #9333ea;">sessionid</code></td>
+                                        <td>Essential</td>
+                                        <td>Maintains your authenticated session</td>
+                                        <td>14 days</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code style="color: #9333ea;">messages</code></td>
+                                        <td>Essential</td>
+                                        <td>Stores temporary notification messages (success, error alerts)</td>
+                                        <td>Session</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code style="color: #9333ea;">cookie_consent</code></td>
+                                        <td>Essential</td>
+                                        <td>Records your cookie preference choice</td>
+                                        <td>1 year</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code style="color: #9333ea;">_ga / _gid</code></td>
+                                        <td>Performance</td>
+                                        <td>Google Analytics — anonymous usage tracking</td>
+                                        <td>2 years / 24 hours</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code style="color: #9333ea;">user_prefs</code></td>
+                                        <td>Functional</td>
+                                        <td>Stores your display preferences (region, language)</td>
+                                        <td>1 year</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">4</span>
+                            Third-Party Cookies
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Some cookies are set by third-party services that appear on our pages. We do not control these cookies. Third parties that may set cookies include:</p>
+                        <div class="row g-3 my-3">
+                            <div class="col-md-4">
+                                <div class="p-3 rounded-3 text-center" style="background: #f8f9fc;">
+                                    <i class="bi bi-google text-primary fs-3"></i>
+                                    <p class="fw-bold mb-0 mt-2" style="color: #1a1a2e;">Google Analytics</p>
+                                    <small style="color: #555;">Website traffic analysis</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 rounded-3 text-center" style="background: #f8f9fc;">
+                                    <i class="bi bi-credit-card-2-back text-success fs-3"></i>
+                                    <p class="fw-bold mb-0 mt-2" style="color: #1a1a2e;">Paystack</p>
+                                    <small style="color: #555;">Secure payment processing</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 rounded-3 text-center" style="background: #f8f9fc;">
+                                    <i class="bi bi-bootstrap text-info fs-3"></i>
+                                    <p class="fw-bold mb-0 mt-2" style="color: #1a1a2e;">Bootstrap CDN</p>
+                                    <small style="color: #555;">UI framework delivery</small>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="color: #555; line-height: 1.8;">We encourage you to review the privacy policies of these third parties for more information about their cookie practices.</p>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">5</span>
+                            Managing Your Cookies
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">You can control and manage cookies in several ways:</p>
+
+                        <div class="accordion accordion-flush mt-3" id="cookieAccordion">
+                            <div class="accordion-item border rounded-3 mb-2">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#cookieBrowser" style="color: #1a1a2e; background: #fff;">
+                                        <i class="bi bi-globe me-2 text-primary"></i> Browser Settings
+                                    </button>
+                                </h2>
+                                <div id="cookieBrowser" class="accordion-collapse collapse" data-bs-parent="#cookieAccordion">
+                                    <div class="accordion-body" style="color: #555;">
+                                        Most browsers allow you to block or delete cookies through their settings. Check your browser's help section for instructions:
+                                        <ul class="mt-2 mb-0">
+                                            <li><strong>Chrome:</strong> Settings → Privacy and Security → Cookies</li>
+                                            <li><strong>Firefox:</strong> Settings → Privacy & Security → Cookies</li>
+                                            <li><strong>Safari:</strong> Preferences → Privacy → Manage Website Data</li>
+                                            <li><strong>Edge:</strong> Settings → Cookies and site permissions</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border rounded-3 mb-2">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#cookieOptout" style="color: #1a1a2e; background: #fff;">
+                                        <i class="bi bi-toggle-off me-2 text-primary"></i> Opt-Out Tools
+                                    </button>
+                                </h2>
+                                <div id="cookieOptout" class="accordion-collapse collapse" data-bs-parent="#cookieAccordion">
+                                    <div class="accordion-body" style="color: #555;">
+                                        <ul class="mb-0">
+                                            <li><strong>Google Analytics Opt-out:</strong> Install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" style="color: var(--samsung-blue);">Google Analytics Opt-out Browser Add-on</a></li>
+                                            <li><strong>Network Advertising Initiative:</strong> <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener" style="color: var(--samsung-blue);">optout.networkadvertising.org</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item border rounded-3">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#cookieImpact" style="color: #1a1a2e; background: #fff;">
+                                        <i class="bi bi-exclamation-triangle me-2 text-warning"></i> Impact of Disabling Cookies
+                                    </button>
+                                </h2>
+                                <div id="cookieImpact" class="accordion-collapse collapse" data-bs-parent="#cookieAccordion">
+                                    <div class="accordion-body" style="color: #555;">
+                                        Please note that disabling essential cookies may affect the functionality of the Platform. You may not be able to:
+                                        <ul class="mt-2 mb-0">
+                                            <li>Log into your account</li>
+                                            <li>Complete purchases or payments</li>
+                                            <li>Access personalized content</li>
+                                            <li>Submit forms securely</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6 -->
+                    <div class="mb-4">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">6</span>
+                            Changes to This Cookie Policy
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">We may update this Cookie Policy from time to time to reflect changes in our practices or for operational, legal, or regulatory reasons. We will post the updated policy on this page with a revised "Last updated" date. We encourage you to review this page periodically.</p>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="p-4 rounded-4" style="background: #f0f4ff;">
+                        <h5 class="fw-bold mb-2" style="color: #1a1a2e;"><i class="bi bi-question-circle-fill text-primary me-2"></i> Questions about Cookies?</h5>
+                        <p class="mb-2" style="color: #555;">If you have questions about our use of cookies, contact us:</p>
+                        <ul class="mb-0" style="color: #555; list-style: none; padding-left: 0;">
+                            <li><i class="bi bi-envelope me-2 text-primary"></i> <a href="mailto:privacy@samsungpromo.com" style="color: var(--samsung-blue);">privacy@samsungpromo.com</a></li>
+                            <li class="mt-2"><a href="{% url 'core:contact' %}" class="btn btn-sm btn-samsung rounded-pill px-3"><i class="bi bi-chat-dots-fill me-1"></i> Contact Support</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

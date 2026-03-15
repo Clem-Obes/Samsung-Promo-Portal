@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Verify Certificate - Samsung Promo Portal{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container position-relative" style="z-index: 2;">
+        <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill mb-3 fs-7">
+            <i class="bi bi-shield-fill-check me-1"></i> VERIFICATION
+        </span>
+        <h1 class="text-white mb-3">Certificate Verification</h1>
+        <p class="text-white-50 fs-5">Verify the authenticity of a Samsung Promo Portal certificate</p>
+    </div>
+</div>
+
+<section class="py-5 light-section" style="background: #f8f9fc;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                {% if is_valid and certificate %}
+                <div class="bg-white rounded-4 shadow-sm p-5 text-center" data-aos="fade-up">
+                    <div class="mb-4">
+                        <div style="width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, #22c55e, #16a34a); display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 10px 30px rgba(34,197,94,0.3);">
+                            <i class="bi bi-check-lg" style="font-size: 2.5rem; color: #fff;"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mb-2" style="color: #16a34a;">Certificate Verified ✓</h3>
+                    <p class="text-muted mb-4">This certificate is authentic and was officially issued by Samsung Promo Portal.</p>
+
+                    <div class="text-start bg-light rounded-3 p-4 mb-4" style="background: #f8fdf8 !important;">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div style="font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Certificate No.</div>
+                                <div style="color: #1a1a2e; font-weight: 700;">{{ certificate.certificate_id }}</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div style="font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Recipient</div>
+                                <div style="color: #1a1a2e; font-weight: 700;">{{ certificate.recipient_name }}</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div style="font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Award Amount</div>
+                                <div style="color: #1428A0; font-weight: 700; font-size: 1.2rem;">{{ certificate.formatted_amount }}</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div style="font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Date Issued</div>
+                                <div style="color: #1a1a2e; font-weight: 700;">{{ certificate.issued_date|date:"F d, Y" }}</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div style="font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Type</div>
+                                <div style="color: #1a1a2e; font-weight: 700;">{{ certificate.get_certificate_type_display }}</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div style="font-size: 0.7rem; color: #999; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Authorized By</div>
+                                <div style="color: #1a1a2e; font-weight: 700;">{{ certificate.authorized_signatory }}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="small" style="color: #999;">
+                        <i class="bi bi-shield-fill-check me-1"></i>
+                        Verification Hash: <code style="color: #1428A0; font-size: 0.65rem;">{{ certificate.verification_hash }}</code>
+                    </div>
+                </div>
+                {% else %}
+                <div class="bg-white rounded-4 shadow-sm p-5 text-center" data-aos="fade-up">
+                    <div class="mb-4">
+                        <div style="width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, #ef4444, #dc2626); display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 10px 30px rgba(239,68,68,0.3);">
+                            <i class="bi bi-x-lg" style="font-size: 2.5rem; color: #fff;"></i>
+                        </div>
+                    </div>
+                    <h3 class="fw-bold mb-2" style="color: #dc2626;">Certificate Not Found</h3>
+                    <p class="text-muted mb-4">No valid certificate was found matching the verification code <strong>{{ hash_prefix }}</strong>. This certificate may be invalid, expired, or revoked.</p>
+                    <a href="{% url 'core:home' %}" class="btn btn-samsung rounded-pill px-4">
+                        <i class="bi bi-house-fill me-2"></i> Return Home
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

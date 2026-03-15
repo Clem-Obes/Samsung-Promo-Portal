@@ -1,0 +1,330 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Pricing - Samsung Promo Portal{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container position-relative" style="z-index: 2;">
+        <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill mb-3 fs-7">
+            <i class="bi bi-credit-card-fill me-1"></i> MEMBERSHIP
+        </span>
+        <h1 class="text-white mb-3">Membership Plans</h1>
+        <p class="text-white-50 fs-5">Choose the plan that fits your promotional goals</p>
+    </div>
+</div>
+
+<section class="py-5 light-section" style="background: #f8f9fc;">
+    <div class="container">
+        <div class="alert alert-info border-0 shadow-sm rounded-4 mb-5" style="background: #e8f4fd;" data-aos="fade-up">
+            <div class="d-flex align-items-start gap-3">
+                <i class="bi bi-shield-check fs-3 text-primary"></i>
+                <div>
+                    <h6 class="fw-bold mb-1" style="color: #1a1a2e;">Transparent & Secure Payments</h6>
+                    <p class="mb-0" style="color: #555;">All payments are processed securely through Paystack. Membership fees grant you access to exclusive promotional campaigns with higher reward eligibility. Your payment is a one-time contribution — no hidden charges.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            {% if plans %}
+                {% for plan in plans %}
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+                    <div class="pricing-card h-100 {% if plan.is_popular %}popular{% endif %}">
+                        {% if plan.is_popular %}
+                            <div class="popular-badge">Popular</div>
+                        {% endif %}
+                        <div class="text-center mb-4">
+                            <h4 class="fw-bold">{{ plan.name }}</h4>
+                            <p class="text-muted small">{{ plan.description }}</p>
+                            <div class="pricing-price">${{ plan.price }}<small>/one-time</small></div>
+                        </div>
+                        <ul class="list-unstyled pricing-features mb-4">
+                            {% for benefit in plan.benefits_list %}
+                            <li><i class="bi bi-check-circle-fill"></i> {{ benefit }}</li>
+                            {% endfor %}
+                        </ul>
+                        <a href="{% url 'payments:subscribe' plan.slug %}" class="btn {% if plan.is_popular %}btn-samsung{% else %}btn-samsung-outline{% endif %} w-100 rounded-pill py-2">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <!-- Default pricing -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-card h-100">
+                        <div class="text-center mb-4">
+                            <div class="mb-3"><i class="bi bi-star fs-1 text-samsung-accent"></i></div>
+                            <h4 class="fw-bold">Basic</h4>
+                            <p class="text-muted small">Perfect for getting started with Samsung promos</p>
+                            <div class="pricing-price">$5<small>/one-time</small></div>
+                        </div>
+                        <ul class="list-unstyled pricing-features mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i> Access to all public promotions</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Basic reward eligibility</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Email support</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Community forum access</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Referral link</li>
+                        </ul>
+                        <a href="{% url 'accounts:register' %}" class="btn btn-samsung-outline w-100 rounded-pill py-2">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-card h-100 popular">
+                        <div class="popular-badge">Popular</div>
+                        <div class="text-center mb-4">
+                            <div class="mb-3"><i class="bi bi-gem fs-1 text-samsung-accent"></i></div>
+                            <h4 class="fw-bold">Premium</h4>
+                            <p class="text-muted small">Higher reward tiers and priority access</p>
+                            <div class="pricing-price">$15<small>/one-time</small></div>
+                        </div>
+                        <ul class="list-unstyled pricing-features mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i> Everything in Basic</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Priority reward access</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Higher reward tiers</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Live chat support</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Referral bonus x2</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Exclusive promotions</li>
+                        </ul>
+                        <a href="{% url 'accounts:register' %}" class="btn btn-samsung w-100 rounded-pill py-2">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-card h-100">
+                        <div class="text-center mb-4">
+                            <div class="mb-3"><i class="bi bi-award-fill fs-1 text-samsung-accent"></i></div>
+                            <h4 class="fw-bold">Ambassador</h4>
+                            <p class="text-muted small">Exclusive access and premium rewards</p>
+                            <div class="pricing-price">$30<small>/one-time</small></div>
+                        </div>
+                        <ul class="list-unstyled pricing-features mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i> Everything in Premium</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Exclusive ambassador campaigns</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Ambassador badge on profile</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Direct device rewards</li>
+                            <li><i class="bi bi-check-circle-fill"></i> VIP priority support</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Referral bonus x3</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Early access to new promos</li>
+                        </ul>
+                        <a href="{% url 'accounts:register' %}" class="btn btn-samsung-outline w-100 rounded-pill py-2">Get Started</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="text-center mt-5 pt-4" data-aos="fade-up">
+            <h5 class="fw-bold mb-3" style="color: #1a1a2e;">Accepted Payment Methods</h5>
+            <div class="d-flex justify-content-center gap-4 flex-wrap">
+                <div style="color: #555;">
+                    <i class="bi bi-credit-card-2-front-fill fs-2"></i>
+                    <div class="small mt-1">Card Payments</div>
+                </div>
+                <div style="color: #555;">
+                    <i class="bi bi-wallet2 fs-2"></i>
+                    <div class="small mt-1">Digital Wallets</div>
+                </div>
+                <div style="color: #555;">
+                    <i class="bi bi-phone-fill fs-2"></i>
+                    <div class="small mt-1">Mobile Money</div>
+                </div>
+                <div style="color: #555;">
+                    <i class="bi bi-bank fs-2"></i>
+                    <div class="small mt-1">Bank Transfer</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Satisfaction Guarantee -->
+<section class="py-5 light-section" style="background: #fff;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10" data-aos="fade-up">
+                <div class="guarantee-section text-center">
+                    <div class="guarantee-icon">
+                        <i class="bi bi-shield-fill-check"></i>
+                    </div>
+                    <h3 class="fw-bold mb-3">100% Satisfaction Guarantee</h3>
+                    <p class="text-muted fs-5 mb-4" style="max-width: 700px; margin: 0 auto;">
+                        We stand behind our program with a full satisfaction guarantee. If you complete all required tasks
+                        and don't receive your reward, our support team will resolve it promptly. Over <strong>98% of our 12,500+ members</strong>
+                        rate their experience as excellent.
+                    </p>
+                    <div class="row g-4 justify-content-center mt-3">
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center gap-2 justify-content-center">
+                                <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                                <span class="fw-semibold">Verified Reward Delivery</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center gap-2 justify-content-center">
+                                <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                                <span class="fw-semibold">Transparent Process</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center gap-2 justify-content-center">
+                                <i class="bi bi-check-circle-fill text-success fs-4"></i>
+                                <span class="fw-semibold">Dedicated Support Team</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Feature Comparison Table -->
+<section class="py-5 light-section" style="background: #f8f9fc;">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-badge">Detailed Comparison</span>
+            <h2 class="section-title">What's Included in Each Plan</h2>
+        </div>
+        <div class="table-responsive" data-aos="fade-up">
+            <table class="table comparison-table">
+                <thead>
+                    <tr>
+                        <th class="text-nowrap">Feature</th>
+                        <th>Basic ($5)</th>
+                        <th style="background: var(--samsung-blue);">Premium ($15) ⭐</th>
+                        <th>Ambassador ($30)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Public Campaign Access</td><td><i class="bi bi-check-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                    <tr><td>Basic Reward Eligibility</td><td><i class="bi bi-check-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                    <tr><td>Referral Link & Tracking</td><td><i class="bi bi-check-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                    <tr><td>Community Forum Access</td><td><i class="bi bi-check-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                    <tr><td>Priority Reward Access</td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                    <tr><td>Higher Reward Tiers</td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                    <tr><td>Live Chat Support</td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                    <tr><td>Referral Bonus Multiplier</td><td>1x</td><td><strong class="text-samsung-blue">2x</strong></td><td><strong class="text-samsung-blue">3x</strong></td></tr>
+                    <tr><td>Exclusive Ambassador Campaigns</td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                    <tr><td>Ambassador Profile Badge</td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                    <tr><td>Direct Device Rewards</td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                    <tr><td>VIP Priority Support</td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                    <tr><td>Early Access to New Promos</td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-x-circle-fill"></i></td><td><i class="bi bi-check-circle-fill"></i></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-5 light-section" style="background: #fff;">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-badge">FAQ</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="pricingFaq" data-aos="fade-up">
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Is this a one-time payment?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#pricingFaq">
+                            <div class="accordion-body text-muted">
+                                Yes! The membership fee is a one-time payment that gives you lifetime access to the promotional campaigns and reward system based on your plan tier.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Can I upgrade my plan later?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+                            <div class="accordion-body text-muted">
+                                Absolutely! You can upgrade your plan at any time from your dashboard. You'll only pay the difference between your current and new plan.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Is my payment secure?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+                            <div class="accordion-body text-muted">
+                                100%. All payments are processed through Paystack, a PCI-DSS compliant payment processor trusted by thousands of businesses across Africa and globally.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                What happens after I pay?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+                            <div class="accordion-body text-muted">
+                                After payment, your membership is activated instantly. You'll get access to your dashboard where you can start completing tasks, referring friends, and earning rewards.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                What if I can't complete all the tasks?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+                            <div class="accordion-body text-muted">
+                                There's no deadline pressure. Tasks remain available as long as the campaign is active. Most campaigns run for 30-90 days, giving you plenty of time. You can also reach out to our support team for guidance.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                Are rewards really free Samsung devices?
+                            </button>
+                        </h2>
+                        <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+                            <div class="accordion-body text-muted">
+                                Rewards range from heavily discounted to fully subsidized Samsung products depending on your tier, task completion, and referral count. Ambassador members with 20+ referrals and all tasks completed are eligible for the highest-value rewards.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                                How do I know this isn't a scam?
+                            </button>
+                        </h2>
+                        <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#pricingFaq">
+                            <div class="accordion-body text-muted">
+                                We have 3,200+ verified reviews, 12,500+ active participants across 45 countries, and have distributed over $850K in rewards. Payments are processed through Paystack (a licensed, PCI-DSS compliant payment processor). Check our testimonials page for real stories from real people.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 bg-samsung text-white text-center">
+    <div class="container py-4" data-aos="zoom-in">
+        <h3 class="fw-bold mb-3">Start Earning Samsung Rewards Today</h3>
+        <p class="opacity-75 mb-4">Join 12,500+ participants who are already benefiting from our program</p>
+        <a href="{% url 'accounts:register' %}" class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-samsung-blue">
+            <i class="bi bi-rocket-takeoff-fill me-2"></i> Create Free Account
+        </a>
+    </div>
+</section>
+{% endblock %}

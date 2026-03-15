@@ -1,0 +1,741 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate #{{ certificate.certificate_id }} - Samsung Promo Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        /* ===== Print & Page Setup ===== */
+        @page {
+            size: landscape;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #2c2c2c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 30px;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+            .cert-actions {
+                display: none !important;
+            }
+            .certificate-wrapper {
+                box-shadow: none !important;
+                margin: 0 !important;
+            }
+        }
+
+        /* ===== Responsive: Scale certificate for smaller screens ===== */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .cert-content {
+                padding: 25px 20px 20px;
+                min-height: auto;
+            }
+            .cert-title { font-size: 1.5rem; }
+            .cert-title-script { font-size: 1.8rem; }
+            .cert-recipient-name { font-size: 1.6rem; }
+            .cert-amount { font-size: 1.4rem; }
+            .cert-description { font-size: 0.85rem; }
+            .cert-header { gap: 15px; }
+            .cert-flag { width: 40px; height: 28px; }
+            .corner-ornament { width: 55px; height: 55px; }
+            .cert-watermark { font-size: 3.5rem; letter-spacing: 8px; }
+            .cert-watermark-2 { width: 180px; height: 180px; }
+            .cert-divider-line { width: 60px; }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 8px; }
+            .cert-content { padding: 15px 12px 12px; }
+            .cert-title { font-size: 1.2rem; }
+            .cert-title-script { font-size: 1.3rem; }
+            .cert-recipient-name { font-size: 1.2rem; }
+            .cert-amount { font-size: 1.1rem; }
+            .cert-description { font-size: 0.75rem; line-height: 1.5; }
+            .corner-ornament { width: 35px; height: 35px; }
+            .cert-watermark { font-size: 2.5rem; }
+        }
+
+        /* ===== Certificate Container ===== */
+        .certificate-wrapper {
+            max-width: 1050px;
+            width: 100%;
+            min-height: auto;
+            aspect-ratio: 1050 / 740;
+            background: #fffef8;
+            position: relative;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        /* ===== Ornate Multi-Layer Border ===== */
+        .cert-border-outer {
+            position: absolute;
+            inset: 8px;
+            border: 4px solid #b8860b;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .cert-border-inner {
+            position: absolute;
+            inset: 18px;
+            border: 2px solid #daa520;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .cert-border-accent {
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(218, 165, 32, 0.35);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ===== Gold Corner Ornaments ===== */
+        .corner-ornament {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            z-index: 2;
+            opacity: 0.85;
+        }
+
+        .corner-ornament svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .corner-tl { top: 12px; left: 12px; }
+        .corner-tr { top: 12px; right: 12px; transform: scaleX(-1); }
+        .corner-bl { bottom: 12px; left: 12px; transform: scaleY(-1); }
+        .corner-br { bottom: 12px; right: 12px; transform: scale(-1, -1); }
+
+        /* ===== Background Pattern ===== */
+        .cert-bg-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.025;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 25px, #b8860b 25px, #b8860b 26px),
+                repeating-linear-gradient(-45deg, transparent, transparent 25px, #b8860b 25px, #b8860b 26px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ===== Watermark ===== */
+        .cert-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-18deg);
+            font-family: 'Cinzel', serif;
+            font-size: 7rem;
+            font-weight: 900;
+            color: rgba(20, 40, 160, 0.045);
+            letter-spacing: 18px;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            user-select: none;
+        }
+
+        .cert-watermark-2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 320px;
+            height: 320px;
+            transform: translate(-50%, -50%);
+            border: 3px solid rgba(20, 40, 160, 0.04);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cert-watermark-2::after {
+            content: '';
+            position: absolute;
+            inset: 15px;
+            border: 2px solid rgba(20, 40, 160, 0.03);
+            border-radius: 50%;
+        }
+
+        /* ===== Main Content ===== */
+        .cert-content {
+            position: relative;
+            z-index: 3;
+            padding: 45px 60px 40px;
+            text-align: center;
+            min-height: 740px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== Header: Flags + Title ===== */
+        .cert-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 5px;
+        }
+
+        .cert-flag {
+            width: 56px;
+            height: 38px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        .cert-title-block {
+            text-align: center;
+        }
+
+        .cert-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .cert-title-script {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.8rem;
+            color: #333;
+            display: block;
+            margin-top: -4px;
+        }
+
+        /* ===== Decorative Divider ===== */
+        .cert-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 10px 0 14px;
+        }
+
+        .cert-divider-line {
+            width: 120px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #b8860b, transparent);
+        }
+
+        .cert-divider-ornament {
+            color: #b8860b;
+            font-size: 1.1rem;
+        }
+
+        /* ===== Certification Text ===== */
+        .cert-certify-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: #555;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        /* ===== Recipient Name ===== */
+        .cert-recipient-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: #1a1a2e;
+            padding: 2px 0;
+            border-bottom: 3px solid #1a1a2e;
+            display: inline-block;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== Award Amount ===== */
+        .cert-amount-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .cert-was-awarded {
+            font-size: 0.95rem;
+            color: #555;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .cert-amount {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #1428A0;
+            border-bottom: 3px solid #1a1a2e;
+            padding: 0 10px 2px;
+        }
+
+        /* ===== Description Body ===== */
+        .cert-description {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.7;
+            max-width: 680px;
+            margin: 0 auto 6px;
+        }
+
+        .cert-description .cert-label-bold {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #1a1a2e;
+            letter-spacing: 2px;
+            display: block;
+            margin-top: 6px;
+        }
+
+        /* ===== Footer: Date + Seal + Signature ===== */
+        .cert-footer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 12px;
+        }
+
+        /* Date */
+        .cert-date-block {
+            text-align: center;
+        }
+
+        .cert-date-value {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            border-bottom: 2px solid #333;
+            padding-bottom: 4px;
+            display: inline-block;
+            letter-spacing: 1px;
+            min-width: 140px;
+        }
+
+        .cert-date-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* Wax Seal */
+        .cert-seal {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: -10px;
+        }
+
+        .cert-seal-starburst {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .cert-seal-inner {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.55rem;
+            line-height: 1.2;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cert-seal-inner .seal-icon {
+            font-size: 1.3rem;
+            margin-bottom: 1px;
+        }
+
+        /* Signature */
+        .cert-sig-block {
+            text-align: center;
+        }
+
+        .cert-signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #1a1a2e;
+            line-height: 1;
+        }
+
+        .cert-sig-line {
+            width: 180px;
+            height: 2px;
+            background: #333;
+            margin: 4px auto 0;
+        }
+
+        .cert-sig-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* ===== Certificate ID & QR ===== */
+        .cert-meta-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            font-size: 0.7rem;
+            color: #999;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .cert-meta-bar .cert-id {
+            font-weight: 600;
+            color: #888;
+        }
+
+        .cert-verify-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(20, 40, 160, 0.06);
+            padding: 3px 10px;
+            border-radius: 20px;
+            color: #1428A0;
+            font-weight: 600;
+            font-size: 0.65rem;
+        }
+
+        /* ===== Samsung Logo Watermark Stamp ===== */
+        .cert-samsung-stamp {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .cert-samsung-stamp img {
+            width: 250px;
+            height: auto;
+        }
+
+        /* ===== Action Buttons (Screen Only) ===== */
+        .cert-actions {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .cert-actions .btn {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin: 0 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-print {
+            background: #1428A0;
+            color: #fff;
+            border: none;
+        }
+        .btn-print:hover {
+            background: #0e1d7a;
+            color: #fff;
+        }
+
+        .btn-back {
+            background: transparent;
+            color: #ccc;
+            border: 2px solid #555;
+        }
+        .btn-back:hover {
+            border-color: #999;
+            color: #fff;
+        }
+
+        .btn-download {
+            background: #22c55e;
+            color: #fff;
+            border: none;
+        }
+        .btn-download:hover {
+            background: #16a34a;
+            color: #fff;
+        }
+
+        /* ===== Security Micro-Text Ring ===== */
+        .cert-microtext-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cert-microtext-ring text {
+            font-size: 5.5px;
+            fill: rgba(0,0,0,0.04);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <div class="certificate-wrapper" id="certificate">
+        <!-- Background Pattern -->
+        <div class="cert-bg-pattern"></div>
+
+        <!-- Multi-layer Borders -->
+        <div class="cert-border-outer"></div>
+        <div class="cert-border-accent"></div>
+        <div class="cert-border-inner"></div>
+
+        <!-- Gold Corner Ornaments -->
+        <div class="corner-ornament corner-tl">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,10 Q10,50 30,60 Q15,40 15,15 Q40,15 60,30 Q50,10 10,10Z" fill="#b8860b" opacity="0.7"/>
+                <path d="M8,8 C8,8 8,35 20,50 C12,35 12,12 12,12 C12,12 35,12 50,20 C35,8 8,8 8,8Z" fill="none" stroke="#daa520" stroke-width="1.5"/>
+                <circle cx="22" cy="22" r="3" fill="#b8860b" opacity="0.5"/>
+                <path d="M18,30 Q22,25 30,18" fill="none" stroke="#b8860b" stroke-width="1" opacity="0.6"/>
+                <path d="M5,45 Q8,25 12,18" fill="none" stroke="#daa520" stroke-width="0.8" opacity="0.4"/>
+                <path d="M45,5 Q25,8 18,12" fill="none" stroke="#daa520" stroke-width="0.8" opacity="0.4"/>
+                <!-- Filigree swirls -->
+                <path d="M28,10 Q35,15 30,22 Q38,18 35,10" fill="none" stroke="#b8860b" stroke-width="0.8" opacity="0.5"/>
+                <path d="M10,28 Q15,35 22,30 Q18,38 10,35" fill="none" stroke="#b8860b" stroke-width="0.8" opacity="0.5"/>
+            </svg>
+        </div>
+        <div class="corner-ornament corner-tr">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,10 Q10,50 30,60 Q15,40 15,15 Q40,15 60,30 Q50,10 10,10Z" fill="#b8860b" opacity="0.7"/>
+                <path d="M8,8 C8,8 8,35 20,50 C12,35 12,12 12,12 C12,12 35,12 50,20 C35,8 8,8 8,8Z" fill="none" stroke="#daa520" stroke-width="1.5"/>
+                <circle cx="22" cy="22" r="3" fill="#b8860b" opacity="0.5"/>
+                <path d="M18,30 Q22,25 30,18" fill="none" stroke="#b8860b" stroke-width="1" opacity="0.6"/>
+                <path d="M5,45 Q8,25 12,18" fill="none" stroke="#daa520" stroke-width="0.8" opacity="0.4"/>
+                <path d="M45,5 Q25,8 18,12" fill="none" stroke="#daa520" stroke-width="0.8" opacity="0.4"/>
+                <path d="M28,10 Q35,15 30,22 Q38,18 35,10" fill="none" stroke="#b8860b" stroke-width="0.8" opacity="0.5"/>
+                <path d="M10,28 Q15,35 22,30 Q18,38 10,35" fill="none" stroke="#b8860b" stroke-width="0.8" opacity="0.5"/>
+            </svg>
+        </div>
+        <div class="corner-ornament corner-bl">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,10 Q10,50 30,60 Q15,40 15,15 Q40,15 60,30 Q50,10 10,10Z" fill="#b8860b" opacity="0.7"/>
+                <path d="M8,8 C8,8 8,35 20,50 C12,35 12,12 12,12 C12,12 35,12 50,20 C35,8 8,8 8,8Z" fill="none" stroke="#daa520" stroke-width="1.5"/>
+                <circle cx="22" cy="22" r="3" fill="#b8860b" opacity="0.5"/>
+                <path d="M18,30 Q22,25 30,18" fill="none" stroke="#b8860b" stroke-width="1" opacity="0.6"/>
+                <path d="M5,45 Q8,25 12,18" fill="none" stroke="#daa520" stroke-width="0.8" opacity="0.4"/>
+                <path d="M45,5 Q25,8 18,12" fill="none" stroke="#daa520" stroke-width="0.8" opacity="0.4"/>
+                <path d="M28,10 Q35,15 30,22 Q38,18 35,10" fill="none" stroke="#b8860b" stroke-width="0.8" opacity="0.5"/>
+                <path d="M10,28 Q15,35 22,30 Q18,38 10,35" fill="none" stroke="#b8860b" stroke-width="0.8" opacity="0.5"/>
+            </svg>
+        </div>
+        <div class="corner-ornament corner-br">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,10 Q10,50 30,60 Q15,40 15,15 Q40,15 60,30 Q50,10 10,10Z" fill="#b8860b" opacity="0.7"/>
+                <path d="M8,8 C8,8 8,35 20,50 C12,35 12,12 12,12 C12,12 35,12 50,20 C35,8 8,8 8,8Z" fill="none" stroke="#daa520" stroke-width="1.5"/>
+                <circle cx="22" cy="22" r="3" fill="#b8860b" opacity="0.5"/>
+                <path d="M18,30 Q22,25 30,18" fill="none" stroke="#b8860b" stroke-width="1" opacity="0.6"/>
+                <path d="M5,45 Q8,25 12,18" fill="none" stroke="#daa520" stroke-width="0.8" opacity="0.4"/>
+                <path d="M45,5 Q25,8 18,12" fill="none" stroke="#daa520" stroke-width="0.8" opacity="0.4"/>
+                <path d="M28,10 Q35,15 30,22 Q38,18 35,10" fill="none" stroke="#b8860b" stroke-width="0.8" opacity="0.5"/>
+                <path d="M10,28 Q15,35 22,30 Q18,38 10,35" fill="none" stroke="#b8860b" stroke-width="0.8" opacity="0.5"/>
+            </svg>
+        </div>
+
+        <!-- Samsung Logo Watermark -->
+        <div class="cert-samsung-stamp">
+            <img src="{% static 'images/worker/support/samsung logo.jpg' %}" alt="">
+        </div>
+
+        <!-- Circular Security Microtext Ring -->
+        <svg class="cert-microtext-ring" viewBox="0 0 400 400">
+            <defs>
+                <path id="microCircle" d="M200,200 m-170,0 a170,170 0 1,1 340,0 a170,170 0 1,1 -340,0"/>
+            </defs>
+            <text>
+                <textPath href="#microCircle">
+                    SAMSUNG PROMO PORTAL • CERTIFICATE OF OWNERSHIP • VERIFIED AUTHENTIC • SPP-{{ certificate.certificate_id }} • SAMSUNG PROMO PORTAL • CERTIFICATE OF OWNERSHIP • VERIFIED AUTHENTIC • SPP-{{ certificate.certificate_id }} •
+                </textPath>
+            </text>
+        </svg>
+
+        <!-- SAMSUNG text watermark -->
+        <div class="cert-watermark">SAMSUNG</div>
+        <div class="cert-watermark-2"></div>
+
+        <!-- ===== Certificate Content ===== -->
+        <div class="cert-content">
+
+            <!-- Header: Flag + Title + Flag -->
+            <div class="cert-header">
+                <!-- US Flag (Samsung HQ) -->
+                <img src="https://flagcdn.com/w80/us.png" alt="US" class="cert-flag">
+
+                <div class="cert-title-block">
+                    <span class="cert-title-script">Certificate</span>
+                    <span class="cert-title">of Ownership</span>
+                </div>
+
+                <!-- Recipient Country Flag -->
+                <img src="https://flagcdn.com/w80/{{ certificate.recipient_country_code|lower }}.png" alt="{{ certificate.recipient_country_code }}" class="cert-flag">
+            </div>
+
+            <!-- Ornamental Divider -->
+            <div class="cert-divider">
+                <span class="cert-divider-line"></span>
+                <span class="cert-divider-ornament">❧</span>
+                <span class="cert-divider-line"></span>
+            </div>
+
+            <!-- "This is to Certify That" -->
+            <p class="cert-certify-text">This is to Certify That</p>
+
+            <!-- Recipient Name -->
+            <div class="cert-recipient-name">{{ certificate.recipient_name }}</div>
+
+            <!-- Amount -->
+            <div class="cert-amount-row">
+                <span class="cert-was-awarded">Was Awarded</span>
+                <span class="cert-amount">{{ certificate.formatted_amount }}</span>
+            </div>
+
+            <!-- Description Body -->
+            <div class="cert-description">
+                {% for line in description_lines %}
+                    {% if forloop.last and "ONLINE PROMO" in line %}
+                        <span class="cert-label-bold">{{ line }}</span>
+                    {% elif "SAMSUNG" in line %}
+                        <span class="cert-label-bold">{{ line }}</span>
+                    {% else %}
+                        {{ line }}<br>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <!-- Footer: Date + Seal + Signature -->
+            <div class="cert-footer">
+                <!-- Date -->
+                <div class="cert-date-block">
+                    <div class="cert-date-value">{{ certificate.issued_date|date:"d-m-Y" }}</div>
+                    <div class="cert-date-label">Date</div>
+                </div>
+
+                <!-- Wax Seal -->
+                <div class="cert-seal">
+                    <svg class="cert-seal-starburst" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="sealGrad" cx="50%" cy="40%" r="55%">
+                                <stop offset="0%" stop-color="#ff3333"/>
+                                <stop offset="50%" stop-color="#cc0000"/>
+                                <stop offset="100%" stop-color="#8b0000"/>
+                            </radialGradient>
+                        </defs>
+                        <polygon points="
+                            50,2 56,20 70,5 65,25 82,15 72,32 95,28 78,40 98,45 80,50
+                            98,55 78,60 95,72 72,68 82,85 65,75 70,95 56,80 50,98
+                            44,80 30,95 35,75 18,85 28,68 5,72 22,60 2,55 20,50
+                            2,45 22,40 5,28 28,32 18,15 35,25 30,5 44,20
+                        " fill="url(#sealGrad)"/>
+                        <circle cx="50" cy="50" r="28" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                        <circle cx="50" cy="50" r="22" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="0.8"/>
+                    </svg>
+                    <div class="cert-seal-inner">
+                        <span class="seal-icon">★</span>
+                        <span>SAMSUNG</span>
+                        <span>PROMO</span>
+                        <span style="font-size: 0.45rem; opacity: 0.8; margin-top: 1px;">PORTAL</span>
+                    </div>
+                </div>
+
+                <!-- Signature -->
+                <div class="cert-sig-block">
+                    <div class="cert-signature">{{ certificate.authorized_signatory }}</div>
+                    <div class="cert-sig-line"></div>
+                    <div class="cert-sig-label">Signature</div>
+                </div>
+            </div>
+
+            <!-- Certificate Metadata Bar -->
+            <div class="cert-meta-bar">
+                <span class="cert-id">Certificate No: {{ certificate.certificate_id }}</span>
+                <span class="cert-verify-badge">
+                    <i class="bi bi-shield-fill-check"></i> VERIFIED — {{ certificate.short_hash }}
+                </span>
+                <span>Issued by {{ certificate.issuer_name }}</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Action Buttons (hidden on print) -->
+    <div class="cert-actions">
+        <button onclick="window.print()" class="btn btn-print">
+            <i class="bi bi-printer-fill"></i> Print Certificate
+        </button>
+        <a href="{% url 'dashboard:certificates' %}" class="btn btn-back">
+            <i class="bi bi-arrow-left"></i> Back to Certificates
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

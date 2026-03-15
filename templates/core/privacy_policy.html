@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Privacy Policy - Samsung Promo Portal{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container position-relative" style="z-index: 2;">
+        <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill mb-3 fs-7">
+            <i class="bi bi-shield-lock-fill me-1"></i> LEGAL
+        </span>
+        <h1 class="text-white mb-3">Privacy Policy</h1>
+        <p class="text-white-50 fs-5">Last updated: March 1, 2026</p>
+    </div>
+</div>
+
+<section class="py-5 light-section" style="background: #f8f9fc;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="bg-white rounded-4 shadow-sm p-4 p-md-5" data-aos="fade-up">
+
+                    <div class="mb-5">
+                        <p style="color: #555; line-height: 1.8;">
+                            Samsung Promo Portal ("we," "our," or "us") is committed to protecting the privacy of our users. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our promotional platform services.
+                        </p>
+                    </div>
+
+                    <!-- 1 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">1</span>
+                            Information We Collect
+                        </h4>
+                        <h6 class="fw-bold mt-4 mb-2" style="color: #1a1a2e;">Personal Data</h6>
+                        <p style="color: #555; line-height: 1.8;">When you register for an account, subscribe to a membership plan, or participate in promotions, we may collect the following personally identifiable information:</p>
+                        <ul style="color: #555; line-height: 2;">
+                            <li><strong>Identity Information:</strong> Full name, username, date of birth</li>
+                            <li><strong>Contact Information:</strong> Email address, phone number, physical address</li>
+                            <li><strong>Financial Information:</strong> Payment method details processed securely via Paystack (we do not store card numbers)</li>
+                            <li><strong>Profile Information:</strong> Avatar, location, referral codes, membership tier</li>
+                            <li><strong>Verification Data:</strong> Email and phone verification status</li>
+                        </ul>
+
+                        <h6 class="fw-bold mt-4 mb-2" style="color: #1a1a2e;">Automatically Collected Data</h6>
+                        <ul style="color: #555; line-height: 2;">
+                            <li><strong>Device Information:</strong> Browser type, operating system, device identifiers</li>
+                            <li><strong>Usage Data:</strong> Pages visited, time spent, click patterns, referral sources</li>
+                            <li><strong>Log Data:</strong> IP address, access timestamps, error logs</li>
+                            <li><strong>Cookies:</strong> Session cookies, preference cookies, analytics cookies (see our <a href="{% url 'core:cookie_policy' %}" style="color: var(--samsung-blue);">Cookie Policy</a>)</li>
+                        </ul>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">2</span>
+                            How We Use Your Information
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">We use the collected information for the following purposes:</p>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="p-3 rounded-3" style="background: #f0f4ff;">
+                                    <i class="bi bi-person-check-fill text-primary me-2"></i>
+                                    <strong style="color: #1a1a2e;">Account Management</strong>
+                                    <p class="mb-0 mt-1 small" style="color: #555;">Creating, maintaining, and securing your user account</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 rounded-3" style="background: #f0fdf4;">
+                                    <i class="bi bi-megaphone-fill text-success me-2"></i>
+                                    <strong style="color: #1a1a2e;">Promotional Services</strong>
+                                    <p class="mb-0 mt-1 small" style="color: #555;">Processing campaign participation, tasks, and reward eligibility</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 rounded-3" style="background: #fef3c7;">
+                                    <i class="bi bi-credit-card-fill text-warning me-2"></i>
+                                    <strong style="color: #1a1a2e;">Payment Processing</strong>
+                                    <p class="mb-0 mt-1 small" style="color: #555;">Handling membership subscriptions and transaction records via Paystack</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 rounded-3" style="background: #fce7f3;">
+                                    <i class="bi bi-envelope-fill text-danger me-2"></i>
+                                    <strong style="color: #1a1a2e;">Communications</strong>
+                                    <p class="mb-0 mt-1 small" style="color: #555;">Sending verification emails, announcements, and support responses</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">3</span>
+                            Data Sharing & Third Parties
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">We do not sell, rent, or trade your personal information. We may share data with:</p>
+                        <ul style="color: #555; line-height: 2;">
+                            <li><strong>Payment Processors:</strong> Paystack, for secure transaction processing (PCI-DSS compliant)</li>
+                            <li><strong>Service Providers:</strong> Email delivery services, hosting providers, and analytics tools that help us operate the platform</li>
+                            <li><strong>Legal Authorities:</strong> When required by law, court order, or governmental regulation</li>
+                            <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or asset sale</li>
+                        </ul>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">4</span>
+                            Data Security
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">We implement industry-standard security measures including:</p>
+                        <ul style="color: #555; line-height: 2;">
+                            <li>SSL/TLS encryption for all data transmissions</li>
+                            <li>Hashed and salted password storage</li>
+                            <li>Regular security audits and vulnerability assessments</li>
+                            <li>Access controls and role-based permissions</li>
+                            <li>Secure payment processing through PCI-DSS compliant partners</li>
+                        </ul>
+                        <div class="alert border-0 rounded-3 mt-3" style="background: #fff7ed; color: #9a3412;">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            While we strive to protect your information, no method of electronic transmission or storage is 100% secure. We cannot guarantee absolute security.
+                        </div>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">5</span>
+                            Your Rights
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Depending on your jurisdiction, you may have the following rights:</p>
+                        <div class="table-responsive">
+                            <table class="table" style="color: #333;">
+                                <thead>
+                                    <tr style="background: #f8f9fc;">
+                                        <th style="color: #1a1a2e; border-color: #eee;">Right</th>
+                                        <th style="color: #1a1a2e; border-color: #eee;">Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="border-color: #eee;"><strong>Access</strong></td><td style="color: #555; border-color: #eee;">Request a copy of the personal data we hold about you</td></tr>
+                                    <tr><td style="border-color: #eee;"><strong>Rectification</strong></td><td style="color: #555; border-color: #eee;">Correct inaccurate or incomplete data</td></tr>
+                                    <tr><td style="border-color: #eee;"><strong>Erasure</strong></td><td style="color: #555; border-color: #eee;">Request deletion of your personal data ("right to be forgotten")</td></tr>
+                                    <tr><td style="border-color: #eee;"><strong>Restriction</strong></td><td style="color: #555; border-color: #eee;">Restrict the processing of your data in certain circumstances</td></tr>
+                                    <tr><td style="border-color: #eee;"><strong>Portability</strong></td><td style="color: #555; border-color: #eee;">Receive your data in a structured, machine-readable format</td></tr>
+                                    <tr><td style="border-color: #eee;"><strong>Objection</strong></td><td style="color: #555; border-color: #eee;">Object to processing based on legitimate interests or marketing</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="color: #555;">To exercise any of these rights, please contact us at <a href="mailto:privacy@samsungpromo.com" style="color: var(--samsung-blue);">privacy@samsungpromo.com</a>.</p>
+                    </div>
+
+                    <!-- 6 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">6</span>
+                            Data Retention
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">We retain your personal data for as long as your account is active or as needed to provide services. Specifically:</p>
+                        <ul style="color: #555; line-height: 2;">
+                            <li><strong>Account data:</strong> Retained until account deletion is requested</li>
+                            <li><strong>Transaction records:</strong> Retained for 7 years for legal and accounting purposes</li>
+                            <li><strong>Verification data:</strong> Expired tokens are purged after 30 days</li>
+                            <li><strong>Support communications:</strong> Retained for 2 years after resolution</li>
+                        </ul>
+                    </div>
+
+                    <!-- 7 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">7</span>
+                            Children's Privacy
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Our platform is not intended for individuals under the age of 18. We do not knowingly collect personal information from minors. If we discover that a child under 18 has provided us with personal data, we will delete it immediately.</p>
+                    </div>
+
+                    <!-- 8 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">8</span>
+                            International Transfers
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place, including standard contractual clauses, to protect your data during international transfers.</p>
+                    </div>
+
+                    <!-- 9 -->
+                    <div class="mb-4">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">9</span>
+                            Changes to This Policy
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the updated policy on this page and updating the "Last updated" date. Continued use of the platform after changes constitutes acceptance of the revised policy.</p>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="p-4 rounded-4" style="background: #f0f4ff;">
+                        <h5 class="fw-bold mb-2" style="color: #1a1a2e;"><i class="bi bi-envelope-fill text-primary me-2"></i> Questions?</h5>
+                        <p class="mb-2" style="color: #555;">If you have any questions about this Privacy Policy, contact us:</p>
+                        <ul class="mb-0" style="color: #555; list-style: none; padding-left: 0;">
+                            <li><i class="bi bi-envelope me-2 text-primary"></i> <a href="mailto:privacy@samsungpromo.com" style="color: var(--samsung-blue);">privacy@samsungpromo.com</a></li>
+                            <li><i class="bi bi-geo-alt me-2 text-primary"></i> Samsung Promo Portal, Online Promotions Division</li>
+                            <li class="mt-2"><a href="{% url 'core:contact' %}" class="btn btn-sm btn-samsung rounded-pill px-3"><i class="bi bi-chat-dots-fill me-1"></i> Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

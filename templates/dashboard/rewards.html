@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %}My Rewards - Samsung Promo Portal{% endblock %}
+{% block content %}
+<div class="page-header" style="padding: 6rem 0 3rem;">
+    <div class="container position-relative" style="z-index: 2;">
+        <h2 class="text-white mb-1">My Rewards</h2>
+        <p class="text-white-50 mb-0">Track your reward claims and delivery status</p>
+    </div>
+</div>
+<section class="py-5">
+    <div class="container">
+        {% if claims %}
+        <div class="row g-3">
+            {% for claim in claims %}
+            <div class="col-md-6">
+                <div class="bg-white rounded-4 shadow-sm p-4">
+                    <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+                        <h6 class="fw-bold" style="min-width: 0; word-break: break-word;">{{ claim.campaign.title }}</h6>
+                        <span class="badge {% if claim.status == 'approved' %}bg-success{% elif claim.status == 'delivered' %}bg-primary{% elif claim.status == 'rejected' %}bg-danger{% else %}bg-warning text-dark{% endif %} rounded-pill">
+                            {{ claim.get_status_display }}
+                        </span>
+                    </div>
+                    {% if claim.reward_description %}
+                    <p class="text-muted small">{{ claim.reward_description }}</p>
+                    {% endif %}
+                    <small class="text-muted">Claimed on {{ claim.created_at|date:"M d, Y" }}</small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <i class="bi bi-gift text-muted" style="font-size: 5rem; opacity: 0.2;"></i>
+            <h4 class="fw-bold mt-3">No Reward Claims Yet</h4>
+            <p class="text-muted mb-4">Complete tasks and referrals to qualify for rewards</p>
+            <a href="{% url 'dashboard:home' %}" class="btn btn-samsung rounded-pill px-4 mb-5">Back to Dashboard</a>
+        </div>
+
+        <!-- Available Rewards Info -->
+        <div class="row g-4 mt-2">
+            <div class="col-12">
+                <div class="section-header" data-aos="fade-up">
+                    <span class="section-badge">What You Can Win</span>
+                    <h2 class="section-title">Available Samsung Rewards</h2>
+                    <p class="section-subtitle">Complete campaign tasks and referrals to unlock these incredible rewards</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="device-card h-100">
+                    <div class="card-img-top d-flex align-items-center justify-content-center" style="height: 180px; background: linear-gradient(135deg, #f8f9ff, #e8ecff);">
+                        <i class="bi bi-phone-fill text-samsung-blue" style="font-size: 4rem; opacity: 0.3;"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="fw-bold">Galaxy S24 Ultra</h6>
+                        <p class="text-muted small mb-2">Flagship smartphone</p>
+                        <span class="badge bg-samsung-blue rounded-pill px-3 py-1">Ambassador Tier</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="device-card h-100">
+                    <div class="card-img-top d-flex align-items-center justify-content-center" style="height: 180px; background: linear-gradient(135deg, #f8f9ff, #e8ecff);">
+                        <i class="bi bi-tablet-fill text-samsung-blue" style="font-size: 4rem; opacity: 0.3;"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="fw-bold">Galaxy Z Fold5</h6>
+                        <p class="text-muted small mb-2">Foldable smartphone</p>
+                        <span class="badge bg-samsung-blue rounded-pill px-3 py-1">Ambassador Tier</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="device-card h-100">
+                    <div class="card-img-top d-flex align-items-center justify-content-center" style="height: 180px; background: linear-gradient(135deg, #f8f9ff, #e8ecff);">
+                        <i class="bi bi-tablet-landscape-fill text-samsung-blue" style="font-size: 4rem; opacity: 0.3;"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="fw-bold">Galaxy Tab S9</h6>
+                        <p class="text-muted small mb-2">Premium tablet</p>
+                        <span class="badge bg-primary rounded-pill px-3 py-1">Premium Tier</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="device-card h-100">
+                    <div class="card-img-top d-flex align-items-center justify-content-center" style="height: 180px; background: linear-gradient(135deg, #f8f9ff, #e8ecff);">
+                        <i class="bi bi-earbuds text-samsung-blue" style="font-size: 4rem; opacity: 0.3;"></i>
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="fw-bold">Galaxy Buds Pro</h6>
+                        <p class="text-muted small mb-2">Wireless earbuds</p>
+                        <span class="badge bg-success rounded-pill px-3 py-1">Basic Tier</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

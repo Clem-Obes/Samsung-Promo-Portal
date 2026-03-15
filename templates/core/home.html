@@ -1,0 +1,1100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Samsung Promo Portal - Home{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="row align-items-center min-vh-100 py-5">
+            <div class="col-lg-6 text-white" data-aos="fade-right">
+                <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill mb-4 fs-7">
+                    <i class="bi bi-lightning-fill text-warning me-1"></i> EXCLUSIVE PROMOTION 2026
+                </span>
+                <h1 class="hero-title mb-4">
+                    Unlock <span class="highlight">Exclusive</span> Samsung 
+                    <span class="typewriter-text" data-words='["Rewards","Devices","Benefits","Discounts"]'>Rewards</span><span class="typewriter-cursor"></span>
+                </h1>
+                <p class="hero-subtitle mb-4">
+                    Join thousands of participants in our Samsung Ambassador Program. 
+                    Complete simple tasks, earn rewards, and get access to the latest Samsung devices 
+                    at incredible promotional prices. <strong>Over $850K+ in rewards already distributed.</strong>
+                </p>
+                <div class="d-flex gap-2 gap-md-3 flex-wrap mb-4">
+                    <a href="{% url 'accounts:register' %}" class="btn btn-light btn-lg rounded-pill px-3 px-md-4 fw-bold text-samsung-blue">
+                        <i class="bi bi-rocket-takeoff-fill me-2"></i> Get Started Free
+                    </a>
+                    <a href="{% url 'core:how_it_works' %}" class="btn btn-outline-light btn-lg rounded-pill px-3 px-md-4">
+                        <i class="bi bi-play-circle-fill me-2"></i> How It Works
+                    </a>
+                </div>
+                <!-- Micro trust indicators -->
+                <div class="d-flex gap-4 flex-wrap mb-4 small">
+                    <div class="d-flex align-items-center gap-2 text-white-50">
+                        <i class="bi bi-check-circle-fill text-success"></i> Free Registration
+                    </div>
+                    <div class="d-flex align-items-center gap-2 text-white-50">
+                        <i class="bi bi-check-circle-fill text-success"></i> Verified Rewards
+                    </div>
+                    <div class="d-flex align-items-center gap-2 text-white-50">
+                        <i class="bi bi-check-circle-fill text-success"></i> 45+ Countries
+                    </div>
+                </div>
+
+                <!-- Countdown -->
+                <div id="promo-countdown" data-target="2026-06-30T00:00:00" class="d-flex gap-3">
+                    <div class="countdown-item">
+                        <div id="countdown-days" class="countdown-number">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div id="countdown-hours" class="countdown-number">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div id="countdown-minutes" class="countdown-number">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div id="countdown-seconds" class="countdown-number">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="200">
+                <div class="position-relative">
+                    <div class="hero-video-card glass-card p-3 floating">
+                        <div class="video-wrapper">
+                            <video
+                                src="{% static 'images/testimonials/banner-video.mp4' %}"
+                                muted
+                                autoplay
+                                loop
+                                playsinline
+                                preload="auto"
+                            ></video>
+                        </div>
+                        <div class="mt-3 d-flex align-items-center justify-content-center gap-2">
+                            <span class="badge bg-success rounded-pill px-3 py-2">
+                                <i class="bi bi-check-circle-fill me-1"></i> Galaxy S24 Ultra Available
+                            </span>
+                            <span class="badge bg-white bg-opacity-10 text-white rounded-pill px-3 py-2">
+                                <i class="bi bi-play-circle-fill me-1"></i> Watch Promo
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Floating badges -->
+                    <div class="position-absolute top-0 start-0 floating-delay" style="margin-top: 20px;">
+                        <div class="glass-card py-2 px-3">
+                            <i class="bi bi-people-fill text-samsung-accent me-2"></i>
+                            <span class="text-white fw-bold small">12,500+ Users</span>
+                        </div>
+                    </div>
+                    <div class="position-absolute bottom-0 end-0 floating" style="margin-bottom: 40px;">
+                        <div class="glass-card py-2 px-3">
+                            <i class="bi bi-gift-fill text-warning me-2"></i>
+                            <span class="text-white fw-bold small">2,000+ Rewards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-number counter" data-target="12500">0</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-number counter" data-target="2000">0</div>
+                    <div class="stat-label">Rewards Given</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-number counter" data-target="150">0</div>
+                    <div class="stat-label">Campaigns</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-number counter" data-target="45">0</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Live Activity Ticker -->
+<section class="activity-ticker py-3">
+    <div class="ticker-track">
+        <div class="ticker-item">
+            <div class="ticker-avatar">A</div>
+            <span class="text-white small">Adebayo O. from Lagos claimed <strong class="text-samsung-accent">Galaxy S24 Ultra</strong></span>
+            <span class="text-white-50 small">2 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">G</div>
+            <span class="text-white small">Grace M. from Nairobi hit <strong class="text-warning">10 referrals milestone</strong></span>
+            <span class="text-white-50 small">5 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">E</div>
+            <span class="text-white small">Emmanuel K. from Accra upgraded to <strong class="text-samsung-accent">Ambassador</strong></span>
+            <span class="text-white-50 small">8 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">F</div>
+            <span class="text-white small">Fatima B. from Dar es Salaam earned <strong class="text-warning">+500 points</strong></span>
+            <span class="text-white-50 small">12 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">J</div>
+            <span class="text-white small">James T. from Kampala received <strong class="text-samsung-accent">Galaxy Buds Pro</strong></span>
+            <span class="text-white-50 small">15 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">S</div>
+            <span class="text-white small">Sarah N. from Kigali completed <strong class="text-success">all campaign tasks</strong></span>
+            <span class="text-white-50 small">18 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">M</div>
+            <span class="text-white small">Michael A. from Abuja joined <strong class="text-samsung-accent">Premium plan</strong></span>
+            <span class="text-white-50 small">22 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">B</div>
+            <span class="text-white small">Blessing E. from Douala claimed <strong class="text-warning">Galaxy Watch 6</strong></span>
+            <span class="text-white-50 small">25 min ago</span>
+        </div>
+        <!-- Duplicate for seamless loop -->
+        <div class="ticker-item">
+            <div class="ticker-avatar">A</div>
+            <span class="text-white small">Adebayo O. from Lagos claimed <strong class="text-samsung-accent">Galaxy S24 Ultra</strong></span>
+            <span class="text-white-50 small">2 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">G</div>
+            <span class="text-white small">Grace M. from Nairobi hit <strong class="text-warning">10 referrals milestone</strong></span>
+            <span class="text-white-50 small">5 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">E</div>
+            <span class="text-white small">Emmanuel K. from Accra upgraded to <strong class="text-samsung-accent">Ambassador</strong></span>
+            <span class="text-white-50 small">8 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">F</div>
+            <span class="text-white small">Fatima B. from Dar es Salaam earned <strong class="text-warning">+500 points</strong></span>
+            <span class="text-white-50 small">12 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">J</div>
+            <span class="text-white small">James T. from Kampala received <strong class="text-samsung-accent">Galaxy Buds Pro</strong></span>
+            <span class="text-white-50 small">15 min ago</span>
+        </div>
+        <div class="ticker-item">
+            <div class="ticker-avatar">S</div>
+            <span class="text-white small">Sarah N. from Kigali completed <strong class="text-success">all campaign tasks</strong></span>
+            <span class="text-white-50 small">18 min ago</span>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Samsung Promo -->
+<section class="py-5 my-4">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-badge">Why Choose Us</span>
+            <h2 class="section-title">Why 12,500+ People Trust Samsung Promo Portal</h2>
+            <p class="section-subtitle">We've built the most transparent and rewarding promotional platform in Africa</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card h-100 text-center">
+                    <div class="feature-icon-box mx-auto" style="background: rgba(34, 197, 94, 0.1); color: #22c55e;">
+                        <i class="bi bi-shield-lock-fill"></i>
+                    </div>
+                    <h5 class="fw-bold">100% Verified & Secure</h5>
+                    <p class="text-muted small mb-0">All transactions secured by Paystack with PCI-DSS compliance. Your data and payments are always protected.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card h-100 text-center">
+                    <div class="feature-icon-box mx-auto" style="background: rgba(20, 40, 160, 0.1); color: var(--samsung-blue);">
+                        <i class="bi bi-gift-fill"></i>
+                    </div>
+                    <h5 class="fw-bold">Real, Tangible Rewards</h5>
+                    <p class="text-muted small mb-0">Over 2,000 Samsung devices distributed. Galaxy phones, tablets, earbuds, and watches — all genuine products.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card h-100 text-center">
+                    <div class="feature-icon-box mx-auto" style="background: rgba(0, 169, 224, 0.1); color: var(--samsung-accent);">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </div>
+                    <h5 class="fw-bold">Fast Reward Delivery</h5>
+                    <p class="text-muted small mb-0">Approved rewards shipped within 7-14 business days. Digital rewards delivered instantly to your email.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card h-100 text-center">
+                    <div class="feature-icon-box mx-auto" style="background: rgba(255, 215, 0, 0.1); color: #b8860b;">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <h5 class="fw-bold">24/7 Support Team</h5>
+                    <p class="text-muted small mb-0">Dedicated support via live chat, email, and WhatsApp. Our team responds within hours, not days.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Numbers Bar -->
+        <div class="stats-highlight-bar mt-5" data-aos="fade-up" data-aos-delay="500">
+            <div class="row text-white">
+                <div class="col-6 col-md-3">
+                    <div class="stats-highlight-item">
+                        <div class="fs-2 fw-900 inline-counter" data-target="2847" data-suffix="+">0</div>
+                        <div class="small opacity-75">Devices Delivered</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stats-highlight-item">
+                        <div class="fs-2 fw-900 inline-counter" data-target="98" data-suffix="%">0</div>
+                        <div class="small opacity-75">Satisfaction Rate</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stats-highlight-item">
+                        <div class="fs-2 fw-900">4.9<small>/5</small></div>
+                        <div class="small opacity-75">Average Rating</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stats-highlight-item">
+                        <div class="fs-2 fw-900 inline-counter" data-target="45" data-suffix="+">0</div>
+                        <div class="small opacity-75">Countries Reached</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Preview -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-badge">How It Works</span>
+            <h2 class="section-title">Simple Steps to Get Rewarded</h2>
+            <p class="section-subtitle">Follow our easy 5-step process to qualify for Samsung promotions and rewards</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4 col-lg" data-aos="fade-up" data-aos-delay="100">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <span class="step-number">1</span>
+                        <i class="bi bi-person-plus-fill"></i>
+                    </div>
+                    <div class="d-none d-lg-block step-connector"></div>
+                    <h5 class="fw-bold">Register</h5>
+                    <p class="text-muted small">Create your free account and join the community</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg" data-aos="fade-up" data-aos-delay="200">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <span class="step-number">2</span>
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <div class="d-none d-lg-block step-connector"></div>
+                    <h5 class="fw-bold">Verify</h5>
+                    <p class="text-muted small">Complete email and phone verification</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg" data-aos="fade-up" data-aos-delay="300">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <span class="step-number">3</span>
+                        <i class="bi bi-list-check"></i>
+                    </div>
+                    <div class="d-none d-lg-block step-connector"></div>
+                    <h5 class="fw-bold">Participate</h5>
+                    <p class="text-muted small">Complete campaign tasks and refer friends</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="400">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <span class="step-number">4</span>
+                        <i class="bi bi-patch-check-fill"></i>
+                    </div>
+                    <div class="d-none d-lg-block step-connector"></div>
+                    <h5 class="fw-bold">Qualify</h5>
+                    <p class="text-muted small">System checks your task completion</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg" data-aos="fade-up" data-aos-delay="500">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <span class="step-number">5</span>
+                        <i class="bi bi-gift-fill"></i>
+                    </div>
+                    <h5 class="fw-bold">Claim Reward</h5>
+                    <p class="text-muted small">Request and receive your Samsung rewards</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="600">
+            <a href="{% url 'core:how_it_works' %}" class="btn btn-samsung btn-lg rounded-pill px-5">
+                Learn More <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Devices -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-badge">Featured Devices</span>
+            <h2 class="section-title">Promotional Samsung Devices</h2>
+            <p class="section-subtitle">Complete tasks and qualify for discounts on these premium Samsung products</p>
+        </div>
+        <div class="row g-4">
+            {% if devices %}
+                {% for device in devices %}
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+                    <div class="device-card h-100">
+                        {% if device.image %}
+                            <img src="{{ device.image.url }}" class="card-img-top" alt="{{ device.name }}" style="height: 250px; object-fit: cover;">
+                        {% else %}
+                            <div class="card-img-top d-flex align-items-center justify-content-center" style="height: 250px; background: linear-gradient(135deg, #f8f9ff, #e8ecff);">
+                                <i class="bi bi-phone-fill text-samsung-blue" style="font-size: 5rem; opacity: 0.3;"></i>
+                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="fw-bold">{{ device.name }}</h5>
+                            <p class="text-muted small">{{ device.description|truncatewords:15 }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="device-price">${{ device.price }}</span>
+                                <span class="badge bg-success rounded-pill">Promo Available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <!-- Static device showcase with real photos -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="device-card h-100">
+                        <img src="{% static 'images/devices/ultra24 device.jpg' %}" class="card-img-top" alt="Samsung Galaxy S24 Ultra" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Samsung Galaxy S24 Ultra</h5>
+                            <p class="text-muted small">The ultimate Galaxy experience with AI-powered features and pro-grade 200MP camera</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="device-price">$1,299</span>
+                                <span class="badge bg-success rounded-pill">Promo Available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="device-card h-100">
+                        <img src="{% static 'images/devices/S25 device.jpg' %}" class="card-img-top" alt="Samsung Galaxy S25" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Samsung Galaxy S25</h5>
+                            <p class="text-muted small">Next-gen performance with Snapdragon processor and Galaxy AI built in</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="device-price">$799</span>
+                                <span class="badge bg-success rounded-pill">Promo Available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="device-card h-100">
+                        <img src="{% static 'images/devices/s26 device.jpg' %}" class="card-img-top" alt="Samsung Galaxy S26" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Samsung Galaxy S26</h5>
+                            <p class="text-muted small">The future of mobile with breakthrough AI capabilities and stunning design</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="device-price">$899</span>
+                                <span class="badge bg-danger rounded-pill">Limited Stock</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="device-card h-100">
+                        <img src="{% static 'images/devices/S23 device.jpg' %}" class="card-img-top" alt="Samsung Galaxy S23" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Samsung Galaxy S23</h5>
+                            <p class="text-muted small">Flagship performance with Nightography camera and all-day battery life</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="device-price">$699</span>
+                                <span class="badge bg-warning text-dark rounded-pill">Hot Deal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="device-card h-100">
+                        <img src="{% static 'images/devices/Samsun device.jpg' %}" class="card-img-top" alt="Samsung Galaxy Device" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="fw-bold">Samsung Galaxy Z Fold5</h5>
+                            <p class="text-muted small">Unfold your world with the most powerful foldable smartphone ever</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="device-price">$1,799</span>
+                                <span class="badge bg-success rounded-pill">Promo Available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Reward Celebrations Blog Section -->
+<section class="celebration-section py-5 my-5">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-badge"><i class="bi bi-trophy-fill me-1"></i> Reward Celebrations</span>
+            <h2 class="section-title">Stories From Our Winners</h2>
+            <p class="section-subtitle">Real moments of joy — see how our participants celebrate their Samsung rewards across Africa and beyond</p>
+        </div>
+
+        <!-- Featured / Hero Story -->
+        <div class="celebration-hero mb-4" data-aos="fade-up">
+            <div class="hero-bg" style="background-image: url('{% static 'images/testimonials/won-man1.jpg' %}');"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-category"><i class="bi bi-award-fill me-1"></i> Featured Story</span>
+                <h2 class="hero-title">"I Never Believed It Until the Galaxy S24 Ultra Arrived at My Doorstep"</h2>
+                <p class="hero-excerpt">Adebayo Johnson from Lagos shares his incredible journey — from skeptic to Samsung Ambassador. After completing just 3 campaign tasks and referring 20 friends, he qualified for the grand prize. Today he helps others navigate the promotion program and has become one of our most active community leaders.</p>
+                <div class="hero-meta">
+                    <span><i class="bi bi-person-fill"></i> Adebayo Johnson</span>
+                    <span><i class="bi bi-geo-alt-fill"></i> Lagos, Nigeria</span>
+                    <span><i class="bi bi-calendar3"></i> March 2, 2026</span>
+                    <span><i class="bi bi-phone-fill"></i> Won: Galaxy S24 Ultra</span>
+                    <span><i class="bi bi-heart-fill" style="color: #ff4757;"></i> 2.4k</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="row g-4 mb-4">
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="celeb-card">
+                    <div class="card-img-wrap">
+                        <img src="{% static 'images/testimonials/won-woman1.jpg' %}" alt="Winner celebration">
+                        <div class="img-overlay"></div>
+                        <span class="card-category"><i class="bi bi-gift-fill me-1"></i> Reward Unboxing</span>
+                        <div class="card-reactions">
+                            <span><i class="bi bi-heart-fill" style="color: #ff4757;"></i> 847</span>
+                            <span><i class="bi bi-chat-dots-fill"></i> 63</span>
+                        </div>
+                    </div>
+                    <div class="card-body-inner">
+                        <h5>She Screamed When the Package Arrived — Galaxy Z Fold 5 Unboxing</h5>
+                        <p>Chioma Okafor thought it was a scam until DHL knocked on her door in Abuja. Watch her emotional unboxing story and hear why she now calls Samsung Promo "life-changing."</p>
+                    </div>
+                    <div class="card-footer-inner">
+                        <div class="author">
+                            <div class="author-placeholder">C</div>
+                            <div class="author-info">
+                                <span>Chioma Okafor</span>
+                                <small>Abuja, Nigeria</small>
+                            </div>
+                        </div>
+                        <span class="read-time"><i class="bi bi-clock"></i> 4 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="celeb-card">
+                    <div class="card-img-wrap">
+                        <img src="{% static 'images/testimonials/won-man2.jpg' %}" alt="Ambassador reward">
+                        <div class="img-overlay"></div>
+                        <span class="card-category"><i class="bi bi-star-fill me-1"></i> Ambassador Spotlight</span>
+                        <div class="card-reactions">
+                            <span><i class="bi bi-heart-fill" style="color: #ff4757;"></i> 1.2k</span>
+                            <span><i class="bi bi-chat-dots-fill"></i> 91</span>
+                        </div>
+                    </div>
+                    <div class="card-body-inner">
+                        <h5>From 0 Referrals to Top Ambassador — Ibrahim's Incredible Samsung Journey</h5>
+                        <p>Ibrahim Musa from Kano started with nothing but determination. Within 60 days he referred 85 people, became a VIP Ambassador, and earned a Galaxy Watch 6 Classic and Galaxy Buds.</p>
+                    </div>
+                    <div class="card-footer-inner">
+                        <div class="author">
+                            <div class="author-placeholder">I</div>
+                            <div class="author-info">
+                                <span>Ibrahim Musa</span>
+                                <small>Kano, Nigeria</small>
+                            </div>
+                        </div>
+                        <span class="read-time"><i class="bi bi-clock"></i> 6 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="celeb-card">
+                    <div class="card-img-wrap">
+                        <img src="{% static 'images/testimonials/won-man3.jpg' %}" alt="Grand prize winner">
+                        <div class="img-overlay"></div>
+                        <span class="card-category"><i class="bi bi-trophy-fill me-1"></i> Grand Prize</span>
+                        <div class="card-reactions">
+                            <span><i class="bi bi-heart-fill" style="color: #ff4757;"></i> 3.1k</span>
+                            <span><i class="bi bi-chat-dots-fill"></i> 204</span>
+                        </div>
+                    </div>
+                    <div class="card-body-inner">
+                        <h5>Grand Prize Winner Emeka Receives Full Samsung Ecosystem Worth ₦2.5M</h5>
+                        <p>Port Harcourt's Emeka Nwosu won the quarterly grand prize — Galaxy S24 Ultra, Tab S9+, Watch 6, and Buds 3 Pro. "I literally fell off my chair when they called me," he says.</p>
+                    </div>
+                    <div class="card-footer-inner">
+                        <div class="author">
+                            <div class="author-placeholder">E</div>
+                            <div class="author-info">
+                                <span>Emeka Nwosu</span>
+                                <small>Port Harcourt, Nigeria</small>
+                            </div>
+                        </div>
+                        <span class="read-time"><i class="bi bi-clock"></i> 5 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="celeb-card">
+                    <div class="card-img-wrap">
+                        <img src="{% static 'images/testimonials/won-woman2.jpg' %}" alt="Celebration moment">
+                        <div class="img-overlay"></div>
+                        <span class="card-category"><i class="bi bi-camera-fill me-1"></i> Celebration</span>
+                        <div class="card-reactions">
+                            <span><i class="bi bi-heart-fill" style="color: #ff4757;"></i> 956</span>
+                            <span><i class="bi bi-chat-dots-fill"></i> 78</span>
+                        </div>
+                    </div>
+                    <div class="card-body-inner">
+                        <h5>"I Threw a Party for My Whole Street" — Funke's Galaxy Tab S9 Story</h5>
+                        <p>Funke Akindele from Ibadan is known as the "Samsung Lady" in her neighbourhood. After receiving her Galaxy Tab S9+, she hosted a community celebration and signed up 30 more neighbours.</p>
+                    </div>
+                    <div class="card-footer-inner">
+                        <div class="author">
+                            <div class="author-placeholder">F</div>
+                            <div class="author-info">
+                                <span>Funke Akindele</span>
+                                <small>Ibadan, Nigeria</small>
+                            </div>
+                        </div>
+                        <span class="read-time"><i class="bi bi-clock"></i> 3 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="celeb-card">
+                    <div class="card-img-wrap">
+                        <img src="{% static 'images/testimonials/won-man2x2.jpg' %}" alt="Device collection">
+                        <div class="img-overlay"></div>
+                        <span class="card-category"><i class="bi bi-collection-fill me-1"></i> Multi-Winner</span>
+                        <div class="card-reactions">
+                            <span><i class="bi bi-heart-fill" style="color: #ff4757;"></i> 1.8k</span>
+                            <span><i class="bi bi-chat-dots-fill"></i> 142</span>
+                        </div>
+                    </div>
+                    <div class="card-body-inner">
+                        <h5>Abhinav Shows Off His 3rd Samsung Reward — "The System Really Works"</h5>
+                        <p>New Delhi's Abhinav Bindra has won not once, not twice, but three times. As a top Ambassador, he shares his strategy for maximizing points and how he turned Samsung Promo into a lifestyle.</p>
+                    </div>
+                    <div class="card-footer-inner">
+                        <div class="author">
+                            <img src="{% static 'images/testimonials/Ambasssador.jpg' %}" alt="Abhinav">
+                            <div class="author-info">
+                                <span>Abhinav Bindra</span>
+                                <small>New Delhi, India</small>
+                            </div>
+                        </div>
+                        <span class="read-time"><i class="bi bi-clock"></i> 7 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="celeb-card">
+                    <div class="card-img-wrap">
+                        <img src="{% static 'images/testimonials/crowd.jpg' %}" alt="Community event">
+                        <div class="img-overlay"></div>
+                        <span class="card-category"><i class="bi bi-people-fill me-1"></i> Community Event</span>
+                        <div class="card-reactions">
+                            <span><i class="bi bi-heart-fill" style="color: #ff4757;"></i> 4.2k</span>
+                            <span><i class="bi bi-chat-dots-fill"></i> 310</span>
+                        </div>
+                    </div>
+                    <div class="card-body-inner">
+                        <h5>Samsung Promo Live Event: 50 Devices Given Away in One Day!</h5>
+                        <p>Our biggest community event yet — held in partnership with Samsung Nigeria. Fifty lucky ambassadors received their rewards on stage. The energy was electric and the crowd unforgettable.</p>
+                    </div>
+                    <div class="card-footer-inner">
+                        <div class="author">
+                            <div class="author-placeholder"><i class="bi bi-megaphone-fill" style="font-size: 0.7rem;"></i></div>
+                            <div class="author-info">
+                                <span>Samsung Promo Team</span>
+                                <small>Lagos Live Event</small>
+                            </div>
+                        </div>
+                        <span class="read-time"><i class="bi bi-clock"></i> 8 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Celebration Photo Gallery Strip -->
+        <div class="mb-4" data-aos="fade-up">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h6 class="fw-bold text-white mb-0"><i class="bi bi-images me-2" style="color: var(--samsung-accent);"></i>Celebration Gallery</h6>
+                <small style="color: rgba(255,255,255,0.45);">Scroll to explore →</small>
+            </div>
+            <div class="celeb-gallery-strip">
+                <div class="gallery-thumb">
+                    <img src="{% static 'images/testimonials/reward price.jpg' %}" alt="Reward presentation">
+                    <div class="thumb-label">Reward Day</div>
+                </div>
+                <div class="gallery-thumb">
+                    <img src="{% static 'images/worker/support/team1.jpeg' %}" alt="Team celebration">
+                    <div class="thumb-label">Support Team</div>
+                </div>
+                <div class="gallery-thumb">
+                    <img src="{% static 'images/testimonials/won-car.jpg' %}" alt="Car prize">
+                    <div class="thumb-label">Grand Prize</div>
+                </div>
+                <div class="gallery-thumb">
+                    <img src="{% static 'images/worker/support/team2.jpeg' %}" alt="Office team">
+                    <div class="thumb-label">HQ Team</div>
+                </div>
+                <div class="gallery-thumb">
+                    <img src="{% static 'images/testimonials/building interior.jpg' %}" alt="Samsung office">
+                    <div class="thumb-label">Samsung Office</div>
+                </div>
+                <div class="gallery-thumb">
+                    <img src="{% static 'images/worker/support/team3.jpeg' %}" alt="Distribution event">
+                    <div class="thumb-label">Distribution</div>
+                </div>
+                <div class="gallery-thumb">
+                    <img src="{% static 'images/worker/support/team4.jpeg' %}" alt="Team meeting">
+                    <div class="thumb-label">Planning Team</div>
+                </div>
+                <div class="gallery-thumb">
+                    <img src="{% static 'images/worker/support/team5.jpg' %}" alt="Team photo">
+                    <div class="thumb-label">Our People</div>
+                </div>
+                <div class="gallery-thumb">
+                    <img src="{% static 'images/testimonials/Ambasssador.jpg' %}" alt="Ambassador">
+                    <div class="thumb-label">Top Ambassador</div>
+                </div>
+                <div class="gallery-thumb">
+                    <img src="{% static 'images/worker/support/WhatsApp Image 2026-03-11 at 3.12.20 PM.jpeg' %}" alt="Celebration moment">
+                    <div class="thumb-label">Celebration</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Ribbon -->
+        <div class="celeb-stats-ribbon" data-aos="fade-up">
+            <div class="row g-3 align-items-center">
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">2,000+</div>
+                        <div class="stat-label">Devices Awarded</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">₦850M+</div>
+                        <div class="stat-label">Total Value Given</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">45+</div>
+                        <div class="stat-label">Countries Reached</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Avg. Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-5 d-flex flex-column flex-sm-row justify-content-center gap-3" data-aos="fade-up">
+            <a href="{% url 'core:testimonials' %}" class="btn btn-samsung-outline btn-lg rounded-pill px-5">
+                <i class="bi bi-journal-richtext me-2"></i>Read All Stories
+            </a>
+            <a href="{% url 'accounts:register' %}" class="btn btn-samsung btn-lg rounded-pill px-5">
+                <i class="bi bi-rocket-takeoff me-2"></i>Join & Win
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Preview -->
+<section class="py-5 light-section" style="background: #f8f9fc;">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-badge">Membership Plans</span>
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p class="section-subtitle">Select a membership tier that suits your promotional goals</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            {% if plans %}
+                {% for plan in plans %}
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+                    <div class="pricing-card h-100 {% if plan.is_popular %}popular{% endif %}">
+                        {% if plan.is_popular %}
+                            <div class="popular-badge">Popular</div>
+                        {% endif %}
+                        <div class="text-center mb-4">
+                            <h4 class="fw-bold">{{ plan.name }}</h4>
+                            <p class="text-muted small">{{ plan.description }}</p>
+                            <div class="pricing-price">${{ plan.price }}<small>/one-time</small></div>
+                        </div>
+                        <ul class="list-unstyled pricing-features mb-4">
+                            {% for benefit in plan.benefits_list %}
+                            <li><i class="bi bi-check-circle-fill"></i> {{ benefit }}</li>
+                            {% endfor %}
+                        </ul>
+                        <a href="{% url 'payments:subscribe' plan.slug %}" class="btn {% if plan.is_popular %}btn-samsung{% else %}btn-samsung-outline{% endif %} w-100 rounded-pill py-2">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <!-- Default pricing -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-card h-100">
+                        <div class="text-center mb-4">
+                            <h4 class="fw-bold">Basic</h4>
+                            <p class="text-muted small">Access to standard promotions</p>
+                            <div class="pricing-price">$5<small>/one-time</small></div>
+                        </div>
+                        <ul class="list-unstyled pricing-features mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i> Access to promotions</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Basic reward eligibility</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Email support</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Community access</li>
+                        </ul>
+                        <a href="{% url 'accounts:register' %}" class="btn btn-samsung-outline w-100 rounded-pill py-2">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="pricing-card h-100 popular">
+                        <div class="popular-badge">Popular</div>
+                        <div class="text-center mb-4">
+                            <h4 class="fw-bold">Premium</h4>
+                            <p class="text-muted small">Higher reward eligibility</p>
+                            <div class="pricing-price">$15<small>/one-time</small></div>
+                        </div>
+                        <ul class="list-unstyled pricing-features mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i> Everything in Basic</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Priority reward access</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Higher reward tiers</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Live chat support</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Referral bonus x2</li>
+                        </ul>
+                        <a href="{% url 'accounts:register' %}" class="btn btn-samsung w-100 rounded-pill py-2">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-card h-100">
+                        <div class="text-center mb-4">
+                            <h4 class="fw-bold">Ambassador</h4>
+                            <p class="text-muted small">Exclusive campaigns & rewards</p>
+                            <div class="pricing-price">$30<small>/one-time</small></div>
+                        </div>
+                        <ul class="list-unstyled pricing-features mb-4">
+                            <li><i class="bi bi-check-circle-fill"></i> Everything in Premium</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Exclusive campaigns</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Ambassador badge</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Direct device rewards</li>
+                            <li><i class="bi bi-check-circle-fill"></i> VIP support</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Referral bonus x3</li>
+                        </ul>
+                        <a href="{% url 'accounts:register' %}" class="btn btn-samsung-outline w-100 rounded-pill py-2">Get Started</a>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-samsung text-white text-center">
+    <div class="container py-5" data-aos="zoom-in">
+        <div class="d-flex align-items-center justify-content-center gap-2 mb-3">
+            <div class="pulse-dot"></div>
+            <span class="small fw-bold text-uppercase" style="letter-spacing: 2px;">PROMO IS LIVE NOW</span>
+        </div>
+        <h2 class="fw-bold display-5 mb-3">Ready to Start Earning Rewards?</h2>
+        <p class="fs-5 opacity-75 mb-2">Join 12,500+ participants and unlock exclusive Samsung promotions today.</p>
+        <p class="opacity-50 mb-4">Registration is free · No credit card required · Cancel anytime</p>
+        <div class="d-flex gap-2 gap-md-3 justify-content-center flex-column flex-sm-row flex-wrap px-3">
+            <a href="{% url 'accounts:register' %}" class="btn btn-light btn-lg rounded-pill px-4 px-md-5 fw-bold text-samsung-blue">
+                <i class="bi bi-rocket-takeoff-fill me-2"></i> Join Now — It's Free
+            </a>
+            <a href="{% url 'core:how_it_works' %}" class="btn btn-outline-light btn-lg rounded-pill px-4 px-md-5">
+                <i class="bi bi-play-circle-fill me-2"></i> See How It Works
+            </a>
+        </div>
+        <div class="d-flex justify-content-center gap-4 mt-4 flex-wrap">
+            <div class="d-flex align-items-center gap-2 opacity-75">
+                <i class="bi bi-shield-check fs-5"></i>
+                <small>Secure Payments</small>
+            </div>
+            <div class="d-flex align-items-center gap-2 opacity-75">
+                <i class="bi bi-truck fs-5"></i>
+                <small>Real Delivery</small>
+            </div>
+            <div class="d-flex align-items-center gap-2 opacity-75">
+                <i class="bi bi-star-fill fs-5"></i>
+                <small>4.9★ Rated</small>
+            </div>
+            <div class="d-flex align-items-center gap-2 opacity-75">
+                <i class="bi bi-globe fs-5"></i>
+                <small>45+ Countries</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Global Community Section -->
+<section class="py-5 my-4 world-map-bg">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-badge">Global Reach</span>
+            <h2 class="section-title">A Growing Community Across Africa & Beyond</h2>
+            <p class="section-subtitle">Our Samsung ambassadors span over 45 countries, making us one of the largest Samsung promotional communities worldwide</p>
+        </div>
+        <div class="row g-3 g-md-4">
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-center p-3 p-md-4 bg-white rounded-4 shadow-sm h-100">
+                    <div class="big-number mb-2 inline-counter" data-target="12500" data-suffix="+">0</div>
+                    <h6 class="fw-bold">Active Participants</h6>
+                    <p class="text-muted small mb-0">Across Nigeria, Kenya, Ghana, South Africa, and 40+ more countries</p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-center p-3 p-md-4 bg-white rounded-4 shadow-sm h-100">
+                    <div class="big-number mb-2 inline-counter" data-target="850" data-prefix="$" data-suffix="K+">0</div>
+                    <h6 class="fw-bold">Rewards Distributed</h6>
+                    <p class="text-muted small mb-0">Total value of Samsung products and rewards given to participants</p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-center p-3 p-md-4 bg-white rounded-4 shadow-sm h-100">
+                    <div class="big-number mb-2 inline-counter" data-target="150" data-suffix="+">0</div>
+                    <h6 class="fw-bold">Campaigns Run</h6>
+                    <p class="text-muted small mb-0">Successful promotional campaigns with verified reward deliveries</p>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="text-center p-3 p-md-4 bg-white rounded-4 shadow-sm h-100">
+                    <div class="big-number mb-2">4.9</div>
+                    <h6 class="fw-bold">User Satisfaction</h6>
+                    <div class="d-flex justify-content-center gap-1 mb-2">
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                        <i class="bi bi-star-fill text-warning"></i>
+                    </div>
+                    <p class="text-muted small mb-0">Based on 3,200+ verified reviews from participants</p>
+                </div>
+            </div>
+        </div>
+        <!-- Country flags row -->
+        <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="500">
+            <p class="text-muted mb-3 fw-semibold">Top participating countries:</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">�🇸 United States</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇬🇧 United Kingdom</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇨🇦 Canada</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇧🇧 Barbados</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇯🇲 Jamaica</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇹🇹 Trinidad & Tobago</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇧🇷 Brazil</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇦🇷 Argentina</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇨🇴 Colombia</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇲🇽 Mexico</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇳🇬 Nigeria</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇬🇭 Ghana</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇰🇪 Kenya</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇿🇦 South Africa</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇨🇲 Cameroon</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇪🇹 Ethiopia</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇺🇬 Uganda</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇹🇿 Tanzania</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇷🇼 Rwanda</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇮🇳 India</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇦🇺 Australia</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇩🇪 Germany</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇫🇷 France</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇦🇪 UAE</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇰🇷 South Korea</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">🇵🇭 Philippines</span>
+                <span class="badge bg-light text-dark px-3 py-2 rounded-pill shadow-sm">+ 19 more</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust & Security Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-badge">Trust & Safety</span>
+            <h2 class="section-title">Your Security Is Our Priority</h2>
+            <p class="section-subtitle">We invest in the highest levels of security and transparency</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="100">
+                <div class="trust-badge-card h-100">
+                    <div class="trust-icon" style="background: rgba(34, 197, 94, 0.1); color: #22c55e;">
+                        <i class="bi bi-shield-fill-check"></i>
+                    </div>
+                    <h6 class="fw-bold small">SSL Encrypted</h6>
+                    <p class="text-muted mb-0" style="font-size: 0.7rem;">256-bit encryption</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="150">
+                <div class="trust-badge-card h-100">
+                    <div class="trust-icon" style="background: rgba(20, 40, 160, 0.1); color: var(--samsung-blue);">
+                        <i class="bi bi-credit-card-2-front-fill"></i>
+                    </div>
+                    <h6 class="fw-bold small">PCI-DSS</h6>
+                    <p class="text-muted mb-0" style="font-size: 0.7rem;">Payment compliance</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="trust-badge-card h-100">
+                    <div class="trust-icon" style="background: rgba(0, 169, 224, 0.1); color: var(--samsung-accent);">
+                        <i class="bi bi-patch-check-fill"></i>
+                    </div>
+                    <h6 class="fw-bold small">Verified Rewards</h6>
+                    <p class="text-muted mb-0" style="font-size: 0.7rem;">All claims verified</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="250">
+                <div class="trust-badge-card h-100">
+                    <div class="trust-icon" style="background: rgba(255, 193, 7, 0.1); color: #f59e0b;">
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <h6 class="fw-bold small">4.9★ Rating</h6>
+                    <p class="text-muted mb-0" style="font-size: 0.7rem;">3,200+ reviews</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="300">
+                <div class="trust-badge-card h-100">
+                    <div class="trust-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <h6 class="fw-bold small">24/7 Support</h6>
+                    <p class="text-muted mb-0" style="font-size: 0.7rem;">Always available</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="350">
+                <div class="trust-badge-card h-100">
+                    <div class="trust-icon" style="background: rgba(236, 72, 153, 0.1); color: #ec4899;">
+                        <i class="bi bi-truck"></i>
+                    </div>
+                    <h6 class="fw-bold small">Fast Delivery</h6>
+                    <p class="text-muted mb-0" style="font-size: 0.7rem;">7-14 business days</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final Urgency CTA -->
+<section class="py-4 py-md-5 text-center" style="background: linear-gradient(135deg, #0a0f2e 0%, #1a1a3e 50%, #0d1b4a 100%);">
+    <div class="container py-3 py-md-5 px-3" data-aos="zoom-in">
+        <span class="badge bg-danger px-3 py-2 rounded-pill mb-3 fs-7 pulse-badge">
+            <i class="bi bi-clock-fill me-1"></i> LIMITED SPOTS REMAINING
+        </span>
+        <h2 class="fw-bold display-5 mb-3 text-white">Don't Miss This Opportunity</h2>
+        <p class="fs-5 text-white-50 mb-2">The current promotion window is closing soon. Secure your spot before it's too late.</p>
+        <p class="text-white-50 mb-4">Over <strong class="text-samsung-accent">340 people</strong> registered in the last 24 hours</p>
+        <a href="{% url 'accounts:register' %}" class="btn btn-light btn-lg rounded-pill px-4 px-md-5 fw-bold text-samsung-blue">
+            <i class="bi bi-rocket-takeoff-fill me-2"></i> Claim Your Spot Now
+        </a>
+        <div class="mt-4">
+            <div class="d-flex justify-content-center align-items-center gap-2">
+                <div class="d-flex" style="margin-right: -8px;">
+                    <div class="ticker-avatar" style="width: 32px; height: 32px; font-size: 0.65rem; border: 2px solid #0a0f2e;">A</div>
+                    <div class="ticker-avatar" style="width: 32px; height: 32px; font-size: 0.65rem; margin-left: -8px; border: 2px solid #0a0f2e;">M</div>
+                    <div class="ticker-avatar" style="width: 32px; height: 32px; font-size: 0.65rem; margin-left: -8px; border: 2px solid #0a0f2e;">J</div>
+                    <div class="ticker-avatar" style="width: 32px; height: 32px; font-size: 0.65rem; margin-left: -8px; border: 2px solid #0a0f2e;">S</div>
+                    <div class="ticker-avatar" style="width: 32px; height: 32px; font-size: 0.65rem; margin-left: -8px; border: 2px solid #0a0f2e;">+</div>
+                </div>
+                <span class="text-white-50 small">12,500+ people have already joined</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Hero Video Controls -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('heroVideo');
+    const toggleBtn = document.getElementById('videoToggleBtn');
+    const toggleIcon = document.getElementById('videoToggleIcon');
+    const muteBtn = document.getElementById('videoMuteBtn');
+    const muteIcon = document.getElementById('videoMuteIcon');
+
+    if (!video) return;
+
+    // Play / Pause
+    toggleBtn.addEventListener('click', function() {
+        if (video.paused) {
+            video.play();
+            toggleIcon.className = 'bi bi-pause-fill';
+        } else {
+            video.pause();
+            toggleIcon.className = 'bi bi-play-fill';
+        }
+    });
+
+    // Mute / Unmute
+    muteBtn.addEventListener('click', function() {
+        video.muted = !video.muted;
+        muteIcon.className = video.muted ? 'bi bi-volume-mute-fill' : 'bi bi-volume-up-fill';
+    });
+});
+</script>
+{% endblock %}

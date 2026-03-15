@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block title %}Campaigns - Samsung Promo Portal{% endblock %}
+{% block content %}
+<div class="page-header campaign-hero">
+    <div class="container position-relative" style="z-index: 2;">
+        <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill mb-3 fs-7">
+            <i class="bi bi-megaphone-fill me-1"></i> CAMPAIGNS
+        </span>
+        <h1 class="text-white mb-3">Promotional Campaigns</h1>
+        <p class="text-white-50 fs-5">Browse active and upcoming Samsung promotional campaigns</p>
+    </div>
+</div>
+
+<!-- Campaign Stats Bar -->
+<section class="py-3 bg-light border-bottom">
+    <div class="container">
+        <div class="row text-center g-2 g-md-3">
+            <div class="col-4">
+                <div class="fw-bold fs-6 fs-md-5 gradient-text inline-counter" data-target="150" data-suffix="+">0</div>
+                <div class="text-muted" style="font-size: 0.7rem;">Total Campaigns</div>
+            </div>
+            <div class="col-4">
+                <div class="fw-bold fs-6 fs-md-5 gradient-text inline-counter" data-target="2847" data-suffix="+">0</div>
+                <div class="text-muted" style="font-size: 0.7rem;">Rewards Delivered</div>
+            </div>
+            <div class="col-4">
+                <div class="fw-bold fs-6 fs-md-5 gradient-text">92%</div>
+                <div class="text-muted" style="font-size: 0.7rem;">Completion Rate</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        {% if campaigns %}
+        <!-- Featured Campaign Highlight -->
+        {% with campaigns.0 as featured %}
+        <div class="info-banner mb-5" data-aos="fade-up">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <span class="badge bg-danger rounded-pill px-3 py-1 mb-2"><i class="bi bi-fire me-1"></i> Featured Campaign</span>
+                    <h3 class="fw-bold mb-2">{{ featured.title }}</h3>
+                    <p class="text-muted mb-3">{{ featured.description|truncatewords:30 }}</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <span class="badge bg-white shadow-sm text-dark px-3 py-2 rounded-pill">
+                            <i class="bi bi-list-check text-primary me-1"></i> {{ featured.tasks.count }} Tasks
+                        </span>
+                        <span class="badge bg-white shadow-sm text-dark px-3 py-2 rounded-pill">
+                            <i class="bi bi-calendar-fill text-danger me-1"></i> Ends {{ featured.end_date|date:"M d, Y" }}
+                        </span>
+                        {% if featured.max_participants %}
+                        <span class="badge bg-white shadow-sm text-dark px-3 py-2 rounded-pill">
+                            <i class="bi bi-people-fill text-success me-1"></i> {{ featured.max_participants }} Spots
+                        </span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <a href="{% url 'promotions:campaign_detail' featured.pk %}" class="btn btn-samsung btn-lg rounded-pill px-5">
+                        <i class="bi bi-arrow-right me-2"></i> View Campaign
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endwith %}
+
+        <!-- All Campaigns Grid -->
+        <h4 class="fw-bold mb-4">All Campaigns</h4>
+        <div class="row g-4">
+            {% for campaign in campaigns %}
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+                <div class="device-card h-100">
+                    {% if campaign.image %}
+                        <img src="{{ campaign.image.url }}" class="card-img-top" alt="{{ campaign.title }}" style="height: 200px; object-fit: cover;">
+                    {% else %}
+                        <div class="card-img-top d-flex align-items-center justify-content-center" style="height: 200px; background: linear-gradient(135deg, #f8f9ff, #e8ecff);">
+                            <i class="bi bi-megaphone-fill text-samsung-blue" style="font-size: 4rem; opacity: 0.2;"></i>
+                        </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge {% if campaign.status == 'active' %}bg-success{% elif campaign.status == 'upcoming' %}bg-info{% else %}bg-secondary{% endif %} rounded-pill">
+                                {{ campaign.get_status_display }}
+                            </span>
+                            <small class="text-muted">{{ campaign.tasks.count }} tasks</small>
+                        </div>
+                        <h5 class="fw-bold">{{ campaign.title }}</h5>
+                        <p class="text-muted small">{{ campaign.description|truncatewords:20 }}</p>
+                        {% if campaign.reward_description %}
+                        <p class="small mb-2"><i class="bi bi-gift-fill text-warning me-1"></i> <strong>Reward:</strong> {{ campaign.reward_description|truncatewords:10 }}</p>
+                        {% endif %}
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted"><i class="bi bi-calendar-fill me-1"></i> {{ campaign.end_date|date:"M d, Y" }}</small>
+                            <a href="{% url 'promotions:campaign_detail' campaign.pk %}" class="btn btn-samsung btn-sm rounded-pill px-3">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <i class="bi bi-megaphone text-muted" style="font-size: 5rem; opacity: 0.2;"></i>
+            <h4 class="fw-bold mt-3">No Active Campaigns</h4>
+            <p class="text-muted mb-4">New campaigns are coming soon. Stay tuned!</p>
+            <a href="{% url 'core:home' %}" class="btn btn-samsung rounded-pill px-4 mb-5">Back to Home</a>
+        </div>
+
+        <!-- Upcoming campaigns info -->
+        <div class="info-banner mt-3" data-aos="fade-up">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h4 class="fw-bold"><i class="bi bi-bell-fill text-warning me-2"></i> Don't Miss Upcoming Campaigns</h4>
+                    <p class="text-muted mb-0">New promotional campaigns launch regularly. Make sure you're registered and verified so you can participate immediately when a new campaign goes live.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                    <a href="{% url 'accounts:register' %}" class="btn btn-samsung rounded-pill px-4">Register Now</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

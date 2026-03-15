@@ -1,0 +1,254 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Terms of Service - Samsung Promo Portal{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="page-header">
+    <div class="container position-relative" style="z-index: 2;">
+        <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill mb-3 fs-7">
+            <i class="bi bi-file-earmark-text-fill me-1"></i> LEGAL
+        </span>
+        <h1 class="text-white mb-3">Terms of Service</h1>
+        <p class="text-white-50 fs-5">Last updated: March 1, 2026</p>
+    </div>
+</div>
+
+<section class="py-5 light-section" style="background: #f8f9fc;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="bg-white rounded-4 shadow-sm p-4 p-md-5" data-aos="fade-up">
+
+                    <div class="alert border-0 rounded-4 mb-5" style="background: #f0f4ff; color: #1e40af;">
+                        <div class="d-flex align-items-start gap-3">
+                            <i class="bi bi-info-circle-fill fs-4"></i>
+                            <div>
+                                <strong>Please read these terms carefully.</strong> By accessing or using Samsung Promo Portal, you agree to be bound by these Terms of Service. If you do not agree, please do not use our platform.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 1 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">1</span>
+                            Acceptance of Terms
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">By creating an account, subscribing to a membership plan, or participating in any promotional campaign on Samsung Promo Portal ("the Platform"), you acknowledge that you have read, understood, and agree to be bound by these Terms of Service ("Terms"), our <a href="{% url 'core:privacy_policy' %}" style="color: var(--samsung-blue);">Privacy Policy</a>, and our <a href="{% url 'core:cookie_policy' %}" style="color: var(--samsung-blue);">Cookie Policy</a>.</p>
+                        <p style="color: #555; line-height: 1.8;">We reserve the right to update these Terms at any time. Continued use of the Platform following any changes constitutes acceptance of the revised Terms.</p>
+                    </div>
+
+                    <!-- 2 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">2</span>
+                            Eligibility
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">To use Samsung Promo Portal, you must:</p>
+                        <ul style="color: #555; line-height: 2;">
+                            <li>Be at least <strong>18 years of age</strong> or the legal age of majority in your jurisdiction</li>
+                            <li>Provide accurate, complete, and current registration information</li>
+                            <li>Have the legal capacity to enter into a binding agreement</li>
+                            <li>Not be barred from using the Platform under applicable laws</li>
+                        </ul>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">3</span>
+                            Account Registration & Security
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">When you create an account, you agree to:</p>
+                        <ul style="color: #555; line-height: 2;">
+                            <li>Provide truthful, accurate information during registration</li>
+                            <li>Maintain the confidentiality of your login credentials</li>
+                            <li>Promptly notify us of any unauthorized access to your account</li>
+                            <li>Accept responsibility for all activities conducted under your account</li>
+                            <li>Complete email and phone verification as part of the security process</li>
+                        </ul>
+                        <p style="color: #555; line-height: 1.8;">We reserve the right to suspend or terminate accounts that violate these Terms or engage in fraudulent activity.</p>
+                    </div>
+
+                    <!-- 4 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">4</span>
+                            Membership Plans & Payments
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Samsung Promo Portal offers tiered membership plans (Basic, Premium, Ambassador) that provide access to promotional campaigns and rewards.</p>
+                        <div class="row g-3 my-3">
+                            <div class="col-md-4">
+                                <div class="p-3 rounded-3 text-center" style="background: #f0f4ff;">
+                                    <i class="bi bi-credit-card text-primary fs-3"></i>
+                                    <p class="fw-bold mb-0 mt-2" style="color: #1a1a2e;">One-Time Payment</p>
+                                    <small style="color: #555;">No recurring charges</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 rounded-3 text-center" style="background: #f0fdf4;">
+                                    <i class="bi bi-shield-check text-success fs-3"></i>
+                                    <p class="fw-bold mb-0 mt-2" style="color: #1a1a2e;">Secure Processing</p>
+                                    <small style="color: #555;">Via Paystack (PCI-DSS)</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="p-3 rounded-3 text-center" style="background: #fef3c7;">
+                                    <i class="bi bi-arrow-up-circle text-warning fs-3"></i>
+                                    <p class="fw-bold mb-0 mt-2" style="color: #1a1a2e;">Upgradable</p>
+                                    <small style="color: #555;">Pay only the difference</small>
+                                </div>
+                            </div>
+                        </div>
+                        <ul style="color: #555; line-height: 2;">
+                            <li>All fees are clearly displayed before purchase and are <strong>non-refundable</strong> except as required by applicable law</li>
+                            <li>Membership is activated immediately upon successful payment confirmation</li>
+                            <li>We reserve the right to modify pricing with 30 days' prior notice to existing members</li>
+                            <li>Failed or fraudulent payments may result in account suspension</li>
+                        </ul>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">5</span>
+                            Promotional Campaigns & Rewards
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Participation in campaigns is subject to the following conditions:</p>
+                        <ul style="color: #555; line-height: 2;">
+                            <li>Campaigns have defined start dates, end dates, and eligibility requirements</li>
+                            <li>Tasks must be completed genuinely — fraudulent submissions will result in disqualification</li>
+                            <li>Reward eligibility depends on task completion, referral count, membership tier, and verification status</li>
+                            <li>Rewards range from discounted to fully subsidized Samsung products depending on tier and performance</li>
+                            <li>We reserve the right to modify, suspend, or cancel any campaign at our discretion with appropriate notice</li>
+                            <li>Reward delivery timelines are estimates and may vary based on location and availability</li>
+                        </ul>
+                    </div>
+
+                    <!-- 6 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">6</span>
+                            Referral Program
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Our referral program allows you to earn bonus points and benefits by inviting others to join:</p>
+                        <ul style="color: #555; line-height: 2;">
+                            <li>Each user receives a unique referral code and link upon registration</li>
+                            <li>Referral bonuses are credited when the referred user completes registration and meets minimum requirements</li>
+                            <li>Self-referrals, fake accounts, or referral fraud will result in forfeiture of all bonuses and potential account termination</li>
+                            <li>Referral multipliers are determined by membership tier (1x Basic, 2x Premium, 3x Ambassador)</li>
+                        </ul>
+                    </div>
+
+                    <!-- 7 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">7</span>
+                            Prohibited Conduct
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">You agree <strong>not</strong> to:</p>
+                        <ul style="color: #555; line-height: 2;">
+                            <li>Create multiple accounts for the purpose of manipulating the referral or reward system</li>
+                            <li>Submit false, misleading, or fraudulent task completion proofs</li>
+                            <li>Use bots, scripts, or automated tools to interact with the Platform</li>
+                            <li>Attempt to bypass security measures, verification processes, or access controls</li>
+                            <li>Harass, threaten, or impersonate other users or staff</li>
+                            <li>Upload malicious content, malware, or any material that violates applicable laws</li>
+                            <li>Use the Platform for money laundering or any illegal financial activity</li>
+                            <li>Reverse-engineer, decompile, or disassemble any part of the Platform</li>
+                        </ul>
+                        <div class="alert border-0 rounded-3 mt-3" style="background: #fef2f2; color: #991b1b;">
+                            <i class="bi bi-exclamation-octagon-fill me-2"></i>
+                            <strong>Violation of these rules may result in immediate account termination, forfeiture of all rewards and points, and potential legal action.</strong>
+                        </div>
+                    </div>
+
+                    <!-- 8 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">8</span>
+                            Intellectual Property
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">All content on the Platform — including but not limited to text, graphics, logos, icons, images, software, and design — is the property of Samsung Promo Portal or its licensors and is protected by international copyright, trademark, and intellectual property laws.</p>
+                        <p style="color: #555; line-height: 1.8;">You may not reproduce, distribute, modify, or create derivative works from any Platform content without prior written consent.</p>
+                    </div>
+
+                    <!-- 9 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">9</span>
+                            User-Generated Content
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">When you submit testimonials, reviews, or task proofs, you grant Samsung Promo Portal a non-exclusive, royalty-free, worldwide license to use, display, and distribute such content in connection with the Platform and its marketing. You represent that you own or have the rights to any content you submit.</p>
+                    </div>
+
+                    <!-- 10 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">10</span>
+                            Limitation of Liability
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">To the maximum extent permitted by law:</p>
+                        <ul style="color: #555; line-height: 2;">
+                            <li>The Platform is provided <strong>"as is"</strong> and <strong>"as available"</strong> without warranties of any kind</li>
+                            <li>We do not guarantee uninterrupted, error-free, or secure access to the Platform</li>
+                            <li>Our total liability for any claims arising from your use of the Platform shall not exceed the amount you paid to us in the 12 months preceding the claim</li>
+                            <li>We are not liable for indirect, incidental, special, consequential, or punitive damages</li>
+                        </ul>
+                    </div>
+
+                    <!-- 11 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">11</span>
+                            Dispute Resolution
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Any disputes arising from these Terms or your use of the Platform shall be resolved through:</p>
+                        <ol style="color: #555; line-height: 2;">
+                            <li><strong>Informal Resolution:</strong> Contact our support team first at <a href="{% url 'core:contact' %}" style="color: var(--samsung-blue);">our contact page</a></li>
+                            <li><strong>Mediation:</strong> If informal resolution fails, both parties agree to non-binding mediation</li>
+                            <li><strong>Arbitration:</strong> Binding arbitration under applicable arbitration rules as a last resort</li>
+                        </ol>
+                    </div>
+
+                    <!-- 12 -->
+                    <div class="mb-5">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">12</span>
+                            Termination
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">We may suspend or terminate your account at any time for violation of these Terms, fraudulent activity, or at our sole discretion. Upon termination:</p>
+                        <ul style="color: #555; line-height: 2;">
+                            <li>Your access to the Platform and all services will cease immediately</li>
+                            <li>Any pending rewards or claims may be forfeited</li>
+                            <li>Provisions that by nature should survive termination will remain in effect (e.g., intellectual property, limitation of liability)</li>
+                        </ul>
+                    </div>
+
+                    <!-- 13 -->
+                    <div class="mb-4">
+                        <h4 class="fw-bold mb-3" style="color: #1a1a2e;">
+                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-circle me-2" style="width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;">13</span>
+                            Governing Law
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">These Terms shall be governed by and construed in accordance with applicable international trade and e-commerce laws. Any legal action must be filed within one (1) year after the cause of action arises.</p>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="p-4 rounded-4" style="background: #f0f4ff;">
+                        <h5 class="fw-bold mb-2" style="color: #1a1a2e;"><i class="bi bi-question-circle-fill text-primary me-2"></i> Questions about these Terms?</h5>
+                        <p class="mb-2" style="color: #555;">Contact our support team for clarification:</p>
+                        <ul class="mb-0" style="color: #555; list-style: none; padding-left: 0;">
+                            <li><i class="bi bi-envelope me-2 text-primary"></i> <a href="mailto:legal@samsungpromo.com" style="color: var(--samsung-blue);">legal@samsungpromo.com</a></li>
+                            <li class="mt-2"><a href="{% url 'core:contact' %}" class="btn btn-sm btn-samsung rounded-pill px-3"><i class="bi bi-chat-dots-fill me-1"></i> Contact Support</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

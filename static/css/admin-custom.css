@@ -1,0 +1,486 @@
+/* =============================================================================
+   SAMSUNG PROMO — Admin Panel Custom Styles
+   Clean, professional, non-programmer friendly
+   ============================================================================= */
+
+/* ---------- Google Font ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ---------- Global ---------- */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* ---------- Login Page ---------- */
+.login-page {
+    background: linear-gradient(135deg, #1428a0 0%, #0b1a6b 100%) !important;
+}
+
+.login-box .card {
+    border-radius: 16px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+    border: none !important;
+}
+
+.login-box .card-header {
+    background: transparent !important;
+    border-bottom: 1px solid #eee !important;
+    padding: 1.5rem !important;
+}
+
+.login-box .btn-primary {
+    background: #1428a0 !important;
+    border-color: #1428a0 !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+}
+
+.login-box .btn-primary:hover {
+    background: #0f2080 !important;
+}
+
+/* ---------- Main Navbar ---------- */
+.main-header.navbar {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+    border-bottom: 2px solid #1428a0 !important;
+}
+
+.main-header .brand-text {
+    font-weight: 700 !important;
+    color: #1428a0 !important;
+    font-size: 1.1rem !important;
+}
+
+/* ---------- Sidebar ---------- */
+.main-sidebar {
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.sidebar .nav-sidebar .nav-item > .nav-link {
+    border-radius: 8px !important;
+    margin: 2px 8px !important;
+    padding: 10px 14px !important;
+    font-weight: 500 !important;
+    color: #444 !important;
+    transition: all 0.2s ease !important;
+}
+
+.sidebar .nav-sidebar .nav-item > .nav-link:hover {
+    background: #e8ecff !important;
+    color: #1428a0 !important;
+}
+
+.sidebar .nav-sidebar .nav-item > .nav-link.active {
+    background: #1428a0 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(20, 40, 160, 0.3) !important;
+}
+
+.sidebar .nav-sidebar .nav-item > .nav-link.active .nav-icon {
+    color: #fff !important;
+}
+
+/* Sidebar Section Headers */
+.sidebar .nav-header {
+    font-size: 0.7rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    font-weight: 700 !important;
+    color: #999 !important;
+    padding: 16px 20px 6px !important;
+}
+
+/* Sidebar Icons */
+.sidebar .nav-icon {
+    font-size: 1rem !important;
+    width: 24px !important;
+    color: #888 !important;
+}
+
+/* ---------- Content Area ---------- */
+.content-wrapper {
+    background: #f4f6fa !important;
+}
+
+.content-header h1 {
+    font-weight: 700 !important;
+    font-size: 1.5rem !important;
+    color: #222 !important;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+    background: transparent !important;
+    font-size: 0.85rem !important;
+}
+
+.breadcrumb-item a {
+    color: #1428a0 !important;
+}
+
+/* ---------- Cards ---------- */
+.card {
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+    transition: box-shadow 0.2s ease !important;
+}
+
+.card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-header {
+    background: #fff !important;
+    border-bottom: 1px solid #eee !important;
+    font-weight: 600 !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* ---------- Tables ---------- */
+#changelist table {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+}
+
+#changelist table thead th {
+    background: #f8f9fc !important;
+    font-weight: 600 !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    color: #555 !important;
+    padding: 12px 16px !important;
+    border-bottom: 2px solid #e9ecef !important;
+}
+
+#changelist table tbody td {
+    padding: 12px 16px !important;
+    vertical-align: middle !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    font-size: 0.9rem !important;
+}
+
+#changelist table tbody tr:hover td {
+    background: #f0f4ff !important;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    padding: 8px 16px !important;
+    font-size: 0.875rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-primary {
+    background: #1428a0 !important;
+    border-color: #1428a0 !important;
+}
+
+.btn-primary:hover {
+    background: #0f2080 !important;
+    box-shadow: 0 4px 12px rgba(20, 40, 160, 0.3) !important;
+}
+
+.btn-success {
+    background: #198754 !important;
+    border-color: #198754 !important;
+}
+
+.btn-danger {
+    background: #dc3545 !important;
+    border-color: #dc3545 !important;
+}
+
+.btn-info {
+    background: #0dcaf0 !important;
+    border-color: #0dcaf0 !important;
+    color: #000 !important;
+}
+
+/* Add New / Save buttons */
+.object-tools a,
+input[type="submit"],
+button[type="submit"] {
+    border-radius: 8px !important;
+}
+
+.addlink {
+    border-radius: 8px !important;
+}
+
+/* ---------- Forms ---------- */
+.form-control, select, textarea, input[type="text"], input[type="email"],
+input[type="number"], input[type="password"], input[type="url"] {
+    border-radius: 8px !important;
+    border: 1.5px solid #ddd !important;
+    padding: 10px 14px !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.form-control:focus, select:focus, textarea:focus, input:focus {
+    border-color: #1428a0 !important;
+    box-shadow: 0 0 0 3px rgba(20, 40, 160, 0.1) !important;
+}
+
+/* Fieldset Descriptions */
+fieldset .description {
+    color: #666 !important;
+    font-size: 0.85rem !important;
+    margin-bottom: 12px !important;
+    padding: 10px 14px !important;
+    background: #f8f9fc !important;
+    border-radius: 8px !important;
+    border-left: 3px solid #1428a0 !important;
+}
+
+/* Help text under fields */
+.helptext, .help, p.help {
+    color: #888 !important;
+    font-size: 0.8rem !important;
+    margin-top: 4px !important;
+    font-style: italic !important;
+}
+
+/* ---------- Filters Sidebar ---------- */
+#changelist-filter {
+    background: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+    padding: 16px !important;
+    border: none !important;
+}
+
+#changelist-filter h2 {
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    font-weight: 700 !important;
+    color: #1428a0 !important;
+    margin-bottom: 10px !important;
+}
+
+#changelist-filter h3 {
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    color: #444 !important;
+    margin: 12px 0 6px !important;
+}
+
+#changelist-filter li a {
+    border-radius: 6px !important;
+    padding: 6px 10px !important;
+    display: block !important;
+    transition: background 0.2s !important;
+}
+
+#changelist-filter li a:hover {
+    background: #f0f4ff !important;
+}
+
+#changelist-filter li.selected a {
+    background: #1428a0 !important;
+    color: #fff !important;
+}
+
+/* ---------- Dashboard / Home ---------- */
+#content-main .module {
+    border-radius: 12px !important;
+    border: none !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+    overflow: hidden !important;
+    margin-bottom: 20px !important;
+}
+
+#content-main .module caption,
+#content-main .module h2 {
+    background: linear-gradient(135deg, #1428a0, #2040d0) !important;
+    color: #fff !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    padding: 14px 18px !important;
+}
+
+#content-main .module table a {
+    font-weight: 500 !important;
+    color: #1428a0 !important;
+}
+
+#content-main .module table a:hover {
+    color: #0f2080 !important;
+    text-decoration: underline !important;
+}
+
+/* Recent Actions */
+#recent-actions-module {
+    border-radius: 12px !important;
+}
+
+/* ---------- Pagination ---------- */
+.paginator {
+    padding: 12px !important;
+    font-size: 0.9rem !important;
+}
+
+.paginator a {
+    border-radius: 6px !important;
+    padding: 6px 12px !important;
+    margin: 0 2px !important;
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    color: #1428a0 !important;
+}
+
+.paginator a:hover {
+    background: #1428a0 !important;
+    color: #fff !important;
+}
+
+/* ---------- Badges (from admin.py) ---------- */
+.badge {
+    font-weight: 600 !important;
+    padding: 5px 12px !important;
+    border-radius: 20px !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.3px !important;
+}
+
+/* ---------- Action Bar ---------- */
+.actions {
+    background: #f8f9fc !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    margin-bottom: 16px !important;
+}
+
+.actions select {
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+}
+
+.actions button {
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+}
+
+/* ---------- Delete Confirmation ---------- */
+.delete-confirmation {
+    border-radius: 12px !important;
+    padding: 20px !important;
+    background: #fff5f5 !important;
+    border: 2px solid #dc3545 !important;
+}
+
+/* ---------- Messages ---------- */
+.messagelist .success {
+    background: #d4edda !important;
+    color: #155724 !important;
+    border-radius: 8px !important;
+    border: 1px solid #c3e6cb !important;
+    padding: 12px 18px !important;
+    font-weight: 500 !important;
+}
+
+.messagelist .error {
+    background: #f8d7da !important;
+    color: #721c24 !important;
+    border-radius: 8px !important;
+    border: 1px solid #f5c6cb !important;
+    padding: 12px 18px !important;
+    font-weight: 500 !important;
+}
+
+.messagelist .warning {
+    background: #fff3cd !important;
+    color: #856404 !important;
+    border-radius: 8px !important;
+    border: 1px solid #ffeeba !important;
+    padding: 12px 18px !important;
+    font-weight: 500 !important;
+}
+
+.messagelist .info {
+    background: #d1ecf1 !important;
+    color: #0c5460 !important;
+    border-radius: 8px !important;
+    border: 1px solid #bee5eb !important;
+    padding: 12px 18px !important;
+    font-weight: 500 !important;
+}
+
+/* ---------- Tooltips & Popovers ---------- */
+[title] {
+    cursor: help;
+}
+
+/* ---------- Scrollbar Styling ---------- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* ---------- Footer ---------- */
+.main-footer {
+    font-size: 0.85rem !important;
+    color: #888 !important;
+    border-top: 1px solid #eee !important;
+}
+
+/* ---------- Tab Improvements ---------- */
+.nav-tabs .nav-link {
+    border-radius: 8px 8px 0 0 !important;
+    font-weight: 500 !important;
+    color: #555 !important;
+    padding: 10px 20px !important;
+}
+
+.nav-tabs .nav-link.active {
+    color: #1428a0 !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid #1428a0 !important;
+}
+
+/* ---------- Responsive Tweaks ---------- */
+@media (max-width: 768px) {
+    .content-header h1 {
+        font-size: 1.2rem !important;
+    }
+
+    #changelist table thead th,
+    #changelist table tbody td {
+        padding: 8px 10px !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+/* ---------- Print Styles ---------- */
+@media print {
+    .main-sidebar,
+    .main-header,
+    .main-footer,
+    .actions {
+        display: none !important;
+    }
+
+    .content-wrapper {
+        margin: 0 !important;
+        background: #fff !important;
+    }
+}

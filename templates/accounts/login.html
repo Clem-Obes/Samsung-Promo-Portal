@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login - Samsung Promo Portal{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100 py-5">
+            <div class="col-lg-5 d-none d-lg-block pe-5" data-aos="fade-right">
+                <h2 class="text-white fw-bold mb-3">Welcome Back to Samsung Promo</h2>
+                <p class="text-white-50 mb-4">Login to your account to check your progress, complete tasks, and claim your Samsung rewards.</p>
+                <!-- Live activity -->
+                <div class="mb-4">
+                    <div class="glass-card p-3 mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="pulse-dot"></div>
+                            <span class="text-white small"><strong>340+ people</strong> registered in the last 24 hours</span>
+                        </div>
+                    </div>
+                    <div class="glass-card p-3 mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="bi bi-gift-fill text-warning"></i>
+                            <span class="text-white small"><strong>28 rewards</strong> claimed this week</span>
+                        </div>
+                    </div>
+                    <div class="glass-card p-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="bi bi-trophy-fill text-samsung-accent"></i>
+                            <span class="text-white small"><strong>12,500+</strong> active participants across 45 countries</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="auth-card" data-aos="zoom-in" style="max-width: 450px;">
+            <div class="text-center mb-4">
+                <i class="bi bi-phone-fill text-samsung-blue fs-1"></i>
+                <h3 class="fw-bold mt-2">Welcome Back</h3>
+                <p class="text-muted">Login to your Samsung Promo account</p>
+            </div>
+
+            <form method="POST" action="{% url 'accounts:login' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Username</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="bi bi-person-fill text-muted"></i></span>
+                        <input type="text" name="username" class="form-control" placeholder="Enter your username" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Password</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="bi bi-lock-fill text-muted"></i></span>
+                        <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="remember">
+                        <label class="form-check-label text-muted small" for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="text-samsung-blue small">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-samsung btn-lg w-100 rounded-pill mb-3">
+                    <i class="bi bi-box-arrow-in-right me-2"></i> Login
+                </button>
+                <p class="text-center text-muted mb-0">
+                    Don't have an account? <a href="{% url 'accounts:register' %}" class="text-samsung-blue fw-semibold">Register here</a>
+                </p>
+            </form>
+        </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
