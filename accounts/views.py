@@ -11,6 +11,9 @@ from promotions.models import Referral
 import uuid
 import random
 import string
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def _send_email_otp(user):
@@ -20,19 +23,25 @@ def _send_email_otp(user):
 
     verification = EmailVerification.objects.create(user=user)
 
-    send_mail(
-        subject='Samsung Promo Portal — Email Verification Code',
-        message=(
-            f'Hello {user.username},\n\n'
-            f'Your email verification code is: {verification.otp_code}\n\n'
-            f'This code expires in 30 minutes.\n\n'
-            f'If you did not request this, please ignore this email.\n\n'
-            f'— Samsung Promo Portal Team'
-        ),
-        from_email=settings.DEFAULT_FROM_EMAIL,
-        recipient_list=[user.email],
-        fail_silently=True,
-    )
+    try:
+        result = send_mail(
+            subject='Samsung Promo Portal — Email Verification Code',
+            message=(
+                f'Hello {user.username},\n\n'
+                f'Your email verification code is: {verification.otp_code}\n\n'
+                f'This code expires in 30 minutes.\n\n'
+                f'If you did not request this, please ignore this email.\n\n'
+                f'— Samsung Promo Portal Team'
+            ),
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[user.email],
+            fail_silently=False,
+        )
+        logger.info(f"Email sent successfully to {user.email} (result: {result})")
+    except Exception as e:
+        logger.error(f"FAILED to send email to {user.email}: {type(e).__name__}: {str(e)}")
+        raise
+
     return verification
 
 
@@ -67,15 +76,20 @@ def register_view(request):
         location = request.POST.get('location', '')
         referral_code = request.POST.get('referral_code', '') or ref_code
 
+        logger.info(f"Registration attempt: username={username}, email={email}")
+
         if password != password2:
+            logger.warning(f"Registration failed for {username}: Passwords do not match")
             messages.error(request, 'Passwords do not match.')
             return render(request, 'accounts/register.html', {'ref_code': ref_code})
 
         if User.objects.filter(username=username).exists():
+            logger.warning(f"Registration failed: Username '{username}' already exists")
             messages.error(request, 'Username already exists.')
             return render(request, 'accounts/register.html', {'ref_code': ref_code})
 
         if User.objects.filter(email=email).exists():
+            logger.warning(f"Registration failed: Email '{email}' already registered")
             messages.error(request, 'Email already registered.')
             return render(request, 'accounts/register.html', {'ref_code': ref_code})
 
